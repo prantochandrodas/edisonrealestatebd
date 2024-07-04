@@ -24,7 +24,7 @@
                 @csrf
                 <div style="margin-bottom: 20px;">
                     <label for="title" style="display: block; margin-bottom: 5px;">Title:</label>
-                    <input name="title" type="text" id="heading" class="form-control" style="width: 100%; padding: 8px;">
+                    <input name="title" type="text" id="title" class="form-control" style="width: 100%; padding: 8px;">
                 </div>
                 <div style="margin-bottom: 20px;">
                     <label for="heading" style="display: block; margin-bottom: 5px;">Heading:</label>

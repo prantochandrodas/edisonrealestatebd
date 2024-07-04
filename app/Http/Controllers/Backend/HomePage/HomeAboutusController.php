@@ -10,8 +10,9 @@ use Yajra\DataTables\Facades\DataTables;
 class HomeAboutusController extends Controller
 {
     public function index()
-    {
-        return view('backend.home.aboutus.index');
+    {   
+        $about=HomeAboutus::all();
+        return view('backend.home.aboutus.index',compact('about'));
     }
 
 
@@ -23,7 +24,7 @@ class HomeAboutusController extends Controller
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
                     $editUrl = route('home_about.edit', $row->id);
-                    $deleteUrl = route('slider.distory', $row->id);
+                    $deleteUrl = route('home_about.distory', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");

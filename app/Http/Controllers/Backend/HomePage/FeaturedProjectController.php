@@ -11,7 +11,8 @@ class FeaturedProjectController extends Controller
 {
     public function index()
     {
-        return view('backend.home.featured_project.index');
+        $featuredProjects=FeaturedProject::all();
+        return view('backend.home.featured_project.index',compact('featuredProjects'));
     }
 
     public function getdata(Request $request)
@@ -21,8 +22,8 @@ class FeaturedProjectController extends Controller
             $data = FeaturedProject::all();
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
-                    $editUrl = route('slider.edit', $row->id);
-                    $deleteUrl = route('slider.distory', $row->id);
+                    $editUrl = route('featured_project.edit', $row->id);
+                    $deleteUrl = route('featured_project.distory', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");
@@ -68,41 +69,28 @@ class FeaturedProjectController extends Controller
 
     public function edit($id)
     {
-        $slider = FeaturedProject::findOrFail($id);
-        return view('backend.home.featured_project.edit', compact('slider'));
+        $featureProject = FeaturedProject::findOrFail($id);
+        return view('backend.home.featured_project.edit', compact('featureProject'));
     }
 
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'image' => 'nullable|file|image|max:2048',
+            'title' => 'required|string|max:255',
             'heading' => 'required|string|max:255',
         ]);
 
         $slider = FeaturedProject::findOrFail($id);
 
-        if ($request->hasFile('image')) {
-            // Delete the old image
-            $oldImagePath = public_path($slider->image);
-            if (file_exists($oldImagePath)) {
-                unlink($oldImagePath);
-            }
+       
 
-            // Store the new image
-            $file = $request->file('image');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '_' . '.' . $extension;
-            $path = 'home/slider/';
-            $file->move(public_path($path), $filename);
-            $slider->image = $path . $filename;
-        }
-
+        $slider->title = $request->title;
         $slider->heading = $request->heading;
         $slider->save();
 
         return redirect()->route('featured_project.index')
-            ->with('success', 'Slider updated successfully.');
+            ->with('success', 'Featured project updated successfully.');
     }
 
 
@@ -111,16 +99,9 @@ class FeaturedProjectController extends Controller
     {
         
         $slider = FeaturedProject::findOrFail($id);
-
-        // Delete the image file if it exists
-        $imagePath = public_path($slider->image);
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
-        }
-
         $slider->delete();
 
-        return redirect()->route('slider.index')
-            ->with('success', 'Slider deleted successfully.');
+        return redirect()->route('featured_project.index')
+            ->with('success', 'Featured Project title and heading deleted successfully.');
     }
 }
