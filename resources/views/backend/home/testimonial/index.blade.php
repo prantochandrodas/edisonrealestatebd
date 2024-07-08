@@ -70,7 +70,7 @@
 
             <h3 style=" margin-top:50px">Testimonial post</h3>
 
-            <a href={{ route('testimonial_posts.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
+            <a href={{ route('testimonial-posts.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
             
             <table id="testimonialsPosts" class="display" style="width:100%">
                 <thead>
@@ -129,7 +129,7 @@
             $('#testimonialsPosts').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('testimonial_posts.getdata') }}',
+                ajax: '{{ route('testimonial-posts.getdata') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',
@@ -151,6 +151,10 @@
                     {
                         data: 'owner_name',
                         name: 'owner_name'
+                    },
+                    {
+                        data: 'owner_title',
+                        name: 'owner_title'
                     },
                     {
                         data: 'video',

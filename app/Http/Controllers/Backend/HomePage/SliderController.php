@@ -117,17 +117,14 @@ class SliderController extends Controller
 
     public function distory($id)
     {
-        
-        $slider = slider::findOrFail($id);
 
+        $slider = slider::findOrFail($id);
         // Delete the image file if it exists
         $imagePath = public_path($slider->image);
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }
-
         $slider->delete();
-
         return redirect()->route('slider.index')
             ->with('success', 'Slider deleted successfully.');
     }

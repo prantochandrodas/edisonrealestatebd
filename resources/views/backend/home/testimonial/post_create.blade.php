@@ -51,7 +51,7 @@
         </div>
 
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-            <form method="POST" action="{{ route('testimonial_posts.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('testimonial-posts.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div style="margin-bottom: 20px;">
                     <label for="video" style="display: block; margin-bottom: 5px;">Video Link:</label>
@@ -73,7 +73,7 @@
                         style="width: 100%; padding: 8px;">
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <label for="owner_title" style="display: block; margin-bottom: 5px;">Owner Totle:</label>
+                    <label for="owner_title" style="display: block; margin-bottom: 5px;">Owner Title:</label>
                     <input name="owner_title" type="text" id="owner_title" class="form-control"
                         style="width: 100%; padding: 8px;">
                 </div>

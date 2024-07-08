@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class ScheduleMetting extends Model
 {
-    protected $fillable=['image'];
+    protected $fillable=['title','image'];
 }

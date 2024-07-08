@@ -51,7 +51,7 @@
         </div>
 
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-            <form method="POST" action="{{ route('testimonial_posts.update',$post->id) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('testimonial-posts.update',$post->id) }}" enctype="multipart/form-data">
                 @csrf
                @method('PUT')
                 <div style="margin-bottom: 20px;">

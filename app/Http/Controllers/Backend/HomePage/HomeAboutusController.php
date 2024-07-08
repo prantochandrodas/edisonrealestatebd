@@ -23,8 +23,8 @@ class HomeAboutusController extends Controller
             $data = HomeAboutus::all();
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
-                    $editUrl = route('home_about.edit', $row->id);
-                    $deleteUrl = route('home_about.distory', $row->id);
+                    $editUrl = route('home-about.edit', $row->id);
+                    $deleteUrl = route('home-about.distory', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");
@@ -61,7 +61,7 @@ class HomeAboutusController extends Controller
 
         HomeAboutus::create($request->all());
 
-        return redirect()->route('home_about.index')
+        return redirect()->route('home-about.index')
             ->with('success', 'About created successfully.');
     }
 
@@ -89,16 +89,16 @@ class HomeAboutusController extends Controller
 
         $homeabout->save();
 
-        return redirect()->route('home_about.index')
+        return redirect()->route('home-about.index')
             ->with('success', 'About updated successfully.');
     }
 
-    public function destroy($id)
+    public function distroy($id)
     {
         $homeabout = HomeAboutus::findOrFail($id);
         $homeabout->delete();
 
-        return redirect()->route('home_about.index')
+        return redirect()->route('home-about.index')
             ->with('success', 'About deleted successfully.');
     }
 

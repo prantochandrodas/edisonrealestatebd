@@ -22,8 +22,8 @@ class FeaturedProjectPostController extends Controller
             $data = FeaturedProjectPost::all();
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
-                    $editUrl = route('featured_project_post.edit', $row->id);
-                    $deleteUrl = route('featured_project_post.distory', $row->id);
+                    $editUrl = route('featured-project-posts.edit', $row->id);
+                    $deleteUrl = route('featured-project-posts.distory', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");
@@ -74,7 +74,7 @@ class FeaturedProjectPostController extends Controller
             'virtual_experience_link' => $request->virtual_experience_link,
         ]);
 
-        return redirect()->route('featured_project_post.index')
+        return redirect()->route('featured-project-posts.index')
             ->with('success', 'Data added successfully.');
     }
 
@@ -120,7 +120,7 @@ class FeaturedProjectPostController extends Controller
         $post->virtual_experience_link = $request->virtual_experience_link;
         $post->save();
 
-        return redirect()->route('featured_project_post.index')
+        return redirect()->route('featured-project-posts.index')
             ->with('success', 'data updated successfully.');
     }
 
@@ -132,6 +132,6 @@ class FeaturedProjectPostController extends Controller
             unlink($imagePath);
         }
         $post->delete();
-        return redirect()->route('featured_project_post.index');
+        return redirect()->route('featured-project-posts.index');
     }
 }

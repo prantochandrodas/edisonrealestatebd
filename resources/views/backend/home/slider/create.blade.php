@@ -26,7 +26,7 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
+                        <span class="text-muted text-hover-primary">HomePage</span>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -35,7 +35,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Dashboards</li>
+                    <li class="breadcrumb-item text-muted">Slider</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -54,16 +54,23 @@
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
             <form method="POST" action="{{ route('slider.store') }}" enctype="multipart/form-data">
                 @csrf
-
-                <div style="margin-bottom: 20px;">
-                    <label for="image" style="display: block; margin-bottom: 5px;">Image:</label>
-                    <input type="file" id="image" name="image" class="form-control" style="width: 100%; padding: 8px;">
+                {{-- Image field  --}}
+                <div class="form-group">
+                    <label for="image" class="mb-2 h5">Image:</label>
+                    <input type="file" class="form-control mb-2" id="image" name="image">
+                    @error('image')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
                 </div>
-                <div style="margin-bottom: 20px;">
-                    <label for="heading" style="display: block; margin-bottom: 5px;">Heading:</label>
-                    <textarea name="heading" type="text" id="heading" class="form-control" cols="30" rows="2" style="width: 100%; padding: 8px;"></textarea>
+                {{-- heading field  --}}
+                <div class="form-group">
+                    <label for="heading" class="mb-2 h5">Heading:</label>
+                    <input type="text" class="form-control mb-2" id="heading" name="heading">
+                    @error('heading')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
                 </div>
-                <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">Create</button>
+                <button type="submit" class="btn btn-primary btn-sm">Create</button>
             </form>
         </div>
     </div>

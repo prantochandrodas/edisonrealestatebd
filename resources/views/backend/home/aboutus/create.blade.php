@@ -53,7 +53,7 @@
         <div id="kt_app_content_container" class="app-container container-fluid">
             <div style="max-width: 600px; margin: 0 auto;">
                 <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-                    <form action="{{ route('home_about.store') }}" method="POST">
+                    <form action="{{ route('home-about.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="title">Title:</label>

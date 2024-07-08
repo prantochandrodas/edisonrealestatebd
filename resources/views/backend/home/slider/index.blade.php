@@ -26,7 +26,7 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
+                        <span class="text-muted text-hover-primary">Home-page</span>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -35,7 +35,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Dashboards</li>
+                    <li class="breadcrumb-item text-muted">Slider</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -50,7 +50,7 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
-            <a href={{ route('slider.create') }} class="btn btn-sm btn-primary">Add Slider</a>
+            <a href={{ route('slider.create') }} class="btn btn-sm btn-primary">Add</a>
             <table id="mydata" class="display" style="width:100%">
                 <thead>
                     <tr>
@@ -70,7 +70,7 @@
             $('#mydata').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('slider.get_sliders') }}',
+                ajax: '{{ route('slider.get-sliders') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',

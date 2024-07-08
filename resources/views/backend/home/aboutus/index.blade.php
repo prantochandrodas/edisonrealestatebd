@@ -59,7 +59,7 @@
         <div id="kt_app_content_container" class="app-container container-fluid">
 
             @if (count($about) === 0)
-             <a href={{ route('home_about.create') }} class="btn btn-sm btn-primary">Add</a>
+             <a href={{ route('home-about.create') }} class="btn btn-sm btn-primary">Add</a>
             @endif
             
             <table id="homeabout" class="display" style="width:100%">
@@ -123,7 +123,7 @@
             $('#homeabout').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('home_about.get_about') }}',
+                ajax: '{{ route('home-about.get_about') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',
@@ -189,7 +189,7 @@
             $(document).on('click', '.view', function() {
                 var id = $(this).data('id');
                 $.ajax({
-                    url: '/home_about/view/' + id,
+                    url: '/home-about/view/' + id,
                     type: 'GET',
                     success: function(data) {
                         if (data.error) {

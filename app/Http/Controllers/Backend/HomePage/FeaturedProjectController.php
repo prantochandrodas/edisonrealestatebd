@@ -22,8 +22,8 @@ class FeaturedProjectController extends Controller
             $data = FeaturedProject::all();
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
-                    $editUrl = route('featured_project.edit', $row->id);
-                    $deleteUrl = route('featured_project.distory', $row->id);
+                    $editUrl = route('featured-project.edit', $row->id);
+                    $deleteUrl = route('featured-project.distory', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");
@@ -62,7 +62,7 @@ class FeaturedProjectController extends Controller
             'heading' => $request->heading,
         ]);
 
-        return redirect()->route('featured_project.index')
+        return redirect()->route('featured-project.index')
             ->with('success', 'Slider created successfully.');
     }
 
@@ -89,7 +89,7 @@ class FeaturedProjectController extends Controller
         $slider->heading = $request->heading;
         $slider->save();
 
-        return redirect()->route('featured_project.index')
+        return redirect()->route('featured-project.index')
             ->with('success', 'Featured project updated successfully.');
     }
 
@@ -101,7 +101,7 @@ class FeaturedProjectController extends Controller
         $slider = FeaturedProject::findOrFail($id);
         $slider->delete();
 
-        return redirect()->route('featured_project.index')
+        return redirect()->route('featured-project.index')
             ->with('success', 'Featured Project title and heading deleted successfully.');
     }
 }

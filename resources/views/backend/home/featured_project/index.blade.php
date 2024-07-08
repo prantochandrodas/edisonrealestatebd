@@ -55,7 +55,7 @@
         <div id="kt_app_content_container" class="app-container container-fluid">
             <h3>Featured Project Title and Heading</h3>
             @if (count($featuredProjects) == 0)
-                <a href={{ route('featured_project.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
+                <a href={{ route('featured-project.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
             @endif
 
             <table id="featuredProjectTitleHeading" class="display" style="width:100%">
@@ -68,9 +68,9 @@
                     </tr>
                 </thead>
             </table>
-
+{{-- 
             <h3 style=" margin-top:50px">Featured Project post</h3>
-            <a href={{ route('featured_project_post.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
+            <a href={{ route('featured-project-posts.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
             <table id="featuredProjectPosts" class="display" style="width:100%">
                 <thead>
                     <tr>
@@ -82,7 +82,7 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-            </table>
+            </table> --}}
         </div>
         <!--end::Content container-->
     </div>
@@ -93,7 +93,7 @@
             $('#featuredProjectTitleHeading').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('featured_project.getdata') }}',
+                ajax: '{{ route('featured-project.getdata') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',
@@ -124,52 +124,52 @@
                 ]
             });
 
-            $('#featuredProjectPosts').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{{ route('featured_project_post.getdata') }}',
-                columns: [{
-                        data: null, // Use null to signify that this column does not map directly to any data source
-                        name: 'serial_number',
-                        render: function(data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart +
-                                1; // Calculate the serial number
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'name',
-                        name: 'name'
-                    },
-                    {
-                        data: 'description',
-                        name: 'description'
-                    },
-                    {
-                        data: 'location',
-                        name: 'location'
-                    },
-                    {
-                        data: 'image',
-                        name: 'image',
-                        render: function(data, type, row) {
-                            return '<img src="' + data + '" height="100"/>'; // Render image
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false,
-                        render: function(data, type, row) {
-                            return '<div class="btn-group">' + data + '</div>';
-                        }
-                    }
-                ]
-            });
+            // $('#featuredProjectPosts').DataTable({
+            //     processing: true,
+            //     serverSide: true,
+            //     ajax: '{{ route('featured-project-posts.getdata') }}',
+            //     columns: [{
+            //             data: null, // Use null to signify that this column does not map directly to any data source
+            //             name: 'serial_number',
+            //             render: function(data, type, row, meta) {
+            //                 return meta.row + meta.settings._iDisplayStart +
+            //                     1; // Calculate the serial number
+            //             },
+            //             orderable: false,
+            //             searchable: false
+            //         },
+            //         {
+            //             data: 'name',
+            //             name: 'name'
+            //         },
+            //         {
+            //             data: 'description',
+            //             name: 'description'
+            //         },
+            //         {
+            //             data: 'location',
+            //             name: 'location'
+            //         },
+            //         {
+            //             data: 'image',
+            //             name: 'image',
+            //             render: function(data, type, row) {
+            //                 return '<img src="' + data + '" height="100"/>'; // Render image
+            //             },
+            //             orderable: false,
+            //             searchable: false
+            //         },
+            //         {
+            //             data: 'action',
+            //             name: 'action',
+            //             orderable: false,
+            //             searchable: false,
+            //             render: function(data, type, row) {
+            //                 return '<div class="btn-group">' + data + '</div>';
+            //             }
+            //         }
+            //     ]
+            // });
         });
     </script>
 @endsection
