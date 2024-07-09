@@ -55,10 +55,10 @@
                 <a href={{ route('about-chairmans.create') }} class="btn btn-sm btn-primary">Add</a>
             @endif
 
-            <table id="mydata" class="display" style="width:100%">
+            <table id="data" class="display table table-bordered table-striped dataTable" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Serial ID</th>
+                        <th>SL No</th>
                         <th>Title</th>
                         <th>Name</th>
                         <th>Company Information</th>
@@ -72,13 +72,14 @@
         </div>
         <!--end::Content container-->
     </div>
-
+    
     <script>
         $(document).ready(function() {
-            $('#mydata').DataTable({
+            $('#data').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('about-us-banners.getdata') }}',
+                autoWidth: false,
+                ajax: '{{ route('about-chairmans.getdata') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',
@@ -99,26 +100,52 @@
                     },
                     {
                         data: 'company_information',
-                        name: 'company_information'
-                    },
-                    {
-                        data: 'chairmen_information',
-                        name: 'chairmen_information'
-                    },
-                    {
-                        data: 'chairmen_image',
-                        name: 'chairmen_image',
+                        name: 'company_information',
                         render: function(data, type, row) {
-                            return '<img src="' + data + '" height="100"/>'; // Render image
+                            const fullText = $('<div>').html(data).text(); // Decode HTML
+                            const shortText = fullText.split(' ').slice(0, 10).join(' ');
+                            if (fullText.length > shortText.length) {
+                                return `
+                                    <span class="short-text">${shortText}...</span>
+                                    <span class="full-text" style="display: none;">${data}</span>
+                                    <a href="#" class="shortDescriptionview" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search1" data-id="${row.id}">View More</a>
+                                `;
+                            }
+                            return fullText;
+                        },
+                        width: '200px'
+                    },
+                    {
+                        data: 'chairman_information',
+                        name: 'chairman_information',
+                        render: function(data, type, row) {
+                            const fullText = $('<div>').html(data).text(); // Decode HTML
+                            const shortText = fullText.split(' ').slice(0, 10).join(' ');
+                            if (fullText.length > shortText.length) {
+                                return `
+                                    <span class="short-text">${shortText}...</span>
+                                    <span class="full-text" style="display: none;">${data}</span>
+                                    <a href="#" class="shortDescriptionview" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search1" data-id="${row.id}">View More</a>
+                                `;
+                            }
+                            return fullText;
+                        },
+                    },
+                    {
+                        data: 'chairman_image',
+                        name: 'chairman_image',
+                        render: function(data, type, row) {
+                            return '<img src="' + data + '" height="50"/>'; // Render image
                         },
                         orderable: false,
                         searchable: false
                     },
                     {
-                        data: 'chairmen_istitute_image',
-                        name: 'chairmen_istitute_image',
+                        data: 'institute_logo',
+                        name: 'institute_logo',
                         render: function(data, type, row) {
-                            return '<img src="' + data + '" height="100"/>'; // Render image
+                            return '<img src="' + data +
+                            '" height="50" width="50"/>'; // Render image
                         },
                         orderable: false,
                         searchable: false
@@ -134,6 +161,7 @@
                     }
                 ]
             });
+
         });
     </script>
 @endsection

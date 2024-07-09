@@ -223,6 +223,19 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                             <!--end: Purpose-->
                         </div>
                         <!--end:Menu item-->
+
+                        <!--begin: Purpose -->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link" href="/about-chairman">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">About-Chairman</span>
+                            </a>
+                            <!--end: Purpose-->
+                        </div>
+                        <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
                 </div>

@@ -9,3 +9,5 @@ class AboutUsBanner extends Model
 {
     protected $fillable=['title','image'];
 }
+
+

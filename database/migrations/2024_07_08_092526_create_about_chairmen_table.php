@@ -16,9 +16,10 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('name')->nullable();
             $table->longText('company_information')->nullable();
-            $table->longText('chairmen_information')->nullable();
-            $table->string('chairmen_image')->nullable();
-            $table->string('chairmen_istitute_image')->nullable();
+            $table->longText('chairman_information')->nullable();
+            $table->string('chairman_image')->nullable();
+            $table->string('institute_logo')->nullable();
+            $table->string('reference')->nullable();
             $table->timestamps();
         });
     }
