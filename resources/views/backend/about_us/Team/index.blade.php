@@ -20,8 +20,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    About-Company</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Team</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -36,8 +35,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">About
-                        Company</li>
+                    <li class="breadcrumb-item text-muted">Team</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -52,15 +50,16 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
+
+            <a href="{{ route('teams.create') }}" class="btn btn-primary btn-sm">Add</a>
             <table id="mydata" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Serial ID</th>
-                        <th>Short Description Title</th>
-                        <th>Short Description</th>
-                        <th>Long Description Title</th>
-                        <th>Long Description</th>
-                        <th>Information Video Url</th>
+                        <th>Name</th>
+                        <th>Designation</th>
+                        <th>About</th>
+                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -69,16 +68,14 @@
         <!--end::Content container-->
     </div>
 
-  
-    @include('backend.about_us.information.modal')
-
+    @include('backend.about_us.team.modal')
 
     <script>
         $(document).ready(function() {
             $('#mydata').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('about-us-infos.getdata') }}',
+                ajax: '{{ route('teams.getdata') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',
@@ -90,12 +87,16 @@
                         searchable: false
                     },
                     {
-                        data: 'short_description_title',
-                        name: 'short_description_title'
+                        data: 'name',
+                        name: 'name'
                     },
                     {
-                        data: 'short_description',
-                        name: 'short_description',
+                        data: 'designation',
+                        name: 'designation'
+                    },
+                    {
+                        data: 'about',
+                        name: 'about',
                         render: function(data, type, row) {
                             const fullText = $('<div>').html(data).text(); // Decode HTML
                             const shortText = fullText.split(' ').slice(0, 10).join(' ');
@@ -103,38 +104,20 @@
                                 return `
                                     <span class="short-text">${shortText}...</span>
                                     <span class="full-text" style="display: none;">${data}</span>
-                                    <a href="#" class="shortDescriptionview" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search1" data-id="${row.id}">View More</a>
+                                    <a href="#" class="about" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search1" data-id="${row.id}">View More</a>
                                 `;
                             }
                             return fullText;
                         }
                     },
                     {
-                        data: 'long_description_title',
-                        name: 'long_description_title'
-                    },
-                    {
-                        data: 'long_description',
-                        name: 'long_description',
+                        data: 'image',
+                        name: 'image',
                         render: function(data, type, row) {
-                            const fullText = $('<div>').html(data).text(); // Decode HTML
-                            const shortText = fullText.split(' ').slice(0, 10).join(' ');
-                            if (fullText.length > shortText.length) {
-                                return `
-                                    <span class="short-text">${shortText}...</span>
-                                    <span class="full-text" style="display: none;">${data}</span>
-                                    <a href="#" class="longDescriptionview" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search2" data-id="${row.id}">View More</a>
-                                `;
-                            }
-                            return fullText;
-                        }
-                    },
-                    {
-                        data: 'video_url',
-                        name: 'video_url',
-                        render: function(data, type, row) {
-                            return `<a target="_blank" href="${data}">${data}</a>`;
-                        }
+                            return '<img src="' + data + '" height="100"/>'; // Render image
+                        },
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'action',
@@ -148,37 +131,21 @@
                 ]
             });
 
-        });
-        // Handle the view button click
-        $(document).on('click', '.shortDescriptionview', function() {
-            var id = $(this).data('id');
-            $.ajax({
-                url: '/about-us-info/view/' + id,
-                type: 'GET',
-                success: function(data) {
-                    if (data.error) {
-                        alert(data.error);
-                    } else {
-                        $('#short_description').html(data.short_description);
+            // Handle the view button click
+            $(document).on('click', '.about', function() {
+                var id = $(this).data('id');
+                $.ajax({
+                    url: '/team/view/' + id,
+                    type: 'GET',
+                    success: function(data) {
+                        console.log(data)
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            $('#about').html(data.about);
+                        }
                     }
-                }
-            });
-        });
-
-        // Handle the view button click
-        $(document).on('click', '.longDescriptionview', function() {
-            var id = $(this).data('id');
-            $.ajax({
-                url: '/about-us-info/view/' + id,
-                type: 'GET',
-                success: function(data) {
-                    if (data.error) {
-                        alert(data.error);
-                    } else {
-                        $('#long_description_title').text(data.long_description_title);
-                        $('#long_description').html(data.long_description);
-                    }
-                },
+                });
             });
         });
     </script>

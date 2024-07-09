@@ -51,7 +51,7 @@
         </div>
 
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-            <form method="POST" action="{{ route('testimonial-posts.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('testimonials.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div style="margin-bottom: 20px;">
                     <label for="video" style="display: block; margin-bottom: 5px;">Video Link:</label>

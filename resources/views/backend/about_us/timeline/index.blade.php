@@ -20,14 +20,13 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">About
-                    Us-Banner</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Timeline</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
+                        <span class="text-muted text-hover-primary">AboutPage</span>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -36,7 +35,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Dashboards</li>
+                    <li class="breadcrumb-item text-muted">Timeline</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -52,12 +51,14 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
             
-
+            <a href="{{route('timelines.create')}}" class="btn btn-primary btn-sm">Add</a>
             <table id="mydata" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Serial ID</th>
                         <th>Title</th>
+                        <th>Description</th>
+                        <th>Year</th>
                         <th>Image</th>
                         <th>Action</th>
                     </tr>
@@ -72,7 +73,7 @@
             $('#mydata').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('about-us-banners.getdata') }}',
+                ajax: '{{ route('timelines.getdata') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',
@@ -86,6 +87,14 @@
                     {
                         data: 'title',
                         name: 'title'
+                    },
+                    {
+                        data: 'description',
+                        name: 'description'
+                    },
+                    {
+                        data: 'year',
+                        name: 'year'
                     },
                     {
                         data: 'image',

@@ -11,8 +11,8 @@ use Yajra\DataTables\Facades\DataTables;
 class TestimonialPostController extends Controller
 {
     public function index(){
-        $testimonials=Testimonial::all();
-        return view('backend.home.testimonial.index',compact('testimonials'));
+        
+        return view('backend.home.testimonial.index');
     }
 
     public function getdata(Request $request)
@@ -22,8 +22,8 @@ class TestimonialPostController extends Controller
             $data = TestimonialPost::all();
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
-                    $editUrl = route('testimonial-posts.edit', $row->id);
-                    $deleteUrl = route('testimonial-posts.distory', $row->id);
+                    $editUrl = route('testimonials.edit', $row->id);
+                    $deleteUrl = route('testimonials.distory', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");
@@ -43,7 +43,7 @@ class TestimonialPostController extends Controller
         }
     }
     public function create(){
-        return view('backend.home.testimonial.post_create');
+        return view('backend.home.testimonial.create');
     }
 
     public function store(Request $request)
@@ -65,14 +65,14 @@ class TestimonialPostController extends Controller
             'owner_title' => $request->owner_title,
         ]);
 
-        return redirect()->route('testimonial-posts.index')
+        return redirect()->route('testimonials.index')
             ->with('success', 'Data added successfully.');
     }
 
     public function edit($id)
     {
         $post = TestimonialPost::findOrFail($id);
-        return view('backend.home.testimonial.post_edit', compact('post'));
+        return view('backend.home.testimonial.edit', compact('post'));
     }
 
     public function update(Request $request, $id)
@@ -96,7 +96,7 @@ class TestimonialPostController extends Controller
         $post->owner_title = $request->owner_title;
         $post->save();
 
-        return redirect()->route('testimonial-posts.index')
+        return redirect()->route('testimonials.index')
             ->with('success', 'data updated successfully.');
     }
 
@@ -104,6 +104,6 @@ class TestimonialPostController extends Controller
     public function distroy($id){
         $post=TestimonialPost::findOrFail($id);
         $post->delete();
-        return redirect()->route('testimonial-posts.index');
+        return redirect()->route('testimonials.index');
     }
 }

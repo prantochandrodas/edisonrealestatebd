@@ -64,7 +64,7 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link active" href="/">
+                            <a class="menu-link" href="/">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -77,6 +77,10 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                     <!--end:Menu sub-->
                 </div>
                 <!--end:Menu item-->
+
+
+
+
                 <!--begin:Menu item-->
                 <div class="menu-item pt-5">
                     <!--begin:Menu content-->
@@ -86,27 +90,31 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                     <!--end:Menu content-->
                 </div>
                 <!--end:Menu item-->
+
                 <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
-                            <i class="ki-duotone ki-address-book fs-2">
+                            <i class="ki-duotone ki-element-11 fs-2">
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                                 <span class="path3"></span>
+                                <span class="path4"></span>
                             </i>
                         </span>
                         <span class="menu-title">Website</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <!--end:Menu link-->
+
+
                     <!--begin:Menu sub-->
                     <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href={{ route('slider.index') }}>
+                            <a class="menu-link {{ request()->is('') ? 'active' : '' }}" href="/">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -115,12 +123,15 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
 
-
-                        <!--begin:About us item-->
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="/about-us-info">
+                            <a class="menu-link {{ request()->is('about-us-info') ? 'active' : '' }}" href="/about-us-info">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -129,25 +140,15 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
 
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="/featured-projects">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Featured Project</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
-
-
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="/testimonial">
+                            <a class="menu-link {{ request()->is('testimonial') ? 'active' : '' }}" href="/testimonial">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -156,11 +157,15 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
 
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="/schedule-metting">
+                            <a class="menu-link {{ request()->is('schedule-metting') ? 'active' : '' }}" href="/schedule-metting">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -169,11 +174,16 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
 
+
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="/about-us-banner">
+                            <a class="menu-link {{ request()->is('about-us-banner') ? 'active' : '' }}" href="/about-us-banner">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -182,64 +192,135 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                             <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
 
-
-                        <!--begin: Purpose -->
+                     <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="/purpose">
+                            <a class="menu-link {{ request()->is('purpose') ? 'active' : '' }}" href="/purpose">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">Purpose</span>
                             </a>
-                            <!--end: Purpose-->
+                            <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
 
 
-                         <!--begin: Purpose -->
-                         <div class="menu-item">
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="/vision">
+                            <a class="menu-link {{ request()->is('vision') ? 'active' : '' }}" href="/vision">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">Vision</span>
                             </a>
-                            <!--end: Purpose-->
+                            <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
 
-                         <!--begin: Purpose -->
-                         <div class="menu-item">
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="/our-value">
+                            <a class="menu-link {{ request()->is('our-value') ? 'active' : '' }}" href="/our-value">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">Our-Values</span>
                             </a>
-                            <!--end: Purpose-->
+                            <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
 
-                        <!--begin: Purpose -->
+
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link" href="/about-chairman">
+                            <a class="menu-link {{ request()->is('about-chairman') ? 'active' : '' }}" href="/about-chairman">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
                                 <span class="menu-title">About-Chairman</span>
                             </a>
-                            <!--end: Purpose-->
+                            <!--end:Menu link-->
                         </div>
                         <!--end:Menu item-->
                     </div>
                     <!--end:Menu sub-->
+
+                    <!--begin:Menu sub-->
+                    <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link {{ request()->is('timeline') ? 'active' : '' }}" href="/timeline">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Timeline</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
+
+                     <!--begin:Menu sub-->
+                     <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link {{ request()->is('team') ? 'active' : '' }}" href="/team">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Team Member</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
+
+                     <!--begin:Menu sub-->
+                     <div class="menu-sub menu-sub-accordion">
+                        <!--begin:Menu item-->
+                        <div class="menu-item">
+                            <!--begin:Menu link-->
+                            <a class="menu-link {{ request()->is('privacy-policy') ? 'active' : '' }}" href="/privacy-policy">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Privacy-Policy</span>
+                            </a>
+                            <!--end:Menu link-->
+                        </div>
+                        <!--end:Menu item-->
+                    </div>
+                    <!--end:Menu sub-->
+
                 </div>
                 <!--end:Menu item-->
+
+
+              
 
 
                 <!--begin:Menu item-->
@@ -1944,7 +2025,8 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="../../demo1/dist/utilities/wizards/offer-a-deal.html">
+                                    <a class="menu-link"
+                                        href="../../demo1/dist/utilities/wizards/offer-a-deal.html">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>

@@ -35,13 +35,13 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Edit
-                        About Us-banner</h1>
+                       Banner</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
+                            <span class="text-muted text-hover-primary">AboutPage</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -50,7 +50,7 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Dashboards</li>
+                        <li class="breadcrumb-item text-muted">Banner</li>
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->

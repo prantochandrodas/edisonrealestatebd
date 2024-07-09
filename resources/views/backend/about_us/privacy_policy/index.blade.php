@@ -20,14 +20,13 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">About
-                    Us-Banner</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Privacy-policy</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
+                        <span class="text-muted text-hover-primary">AboutPage</span>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -36,7 +35,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Dashboards</li>
+                    <li class="breadcrumb-item text-muted">Privacy-policy</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -51,14 +50,10 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
-            
-
-            <table id="mydata" class="display" style="width:100%">
+            <table id="mydata" class="display table table-bordered table-striped" style="width:100%">
                 <thead>
                     <tr>
-                        <th>Serial ID</th>
-                        <th>Title</th>
-                        <th>Image</th>
+                        <th>Policy</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -72,29 +67,17 @@
             $('#mydata').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('about-us-banners.getdata') }}',
-                columns: [{
-                        data: null, // Use null to signify that this column does not map directly to any data source
-                        name: 'serial_number',
-                        render: function(data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart +
-                                1; // Calculate the serial number
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
+                ajax: '{{ route('privacy-policys.getdata') }}',
+                columns: [
                     {
-                        data: 'title',
-                        name: 'title'
-                    },
-                    {
-                        data: 'image',
-                        name: 'image',
+                        data: 'description',
+                        name: 'description',
                         render: function(data, type, row) {
-                            return '<img src="' + data + '" height="100"/>'; // Render image
-                        },
-                        orderable: false,
-                        searchable: false
+                            const fullText = $('<div>').html(data).text(); // Decode HTML
+                              return `
+                                    <span class="short-text">${fullText}...</span>
+                                `;;
+                        }
                     },
                     {
                         data: 'action',

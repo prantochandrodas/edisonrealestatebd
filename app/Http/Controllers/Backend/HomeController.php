@@ -365,8 +365,8 @@ class HomeController extends Controller
             $data = TestimonialPost::all();
             return DataTables::of($data)
                 ->addColumn('action', function ($row) {
-                    $editUrl = route('testimonial-posts.edit', $row->id);
-                    $deleteUrl = route('testimonial-posts.distory', $row->id);
+                    $editUrl = route('testimonials.edit', $row->id);
+                    $deleteUrl = route('testimonials.distory', $row->id);
 
                     $csrfToken = csrf_field();
                     $methodField = method_field("DELETE");
@@ -411,7 +411,7 @@ class HomeController extends Controller
             'owner_title' => $request->owner_title,
         ]);
 
-        return redirect()->route('testimonial-posts.index')
+        return redirect()->route('testimonials.index')
             ->with('success', 'Data added successfully.');
     }
 
@@ -444,7 +444,7 @@ class HomeController extends Controller
         $post->owner_title = $request->owner_title;
         $post->save();
 
-        return redirect()->route('testimonial-posts.index')
+        return redirect()->route('testimonials.index')
             ->with('success', 'data updated successfully.');
     }
 
@@ -453,7 +453,7 @@ class HomeController extends Controller
     public function distroyTestimonialPost($id){
         $post=TestimonialPost::findOrFail($id);
         $post->delete();
-        return redirect()->route('testimonial-posts.index');
+        return redirect()->route('testimonials.index');
     }
 
 

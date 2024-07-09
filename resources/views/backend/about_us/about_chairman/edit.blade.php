@@ -122,7 +122,7 @@
                 {{-- reference field  --}}
                 <div class="form-group">
                     <label for="reference" class="mb-2 h5">Reference:</label>
-                    <input type="text" class="form-control mb-2" id="reference" name="reference">
+                    <input type="text" class="form-control mb-2" id="reference" name="reference" value="{{$data->reference}}">
                     @error('reference')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror

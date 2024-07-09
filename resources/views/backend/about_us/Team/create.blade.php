@@ -20,14 +20,14 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Create Testimonial
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Create team
                 </h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">HomePage</span>
+                        <span class="text-muted text-hover-primary">AboutPage</span>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -36,7 +36,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Testimonial</li>
+                    <li class="breadcrumb-item text-muted">team</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -49,50 +49,44 @@
     <div style="max-width: 600px; margin: 0 auto;">
         
         <div style="background-color: #f0f0f0; padding: 20px;">
-            <h2 style="text-align: center;">Create Timeline</h2>
+            <h2 style="text-align: center;">Create team</h2>
         </div>
         
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-            <form method="POST" action="{{ route('testimonials.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('teams.store') }}" enctype="multipart/form-data">
                 @csrf
-                
-                 {{-- Title field  --}}
+                 {{-- name field  --}}
                  <div class="form-group">
-                    <label for="title" class="mb-2 h5">Title:</label>
-                    <input type="text" class="form-control mb-2" id="title" name="title">
-                    @error('title')
+                    <label for="name" class="mb-2 h5">Name:</label>
+                    <input type="text" class="form-control mb-2" id="name" name="name">
+                    @error('name')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- description field  --}}
-                <div class="form-group">
-                    <label for="description" class="mb-2 h5">Description:</label>
-                    <textarea type="text" class="form-control mb-2" id="description" name="description" cols="30" rows="2"></textarea>
-                    @error('description')
+
+                 {{-- designation field  --}}
+                 <div class="form-group">
+                    <label for="designation" class="mb-2 h5">Designation:</label>
+                    <input type="text" class="form-control mb-2" id="designation" name="designation">
+                    @error('designation')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
-                 {{-- owner_name field  --}}
+
+                 {{-- about field  --}}
                  <div class="form-group">
-                    <label for="owner_name" class="mb-2 h5">owner_name:</label>
-                    <input type="text" class="form-control mb-2" id="owner_name" name="owner_name">
-                    @error('owner_name')
+                    <label for="about" class="mb-2 h5">About:</label>
+                    <textarea type="text" class="form-control mb-2" id="summernote" name="about" cols="30" rows="2"></textarea>
+                    @error('about')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
-                 {{-- owner_title field  --}}
+
+                 {{-- image field  --}}
                  <div class="form-group">
-                    <label for="owner_title" class="mb-2 h5">owner_title:</label>
-                    <input type="text" class="form-control mb-2" id="owner_title" name="owner_title">
-                    @error('owner_title')
-                        <div class="alert alert-danger mt-2">{{ $message }}</div>
-                    @enderror
-                </div>
-                 {{-- video field  --}}
-                 <div class="form-group">
-                    <label for="video" class="mb-2 h5">Video Link:</label>
-                    <input type="text" class="form-control mb-2" id="video" name="video">
-                    @error('video')
+                    <label for="image" class="mb-2 h5">image:</label>
+                    <input type="file" class="form-control mb-2" id="image" name="image">
+                    @error('image')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
@@ -101,5 +95,11 @@
             </form>
         </div>
     </div>
-    
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 250
+            });
+        });
+    </script>
 @endsection

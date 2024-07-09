@@ -17,7 +17,7 @@
    <!--begin::Toolbar-->
    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
     <!--begin::Toolbar container-->
-    <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+    <div id="kt_app_toolbar_container" class="app-container d-flex flex-stack">
         <!--begin::Page title-->
         <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
             <!--begin::Title-->
@@ -25,7 +25,7 @@
                 About Company-Information</h1>
             <!--end::Title-->
             <!--begin::Breadcrumb-->
-            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1" style="padding:0px; background-color:inherit">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
                     <span class="text-muted text-hover-primary">AboutPage</span>
@@ -110,7 +110,7 @@
         </div>
         <!--end::Content container-->
     </div>
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({

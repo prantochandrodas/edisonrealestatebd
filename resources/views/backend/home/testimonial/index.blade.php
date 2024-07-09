@@ -51,26 +51,8 @@
 
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-fluid">
-            <h3>Testimonial heading and title</h3>
-            @if (count($testimonials) == 0)
-                <a href={{ route('testimonials.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
-            @endif
-
-            <table id="testimonials" class="display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Serial ID</th>
-                        <th>Title</th>
-                        <th>Heading</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-            </table>
-
-            <h3 style=" margin-top:50px">Testimonial post</h3>
-
-            <a href={{ route('testimonial-posts.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
+        <div id="kt_app_content_container" class="app-container container-fluid">        
+            <a href={{ route('testimonials.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
             
             <table id="testimonialsPosts" class="display" style="width:100%">
                 <thead>
@@ -92,44 +74,10 @@
 
     <script>
         $(document).ready(function() {
-            $('#testimonials').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{{ route('testimonials.getdata') }}',
-                columns: [{
-                        data: null, // Use null to signify that this column does not map directly to any data source
-                        name: 'serial_number',
-                        render: function(data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart +
-                                1; // Calculate the serial number
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'title',
-                        name: 'title',
-                    },
-                    {
-                        data: 'heading',
-                        name: 'heading'
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false,
-                        render: function(data, type, row) {
-                            return '<div class="btn-group">' + data + '</div>';
-                        }
-                    }
-                ]
-            });
-
             $('#testimonialsPosts').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('testimonial-posts.getdata') }}',
+                ajax: '{{ route('testimonials.getdata') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',
@@ -146,7 +94,10 @@
                     },
                     {
                         data: 'description',
-                        name: 'description'
+                        name: 'description',
+                        render: function(data, type, row) {
+                            return  `<div style="width:200px; font-size:12px">${data}</div>`
+                        }
                     },
                     {
                         data: 'owner_name',
@@ -160,13 +111,7 @@
                         data: 'video',
                         name: 'video',
                         render: function(data, type, row) {
-                            const videoUrl = data;
-                            const videoId = videoUrl.split('v=')[1];
-                            const ampersandPosition = videoId.indexOf('&');
-                            if (ampersandPosition !== -1) {
-                                videoId = videoId.substring(0, ampersandPosition);
-                            }
-                            return `<iframe width="100" height="100" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                            return  `<a href="${data}" target="_blank">${data}</a>`
                         }
                     },
                     {

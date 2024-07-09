@@ -9,8 +9,7 @@ use Illuminate\Http\Request;
 class AboutUsInformationController extends Controller
 {
     public function index(){
-        $data=AboutUsInformation::all();
-        return view ('backend.about_us.information.index',compact('data'));
+        return view ('backend.about_us.information.index');
     }
 
     public function getdata(Request $request){
@@ -18,56 +17,17 @@ class AboutUsInformationController extends Controller
             $data=AboutUsInformation::all();
             return datatables($data)
             ->addColumn('action',function($row){
-                $editUrl=route('about-us-infos.edit',$row->id);
-                $deleteUrl=route('about-us-infos.distroy',$row->id);
-
-                $csrfToken=csrf_field();
-                $methodField=method_field('DELETE');
-
+                $editUrl=route('about-us-infos.edit');
                 $editBtn='<a href="'. $editUrl .'" class="edit btn btn-primary btn-sm me-2">Edit</a>';
-                $deleteBtn = '
-                <form action="' . $deleteUrl . '" method="POST" style="display:inline-block;">
-                    ' . $csrfToken . '
-                    ' . $methodField . '
-                    <button type="submit" class="delete btn btn-danger btn-sm">Delete</button>
-                </form>';
-                return $editBtn .''.$deleteBtn;
+                return $editBtn;
             })
             ->rawColumns(['action'])
             ->make(true);
         }
     }
 
-    public function create(){
-        return view('backend.about_us.information.create');
-    }
-
-
-    public function store(Request $request){
-        // dd('hi');
-        $request->validate([
-            'short_description_title' => 'required|string|max:255',
-            'short_description' => 'required|string|min:10|max:2000',
-            'long_description_title' => 'required|string|max:255',
-            'long_description' => 'required|string|min:10|max:5000',
-            'video_url' => 'required|string',
-        ]);
-
-
-       AboutUsInformation::create([
-        'short_description_title' => $request->short_description_title,
-        'short_description' => $request->short_description,
-        'long_description_title' => $request->long_description_title,
-        'long_description' => $request->long_description,
-        'video_url' => $request->video_url
-       ]);
-
-       return redirect()->route('about-us-infos.index')->with('success','data added successfull');
-    }
-
-
-    public function edit($id){
-        $data=AboutUsInformation::findOrFail($id);
+    public function edit(){
+        $data=AboutUsInformation::first();
         return view('backend.about_us.information.edit',compact('data'));
     }
 
@@ -82,13 +42,6 @@ class AboutUsInformationController extends Controller
         $data->save();
         return redirect()->route('about-us-infos.index')->with('success','successfully updated');
     }
-
-    public function distroy($id){
-        $data=AboutUsInformation::findOrFail($id);
-        $data->delete();
-        return redirect()->route('about-us-infos.index')->with('success','data deleted successfull');
-    }
-
 
     public function view($id)
     {

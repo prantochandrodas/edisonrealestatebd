@@ -65,6 +65,7 @@
                         <th>Chairmen Information</th>
                         <th>Chairmen Image</th>
                         <th>Chairmen Istitute Image</th>
+                        <th>Reference</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -72,7 +73,9 @@
         </div>
         <!--end::Content container-->
     </div>
-    
+
+    @include('backend.about_us.about_chairman.modal')
+
     <script>
         $(document).ready(function() {
             $('#data').DataTable({
@@ -108,12 +111,11 @@
                                 return `
                                     <span class="short-text">${shortText}...</span>
                                     <span class="full-text" style="display: none;">${data}</span>
-                                    <a href="#" class="shortDescriptionview" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search1" data-id="${row.id}">View More</a>
+                                    <a href="#" class="companyInformation" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search1" data-id="${row.id}">View More</a>
                                 `;
                             }
                             return fullText;
-                        },
-                        width: '200px'
+                        }
                     },
                     {
                         data: 'chairman_information',
@@ -125,7 +127,7 @@
                                 return `
                                     <span class="short-text">${shortText}...</span>
                                     <span class="full-text" style="display: none;">${data}</span>
-                                    <a href="#" class="shortDescriptionview" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search1" data-id="${row.id}">View More</a>
+                                    <a href="#" class="chairmanInformation" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search2" data-id="${row.id}">View More</a>
                                 `;
                             }
                             return fullText;
@@ -145,10 +147,17 @@
                         name: 'institute_logo',
                         render: function(data, type, row) {
                             return '<img src="' + data +
-                            '" height="50" width="50"/>'; // Render image
+                                '" height="50" width="50"/>'; // Render image
                         },
                         orderable: false,
                         searchable: false
+                    },
+                    {
+                        data: 'reference',
+                        name: 'reference',
+                        render: function(data, type, row) {
+                            return "<a href='" + data + "'>" + data + "</a>"
+                        }
                     },
                     {
                         data: 'action',
@@ -162,6 +171,37 @@
                 ]
             });
 
+            // Handle the view button click
+            $(document).on('click', '.companyInformation', function() {
+                var id = $(this).data('id');
+                $.ajax({
+                    url: '/about-chairman/view/' + id,
+                    type: 'GET',
+                    success: function(data) {
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            $('#company_information').html(data.company_information);
+                        }
+                    }
+                });
+            });
+
+            // Handle the view button click
+            $(document).on('click', '.chairmanInformation', function() {
+                var id = $(this).data('id');
+                $.ajax({
+                    url: '/about-chairman/view/' + id,
+                    type: 'GET',
+                    success: function(data) {
+                        if (data.error) {
+                            alert(data.error);
+                        } else {
+                            $('#chairman_information').html(data.chairman_information);
+                        }
+                    },
+                });
+            });
         });
     </script>
 @endsection
