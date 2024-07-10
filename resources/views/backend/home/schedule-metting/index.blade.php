@@ -1,110 +1,89 @@
+<!-- resources/views/backend/home/slider/edit.blade.php -->
 @extends('layouts.backend')
+
 @section('content')
-    <!-- success message  -->
-    @if (session('success'))
-        <div class="alert alert-success">
-            {{ session('success') }}
-        </div>
-    @endif
-
-    <!-- error message  -->
-    @if (session('error'))
-        <div class="alert alert-danger">
-            {{ session('error') }}
-        </div>
-    @endif
-    <!--begin::Toolbar-->
-    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
-        <!--begin::Toolbar container-->
-        <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
-            <!--begin::Page title-->
-            <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-                <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Schedule-Metting</h1>
-                <!--end::Title-->
-                <!--begin::Breadcrumb-->
-                <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">
-                        <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
-                    </li>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item">
-                        <span class="bullet bg-gray-400 w-5px h-2px"></span>
-                    </li>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Dashboards</li>
-                    <!--end::Item-->
+    <div class="container mt-5">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
                 </ul>
-                <!--end::Breadcrumb-->
             </div>
-            <!--end::Page title-->
+        @endif
+
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger">
+                {{ session('error') }}
+            </div>
+        @endif
+
+        <!--begin::Toolbar-->
+        <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+            <!--begin::Toolbar container-->
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+                <!--begin::Page title-->
+                <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
+                    <!--begin::Title-->
+                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Update
+                        Schedule-Metting</h1>
+                    <!--end::Title-->
+                    <!--begin::Breadcrumb-->
+                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-muted">
+                            <span class="text-muted text-hover-primary">HomePage</span>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item">
+                            <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                        </li>
+                        <!--end::Item-->
+                        <!--begin::Item-->
+                        <li class="breadcrumb-item text-muted">Schedule-Metting</li>
+                        <!--end::Item-->
+                    </ul>
+                    <!--end::Breadcrumb-->
+                </div>
+                <!--end::Page title-->
+            </div>
+            <!--end::Toolbar container-->
         </div>
-        <!--end::Toolbar container-->
-    </div>
-    <!--end::Toolbar-->
+        <!--end::Toolbar-->
 
-
-    <div id="kt_app_content" class="app-content flex-column-fluid">
-        <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-fluid">
-            <a href={{ route('schedule-mettings.create') }} class="btn btn-sm btn-primary">Add</a>
-            <table id="mydata" class="display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Serial ID</th>
-                        <th>Title</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-            </table>
+        <div class="app-container container-fluid">
+            <div style="background-color: #f0f0f0; padding: 20px;">
+                <h2 style="text-align: center;">Update Schedule-Metting</h2>
+            </div>
+            
+            <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
+                <form action="{{ route('schedule-mettings.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="title" class="h5 mb-2">Title:</label>
+                        <input type="text" class="form-control mb-4" id="title" name="title"
+                            value="{{ $data->title }}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="image" class="h5 mb-2">Image:</label>
+                        <input type="file" class="form-control mb-2" id="image" name="image">
+                        @if ($data->image)
+                            <img src="{{ asset($data->image) }}" height="100" alt="Current Image">
+                        @endif
+                    </div>
+                   
+                    <button type="submit" class="btn btn-primary btn-sm mt-2">Update</button>
+                </form>
+            </div>
         </div>
-        <!--end::Content container-->
     </div>
-
-    <script>
-        $(document).ready(function() {
-            $('#mydata').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{{ route('schedule-mettings.getdata') }}',
-                columns: [{
-                        data: null, // Use null to signify that this column does not map directly to any data source
-                        name: 'serial_number',
-                        render: function(data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart +
-                                1; // Calculate the serial number
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'title',
-                        name: 'tiele'
-                    },
-                    {
-                        data: 'image',
-                        name: 'image',
-                        render: function(data, type, row) {
-                            return '<img src="' + data + '" height="100"/>'; // Render image
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false,
-                        render: function(data, type, row) {
-                            return '<div class="btn-group">' + data + '</div>';
-                        }
-                    }
-                ]
-            });
-        });
-    </script>
 @endsection

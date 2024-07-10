@@ -13,15 +13,15 @@
             {{ session('error') }}
         </div>
     @endif
-    <!--begin::Toolbar-->
-    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+     <!--begin::Toolbar-->
+     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">About
-                    Chairman</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Update Chairman Information
+                </h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -36,7 +36,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">AboutChairman</li>
+                    <li class="breadcrumb-item text-muted">Chairman Information</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -47,160 +47,99 @@
     </div>
     <!--end::Toolbar-->
 
-
-    <div id="kt_app_content" class="app-content flex-column-fluid">
-        <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-fluid">
-            @if (count($data) === 0)
-                <a href={{ route('about-chairmans.create') }} class="btn btn-sm btn-primary">Add</a>
-            @endif
-
-            <table id="data" class="display table table-bordered table-striped dataTable" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>SL No</th>
-                        <th>Title</th>
-                        <th>Name</th>
-                        <th>Company Information</th>
-                        <th>Chairmen Information</th>
-                        <th>Chairmen Image</th>
-                        <th>Chairmen Istitute Image</th>
-                        <th>Reference</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-            </table>
+    <div class="app-container container-fluid">
+        <div style="background-color: #f0f0f0; padding: 20px;">
+            <h2 style="text-align: center;">Update Chairman Information</h2>
         </div>
-        <!--end::Content container-->
-    </div>
+        
+        <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
+            <form method="POST" action="{{ route('about-chairmans.update',$data->id) }}" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                 {{-- Title field  --}}
+                 <div class="form-group">
+                    <label for="title" class="mb-2 h5">Title:</label>
+                    <input type="text" class="form-control mb-2" id="title" name="title" value="{{$data->title}}">
+                    @error('title')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                 
 
-    @include('backend.about_us.about_chairman.modal')
+                 {{-- Name field  --}}
+                 <div class="form-group">
+                    <label for="name" class="mb-2 h5">Name:</label>
+                    <input type="text" class="form-control mb-2" id="name" name="name" value="{{$data->name}}">
+                    @error('name')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                 {{-- Company Information field  --}}
+                 <div class="form-group">
+                    <label for="company_information" class="mb-2 h5">Company Information:</label>
+                    <textarea type="text" class="form-control mb-2" id="summernote" name="company_information" cols="30" rows="2">{{$data->company_information}}</textarea>
+                    @error('company_information')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+
+
+                {{-- chairman_image field  --}}
+                <div class="form-group">
+                    <label for="chairman_image" class="mb-2 h5">Chairman Image:</label>
+                    <input type="file" class="form-control mb-2" id="chairman_image" name="chairman_image">
+                    @error('chairman_image')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                    @if ($data->chairman_image)
+                        <img src="{{ asset($data->chairman_image) }}" height="100" class="mb-2" alt="Current Image">
+                    @endif
+                </div>
+
+                 {{-- chairman_information field  --}}
+                 <div class="form-group">
+                    <label for="chairman_information" class="mb-2 h5">Chairman Information:</label>
+                    <textarea type="text" class="form-control mb-2" id="summernote2" name="chairman_information" cols="30" rows="2">{{$data->chairman_information}}</textarea>
+                    @error('chairman_information')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+
+
+                 {{-- institute_logo field  --}}
+                 <div class="form-group">
+                    <label for="institute_logo" class="mb-2 h5">Istitute Image:</label>
+                    <input type="file" class="form-control mb-2" id="institute_logo" name="institute_logo">
+                    @error('institute_logo')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                    @if ($data->institute_logo)
+                        <img src="{{ asset($data->institute_logo) }}" height="100" class="mb-2" alt="Current Image">
+                    @endif
+                </div>
+
+                {{-- reference field  --}}
+                <div class="form-group">
+                    <label for="reference" class="mb-2 h5">Reference:</label>
+                    <input type="text" class="form-control mb-2" id="reference" name="reference" value="{{$data->reference}}">
+                    @error('reference')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                {{-- submit button  --}}
+                <button type="submit" class="btn btn-primary btn-sm">Update</button>
+            </form>
+        </div>
+    </div>
 
     <script>
         $(document).ready(function() {
-            $('#data').DataTable({
-                processing: true,
-                serverSide: true,
-                autoWidth: false,
-                ajax: '{{ route('about-chairmans.getdata') }}',
-                columns: [{
-                        data: null, // Use null to signify that this column does not map directly to any data source
-                        name: 'serial_number',
-                        render: function(data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart +
-                                1; // Calculate the serial number
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'title',
-                        name: 'title'
-                    },
-                    {
-                        data: 'name',
-                        name: 'name'
-                    },
-                    {
-                        data: 'company_information',
-                        name: 'company_information',
-                        render: function(data, type, row) {
-                            const fullText = $('<div>').html(data).text(); // Decode HTML
-                            const shortText = fullText.split(' ').slice(0, 10).join(' ');
-                            if (fullText.length > shortText.length) {
-                                return `
-                                    <span class="short-text">${shortText}...</span>
-                                    <span class="full-text" style="display: none;">${data}</span>
-                                    <a href="#" class="companyInformation" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search1" data-id="${row.id}">View More</a>
-                                `;
-                            }
-                            return fullText;
-                        }
-                    },
-                    {
-                        data: 'chairman_information',
-                        name: 'chairman_information',
-                        render: function(data, type, row) {
-                            const fullText = $('<div>').html(data).text(); // Decode HTML
-                            const shortText = fullText.split(' ').slice(0, 10).join(' ');
-                            if (fullText.length > shortText.length) {
-                                return `
-                                    <span class="short-text">${shortText}...</span>
-                                    <span class="full-text" style="display: none;">${data}</span>
-                                    <a href="#" class="chairmanInformation" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search2" data-id="${row.id}">View More</a>
-                                `;
-                            }
-                            return fullText;
-                        },
-                    },
-                    {
-                        data: 'chairman_image',
-                        name: 'chairman_image',
-                        render: function(data, type, row) {
-                            return '<img src="' + data + '" height="50"/>'; // Render image
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'institute_logo',
-                        name: 'institute_logo',
-                        render: function(data, type, row) {
-                            return '<img src="' + data +
-                                '" height="50" width="50"/>'; // Render image
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'reference',
-                        name: 'reference',
-                        render: function(data, type, row) {
-                            return "<a href='" + data + "'>" + data + "</a>"
-                        }
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false,
-                        render: function(data, type, row) {
-                            return '<div class="btn-group">' + data + '</div>';
-                        }
-                    }
-                ]
+            $('#summernote').summernote({
+                height: 250
             });
-
-            // Handle the view button click
-            $(document).on('click', '.companyInformation', function() {
-                var id = $(this).data('id');
-                $.ajax({
-                    url: '/about-chairman/view/' + id,
-                    type: 'GET',
-                    success: function(data) {
-                        if (data.error) {
-                            alert(data.error);
-                        } else {
-                            $('#company_information').html(data.company_information);
-                        }
-                    }
-                });
-            });
-
-            // Handle the view button click
-            $(document).on('click', '.chairmanInformation', function() {
-                var id = $(this).data('id');
-                $.ajax({
-                    url: '/about-chairman/view/' + id,
-                    type: 'GET',
-                    success: function(data) {
-                        if (data.error) {
-                            alert(data.error);
-                        } else {
-                            $('#chairman_information').html(data.chairman_information);
-                        }
-                    },
-                });
+            $('#summernote2').summernote({
+                height: 250
             });
         });
     </script>

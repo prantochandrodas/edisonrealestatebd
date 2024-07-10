@@ -13,7 +13,6 @@
             {{ session('error') }}
         </div>
     @endif
-
     <!--begin::Toolbar-->
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
@@ -21,13 +20,13 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Our-values</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Slider</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">About-Page</span>
+                        <span class="text-muted text-hover-primary">Home-page</span>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -36,7 +35,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">our-values</li>
+                    <li class="breadcrumb-item text-muted">Slider</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -48,30 +47,32 @@
     <!--end::Toolbar-->
 
 
-
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
-            {{-- add button  --}}
-            <a href={{ route('our-values.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
-            <table id="featuredProjectTitleHeading" class="display" style="width:100%">
+            <a href={{ route('propertys.create') }} class="btn btn-sm btn-primary">Add</a>
+            <table id="mydata" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Serial ID</th>
-                        <th>Values</th>
+                        <th>Name</th>
+                        <th>Short title</th>
+                        <th>Address</th>
+                        <th>Image</th>
                         <th>Action</th>
                     </tr>
                 </thead>
             </table>
+        </div>
+        <!--end::Content container-->
     </div>
-
 
     <script>
         $(document).ready(function() {
-            $('#featuredProjectTitleHeading').DataTable({
+            $('#mydata').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('our-values.getdata') }}',
+                ajax: '{{ route('propertys.getdata') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',
@@ -83,8 +84,26 @@
                         searchable: false
                     },
                     {
-                        data: 'value',
-                        name: 'value'
+                        data: 'name',
+                        name: 'name',
+                    },
+                    {
+                        data: 'short_title',
+                        name: 'short_title'
+                    },
+                    {
+                        data: 'address',
+                        name: 'address'
+                    },
+                    {
+                        data: 'first_image',
+                        name: 'first_image',
+                        render: function(data, type, row) {
+                            console.log(data.image)
+                            return '<img src="' + data + '" height="100"/>'; // Render image
+                        },
+                        orderable: false,
+                        searchable: false
                     },
                     {
                         data: 'action',
@@ -97,7 +116,6 @@
                     }
                 ]
             });
-
         });
     </script>
 @endsection

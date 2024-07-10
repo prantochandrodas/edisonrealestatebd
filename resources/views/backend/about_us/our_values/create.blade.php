@@ -46,8 +46,9 @@
         <!--end::Toolbar container-->
     </div>
     <!--end::Toolbar-->
-    <div style="max-width: 600px; margin: 0 auto;">
-        
+
+
+    <div class="app-container container-fluid">
         <div style="background-color: #f0f0f0; padding: 20px;">
             <h2 style="text-align: center;">Create our-value</h2>
         </div>

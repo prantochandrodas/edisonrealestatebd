@@ -10,31 +10,11 @@ class AboutUsBannerController extends Controller
 {
     public function index()
     {
-        $data = AboutUsBanner::all();
+        $data = AboutUsBanner::first();
         return view('backend.about_us.about_us_banner.index', compact('data'));
     }
 
-    public function getdata(Request $request)
-    {
-        if ($request->ajax()) {
-            $data = AboutUsBanner::all();
-            return datatables($data)
-                ->addColumn('action', function ($row) {
-                    $editUrl = route('about-us-banners.edit');
-                    $editBtn = '<a href="' . $editUrl . '" class="edit btn btn-primary btn-sm me-2">Edit</a>';
-                    return $editBtn;
-                })
-                ->rawColumns(['action'])
-                ->make(true);
-        }
-    }
-
-    public function edit()
-    {
-        $data = AboutUsBanner::first();
-        return view('backend.about_us.about_us_banner.edit', compact('data'));
-    }
-
+ 
     public function update(Request $request, $id)
     {
 

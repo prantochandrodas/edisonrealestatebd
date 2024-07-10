@@ -13,11 +13,10 @@ use App\Http\Controllers\Backend\BlogPage\BlogBannerController;
 use App\Http\Controllers\Backend\BlogPage\BlogPostController;
 use App\Http\Controllers\Backend\HomePage\FeaturedProjectController;
 use App\Http\Controllers\Backend\HomePage\FeaturedProjectPostController;
-use App\Http\Controllers\Backend\HomePage\HomeAboutusController;
 use App\Http\Controllers\Backend\HomePage\ScheduleMettingController;
 use App\Http\Controllers\Backend\HomePage\SliderController;
-use App\Http\Controllers\Backend\HomePage\TestimonialController;
 use App\Http\Controllers\Backend\HomePage\TestimonialPostController;
+use App\Http\Controllers\Backend\Property\PropertyController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -33,20 +32,7 @@ Route::get('/slider/edit/{id}',[SliderController::class,'edit'])->name('slider.e
 Route::put('/slider/update/{id}',[SliderController::class,'update'])->name('slider.update');
 Route::delete('/slider/distory/{id}',[SliderController::class,'distory'])->name('slider.distory');
 
-// home slider route end 
 
-// home about route start
-
-Route::get('/home-about',[HomeAboutusController::class,'index'])->name('home-about.index');
-Route::get('/home-about/get_about',[HomeAboutusController::class,'getAbout'])->name('home-about.get_about');
-Route::get('/home-about/create',[HomeAboutusController::class,'create'])->name('home-about.create');
-Route::post('/home-about/store',[HomeAboutusController::class,'store'])->name('home-about.store');
-Route::get('/home-about/edit/{id}',[HomeAboutusController::class,'edit'])->name('home-about.edit');
-Route::put('/home-about/update/{id}',[HomeAboutusController::class,'update'])->name('home-about.update');
-Route::delete('/home-about/distory/{id}',[HomeAboutusController::class,'distroy'])->name('home-about.distory');
-Route::get('/home-about/view/{id}',[HomeAboutusController::class,'view'])->name('home-about.view');
-
-// home about route end 
 
 // featured-projects route start 
 
@@ -92,13 +78,8 @@ Route::delete('/testimonial/distory/{id}',[TestimonialPostController::class,'dis
 // schedule-metting route start
 
 Route::get('/schedule-metting',[ScheduleMettingController::class,'index'])->name('schedule-mettings.index');
-Route::get('/schedule-metting/getdata',[ScheduleMettingController::class,'getdata'])->name('schedule-mettings.getdata');
-Route::get('/schedule-metting/create',[ScheduleMettingController::class,'create'])->name('schedule-mettings.create');
-Route::post('/schedule-metting/store',[ScheduleMettingController::class,'store'])->name('schedule-mettings.store');
-Route::get('/schedule-metting/edit/{id}',[ScheduleMettingController::class,'edit'])->name('schedule-mettings.edit');
 Route::put('/schedule-metting/update/{id}',[ScheduleMettingController::class,'update'])->name('schedule-mettings.update');
-Route::delete('/schedule-metting/distory/{id}',[ScheduleMettingController::class,'distroy'])->name('schedule-mettings.distory');
-Route::get('/schedule-metting/view/{id}',[ScheduleMettingController::class,'view'])->name('schedule-mettings.view');
+
 
 // Schedule-metting route end
 
@@ -131,10 +112,8 @@ Route::get('/blog-post/view/{id}',[BlogPostController::class,'view'])->name('blo
 
 // start  about us page banner 
 Route::get('/about-us-banner',[AboutUsBannerController::class,'index'])->name('about-us-banners.index');
-Route::get('/about-us-banner/getdata',[AboutUsBannerController::class,'getdata'])->name('about-us-banners.getdata');
-Route::get('/about-us-banner/edit',[AboutUsBannerController::class,'edit'])->name('about-us-banners.edit');
 Route::put('/about-us-banner/update/{id}',[AboutUsBannerController::class,'update'])->name('about-us-banners.update');
-Route::get('/about-us-banner/view/{id}',[AboutUsBannerController::class,'view'])->name('about-us-banners.view');
+
 
 
 //end of  about us page  banner 
@@ -142,37 +121,22 @@ Route::get('/about-us-banner/view/{id}',[AboutUsBannerController::class,'view'])
 
 // about us page about information 
 Route::get('/about-us-info',[AboutUsInformationController::class,'index'])->name('about-us-infos.index');
-Route::get('/about-us-info/getdata',[AboutUsInformationController::class,'getdata'])->name('about-us-infos.getdata');
-Route::get('/about-us-info/edit',[AboutUsInformationController::class,'edit'])->name('about-us-infos.edit');
 Route::put('/about-us-info/update/{id}',[AboutUsInformationController::class,'update'])->name('about-us-infos.update');
-Route::get('/about-us-info/view/{id}',[AboutUsInformationController::class,'view'])->name('about-us-infos.view');
 // end of about us page about information 
 
 // purpose route 
 
 Route::get('/purpose',[PurposeController::class,'index'])->name('purposes.index');
-Route::get('/purpose/getdata',[PurposeController::class,'getdata'])->name('purposes.getdata');
-Route::get('/purpose/create',[PurposeController::class,'create'])->name('purposes.create');
-Route::post('/purpose/store',[PurposeController::class,'store'])->name('purposes.store');
-Route::get('/purpose/edit/{id}',[PurposeController::class,'edit'])->name('purposes.edit');
 Route::put('/purpose/update/{id}',[PurposeController::class,'update'])->name('purposes.update');
-Route::delete('/purpose/distory/{id}',[PurposeController::class,'distroy'])->name('purposes.distroy');
-Route::get('/purpose/view/{id}',[PurposeController::class,'view'])->name('purposes.view');
+
+
 
 // end purpose 
 
 
 // vision route 
-
 Route::get('/vision',[visionController::class,'index'])->name('visions.index');
-Route::get('/vision/getdata',[visionController::class,'getdata'])->name('visions.getdata');
-Route::get('/vision/create',[visionController::class,'create'])->name('visions.create');
-Route::post('/vision/store',[visionController::class,'store'])->name('visions.store');
-Route::get('/vision/edit/{id}',[visionController::class,'edit'])->name('visions.edit');
 Route::put('/vision/update/{id}',[visionController::class,'update'])->name('visions.update');
-Route::delete('/vision/distory/{id}',[visionController::class,'distroy'])->name('visions.distroy');
-Route::get('/vision/view/{id}',[visionController::class,'view'])->name('visions.view');
-
 // end vision
 
 //our-value route start
@@ -188,13 +152,9 @@ Route::get('/our-value/view/{id}',[OurValueController::class,'view'])->name('our
 
 // about chairman route start
 Route::get('/about-chairman',[AboutChairmanController::class,'index'])->name('about-chairmans.index');
-Route::get('/about-chairman/getdata',[AboutChairmanController::class,'getdata'])->name('about-chairmans.getdata');
-Route::get('/about-chairman/create',[AboutChairmanController::class,'create'])->name('about-chairmans.create');
-Route::post('/about-chairman/store',[AboutChairmanController::class,'store'])->name('about-chairmans.store');
-Route::get('/about-chairman/edit',[AboutChairmanController::class,'edit'])->name('about-chairmans.edit');
 Route::put('/about-chairman/update/{id}',[AboutChairmanController::class,'update'])->name('about-chairmans.update');
-Route::delete('/about-chairman/distory/{id}',[AboutChairmanController::class,'distroy'])->name('about-chairmans.distroy');
-Route::get('/about-chairman/view/{id}',[AboutChairmanController::class,'view'])->name('about-chairmans.view');
+
+
 //end about-chairman route 
 
 // start timeline route
@@ -221,6 +181,16 @@ Route::get('/team/view/{id}',[TeamController::class,'view'])->name('teams.view')
 
 // privacy policy route start 
 Route::get('/privacy-policy',[PrivacyPolicyController::class,'index'])->name('privacy-policys.index');
-Route::get('/privacy-policy/getdata',[PrivacyPolicyController::class,'getdata'])->name('privacy-policys.getdata');
-Route::get('/privacy-policy/edit',[PrivacyPolicyController::class,'edit'])->name('privacy-policys.edit');
 Route::put('/privacy-policy/update/{id}',[PrivacyPolicyController::class,'update'])->name('privacy-policys.update');
+// end privacy policy 
+
+// start team route 
+Route::get('/new-property', [PropertyController::class, 'index'])->name('propertys.index');
+Route::get('/new-property/getdata', [PropertyController::class, 'getdata'])->name('propertys.getdata');
+Route::get('/new-property/create', [PropertyController::class, 'create'])->name('propertys.create');
+Route::post('/new-property/store', [PropertyController::class, 'store'])->name('propertys.store');
+Route::get('/new-property/edit/{id}', [PropertyController::class, 'edit'])->name('propertys.edit');
+Route::put('/new-property/update/{id}', [PropertyController::class, 'update'])->name('propertys.update');
+Route::delete('/new-property/destroy/{id}', [PropertyController::class, 'destroy'])->name('propertys.distroy');
+Route::get('/new-property/view/{id}', [PropertyController::class, 'view'])->name('propertys.view');
+// end property route

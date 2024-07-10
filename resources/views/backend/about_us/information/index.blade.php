@@ -13,18 +13,20 @@
             {{ session('error') }}
         </div>
     @endif
+
     <!--begin::Toolbar-->
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
-        <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+        <div id="kt_app_toolbar_container" class="app-container d-flex flex-stack">
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    About-Company</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Update
+                    Company-Information</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
-                <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1"
+                    style="padding:0px; background-color:inherit">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
                         <span class="text-muted text-hover-primary">AboutPage</span>
@@ -36,8 +38,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">About
-                        Company</li>
+                    <li class="breadcrumb-item text-muted">About-Company</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -47,138 +48,79 @@
         <!--end::Toolbar container-->
     </div>
     <!--end::Toolbar-->
-
-
-    <div id="kt_app_content" class="app-content flex-column-fluid">
-        <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-fluid">
-            <table id="mydata" class="display" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>Serial ID</th>
-                        <th>Short Description Title</th>
-                        <th>Short Description</th>
-                        <th>Long Description Title</th>
-                        <th>Long Description</th>
-                        <th>Information Video Url</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-            </table>
+    <div class="app-container container-fluid">
+        <div style="background-color: #f0f0f0; padding: 20px;">
+            <h2 style="text-align: center;">Update Company-Information</h2>
         </div>
-        <!--end::Content container-->
+        <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
+            <form action="{{ route('about-us-infos.update', $data->id) }}" method="POST">
+                @csrf
+                @method('PUT')
+
+                {{-- short_description_title inpu field --}}
+                <div class="form-group">
+                    <label for="short_description_title">Short Description Title:</label>
+                    <input type="text" class="form-control" id="short_description_title" name="short_description_title"
+                        value="{{ $data->short_description_title }}" required>
+                </div>
+
+                {{-- short_description input field --}}
+                <div style="margin-bottom: 20px;">
+                    <label for="short_description" style="display: block; margin-bottom: 5px;">Short Description:</label>
+                    <textarea name="short_description" id="summernote" cols="30" rows="10" class="form-control"
+                        style="width: 100%; padding: 8px;">{{ $data->short_description }}</textarea>
+                </div>
+
+
+                {{-- long_description_title inpu field --}}
+                <div class="form-group">
+                    <label for="long_description_title">Long Description Title:</label>
+                    <input type="text" class="form-control" id="long_description_title" name="long_description_title"
+                        value="{{ $data->long_description_title }}" required>
+                </div>
+
+                {{-- long_description input field --}}
+                <div style="margin-bottom: 20px;">
+                    <label for="long_description" style="display: block; margin-bottom: 5px;">Long Description:</label>
+                    <textarea name="long_description" id="summernote2" cols="30" rows="10" class="form-control"
+                        style="width: 100%; padding: 8px;">{{ $data->long_description }}</textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="video_url">Video:</label>
+                    <input type="text" class="form-control" id="video_url" name="video_url"
+                        value="{{ $data->video_url }}">
+                </div>
+                <div class="form-group">
+                    @php
+                        $videoUrl = $data->video_url;
+                        $videoId = null;
+                        if (strpos($videoUrl, 'youtube.com') !== false) {
+                            $videoId = substr(parse_url($videoUrl, PHP_URL_QUERY), 2);
+                        } elseif (strpos($videoUrl, 'youtu.be') !== false) {
+                            $videoId = substr(parse_url($videoUrl, PHP_URL_PATH), 1);
+                        }
+                    @endphp
+                    <iframe width="100%" height="315" src="https://www.youtube.com/embed/{{ $videoId }}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+            </form>
+        </div>
     </div>
 
-  
-    @include('backend.about_us.information.modal')
-
-
+   
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script>
         $(document).ready(function() {
-            $('#mydata').DataTable({
-                processing: true,
-                serverSide: true,
-                ajax: '{{ route('about-us-infos.getdata') }}',
-                columns: [{
-                        data: null, // Use null to signify that this column does not map directly to any data source
-                        name: 'serial_number',
-                        render: function(data, type, row, meta) {
-                            return meta.row + meta.settings._iDisplayStart +
-                                1; // Calculate the serial number
-                        },
-                        orderable: false,
-                        searchable: false
-                    },
-                    {
-                        data: 'short_description_title',
-                        name: 'short_description_title'
-                    },
-                    {
-                        data: 'short_description',
-                        name: 'short_description',
-                        render: function(data, type, row) {
-                            const fullText = $('<div>').html(data).text(); // Decode HTML
-                            const shortText = fullText.split(' ').slice(0, 10).join(' ');
-                            if (fullText.length > shortText.length) {
-                                return `
-                                    <span class="short-text">${shortText}...</span>
-                                    <span class="full-text" style="display: none;">${data}</span>
-                                    <a href="#" class="shortDescriptionview" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search1" data-id="${row.id}">View More</a>
-                                `;
-                            }
-                            return fullText;
-                        }
-                    },
-                    {
-                        data: 'long_description_title',
-                        name: 'long_description_title'
-                    },
-                    {
-                        data: 'long_description',
-                        name: 'long_description',
-                        render: function(data, type, row) {
-                            const fullText = $('<div>').html(data).text(); // Decode HTML
-                            const shortText = fullText.split(' ').slice(0, 10).join(' ');
-                            if (fullText.length > shortText.length) {
-                                return `
-                                    <span class="short-text">${shortText}...</span>
-                                    <span class="full-text" style="display: none;">${data}</span>
-                                    <a href="#" class="longDescriptionview" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search2" data-id="${row.id}">View More</a>
-                                `;
-                            }
-                            return fullText;
-                        }
-                    },
-                    {
-                        data: 'video_url',
-                        name: 'video_url',
-                        render: function(data, type, row) {
-                            return `<a target="_blank" href="${data}">${data}</a>`;
-                        }
-                    },
-                    {
-                        data: 'action',
-                        name: 'action',
-                        orderable: false,
-                        searchable: false,
-                        render: function(data, type, row) {
-                            return '<div class="btn-group">' + data + '</div>';
-                        }
-                    }
-                ]
+            $('#summernote').summernote({
+                height: 250
             });
-
-        });
-        // Handle the view button click
-        $(document).on('click', '.shortDescriptionview', function() {
-            var id = $(this).data('id');
-            $.ajax({
-                url: '/about-us-info/view/' + id,
-                type: 'GET',
-                success: function(data) {
-                    if (data.error) {
-                        alert(data.error);
-                    } else {
-                        $('#short_description').html(data.short_description);
-                    }
-                }
-            });
-        });
-
-        // Handle the view button click
-        $(document).on('click', '.longDescriptionview', function() {
-            var id = $(this).data('id');
-            $.ajax({
-                url: '/about-us-info/view/' + id,
-                type: 'GET',
-                success: function(data) {
-                    if (data.error) {
-                        alert(data.error);
-                    } else {
-                        $('#long_description_title').text(data.long_description_title);
-                        $('#long_description').html(data.long_description);
-                    }
-                },
+            $('#summernote2').summernote({
+                height: 250
             });
         });
     </script>

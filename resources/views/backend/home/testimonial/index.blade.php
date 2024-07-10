@@ -59,7 +59,6 @@
                     <tr>
                         <th>Serial ID</th>
                         <th>Title</th>
-                        <th>Description</th>
                         <th>Owner_name</th>
                         <th>Owner_title</th>
                         <th>Video</th>
@@ -91,13 +90,6 @@
                     {
                         data: 'title',
                         name: 'title'
-                    },
-                    {
-                        data: 'description',
-                        name: 'description',
-                        render: function(data, type, row) {
-                            return  `<div style="width:200px; font-size:12px">${data}</div>`
-                        }
                     },
                     {
                         data: 'owner_name',

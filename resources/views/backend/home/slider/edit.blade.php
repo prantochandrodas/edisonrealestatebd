@@ -49,47 +49,41 @@
         </div>
         <!--end::Toolbar-->
 
-        <div id="kt_app_content" class="app-content flex-column-fluid">
-            <!--begin::Content container-->
-            <div id="kt_app_content_container" class="app-container container-fluid">
-
-                <div style="max-width: 600px; margin: 0 auto;">
-                    <div style="background-color: #f0f0f0; padding: 20px;">
-                        <h2 style="text-align: center;">Edit Slider</h2>
-                    </div>
-                    
-                    <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-                        <form action="{{ route('slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            {{-- image input field  --}}
-                            <div class="form-group">
-                                <label for="image" class="mb-2 h5">Image:</label>
-                                <input type="file" class="form-control mb-2" id="image" name="image">
-                                @error('image')
-                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                @enderror
-                                @if ($slider->image)
-                                    <img src="{{ asset($slider->image) }}" height="100" class="mb-2" alt="Current Image">
-                                @endif
-                            </div>
-                            {{-- heading input field  --}}
-                            <div class="form-group">
-                                <label for="heading" class="mb-2 h5">Heading:</label>
-                                <input type="text" class="form-control mb-2" id="heading" name="heading"
-                                    value="{{ $slider->heading }}" required>
-                                @error('heading')
-                                    <div class="alert alert-danger mt-2">{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Update</button>
-                        </form>
-                    </div>
-                </div>
-                
+        <div class="app-container container-fluid">
+            <div style="background-color: #f0f0f0; padding: 20px;">
+                <h2 style="text-align: center;">Edit Slider</h2>
             </div>
-            <!--end::Content container-->
+            
+            <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
+                <form action="{{ route('slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    {{-- image input field  --}}
+                    <div class="form-group">
+                        <label for="image" class="mb-2 h5">Image:</label>
+                        <input type="file" class="form-control mb-2" id="image" name="image">
+                        @error('image')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                        @if ($slider->image)
+                            <img src="{{ asset($slider->image) }}" height="100" class="mb-2" alt="Current Image">
+                        @endif
+                    </div>
+                    {{-- heading input field  --}}
+                    <div class="form-group">
+                        <label for="heading" class="mb-2 h5">Heading:</label>
+                        <input type="text" class="form-control mb-2" id="heading" name="heading"
+                            value="{{ $slider->heading }}" required>
+                        @error('heading')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
+                </form>
+            </div>
         </div>
+
+      
 
 
     </div>
