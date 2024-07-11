@@ -70,6 +70,14 @@
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
+                 {{-- short_description field  --}}
+                 <div class="form-group">
+                    <label for="short_description" class="mb-2 h5">Short Description:</label>
+                    <textarea name="short_description" id="short_description" class="form-control mb-2" cols="30" rows="10"></textarea>
+                    @error('short_description')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
                 <button type="submit" class="btn btn-primary btn-sm">Create</button>
             </form>
         </div>

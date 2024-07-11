@@ -17,14 +17,19 @@ use App\Http\Controllers\Backend\HomePage\ScheduleMettingController;
 use App\Http\Controllers\Backend\HomePage\SliderController;
 use App\Http\Controllers\Backend\HomePage\TestimonialPostController;
 use App\Http\Controllers\Backend\Property\PropertyController;
+use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Project\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
 //     return view('backend.home.slider.index');
 // });
+//font end route 
+Route::get('/',[HomeController::class,'index']);
+Route::get('/slider',[HomeController::class,'slider']);
 
 // home slider route start 
-Route::get('/',[SliderController::class,'index'])->name('slider.index');
+Route::get('/slider',[SliderController::class,'index'])->name('slider.index');
 Route::get('/slider/get-sliders',[SliderController::class,'getSliders'])->name('slider.get-sliders');
 Route::get('/slider/create',[SliderController::class,'create'])->name('slider.create');
 Route::post('/slider/store',[SliderController::class,'store'])->name('slider.store');
@@ -184,13 +189,14 @@ Route::get('/privacy-policy',[PrivacyPolicyController::class,'index'])->name('pr
 Route::put('/privacy-policy/update/{id}',[PrivacyPolicyController::class,'update'])->name('privacy-policys.update');
 // end privacy policy 
 
-// start team route 
-Route::get('/new-property', [PropertyController::class, 'index'])->name('propertys.index');
-Route::get('/new-property/getdata', [PropertyController::class, 'getdata'])->name('propertys.getdata');
-Route::get('/new-property/create', [PropertyController::class, 'create'])->name('propertys.create');
-Route::post('/new-property/store', [PropertyController::class, 'store'])->name('propertys.store');
-Route::get('/new-property/edit/{id}', [PropertyController::class, 'edit'])->name('propertys.edit');
-Route::put('/new-property/update/{id}', [PropertyController::class, 'update'])->name('propertys.update');
-Route::delete('/new-property/destroy/{id}', [PropertyController::class, 'destroy'])->name('propertys.distroy');
-Route::get('/new-property/view/{id}', [PropertyController::class, 'view'])->name('propertys.view');
+// start team PropertyController 
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects/getdata', [ProjectController::class, 'getdata'])->name('projects.getdata');
+Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+Route::post('/projects/store', [ProjectController::class, 'store'])->name('projects.store');
+Route::get('/projects/edit/{id}', [ProjectController::class, 'edit'])->name('projects.edit');
+Route::put('/projects/update/{id}', [ProjectController::class, 'update'])->name('projects.update');
+Route::delete('/projects/distroy/{id}', [ProjectController::class, 'distroy'])->name('projects.distroy');
+Route::get('/projects/view/{id}', [ProjectController::class, 'view'])->name('projects.view');
+Route::delete('projects/delete-image/{id}', [ProjectController::class, 'deleteImage'])->name('projects.delete-image');
 // end property route

@@ -114,7 +114,7 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->is('') ? 'active' : '' }}" href="/">
+                            <a class="menu-link {{ request()->is('slider') ? 'active' : '' }}" href="/slider">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
@@ -321,11 +321,11 @@ if (isset($_COOKIE["sidebar_minimize_state"]) && $_COOKIE["sidebar_minimize_stat
                         <!--begin:Menu item-->
                         <div class="menu-item">
                             <!--begin:Menu link-->
-                            <a class="menu-link {{ request()->is('new-property') ? 'active' : '' }}" href="/new-property">
+                            <a class="menu-link {{ request()->is('projects') ? 'active' : '' }}" href="/projects">
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Property</span>
+                                <span class="menu-title">Project</span>
                             </a>
                             <!--end:Menu link-->
                         </div>

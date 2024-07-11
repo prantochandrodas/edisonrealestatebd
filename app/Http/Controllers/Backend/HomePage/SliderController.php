@@ -54,6 +54,7 @@ class SliderController extends Controller
         $request->validate([
             'image' => 'required|file|image|max:2048',
             'heading' => 'required|string|max:255',
+            'short_description' => 'required|string|max:255',
         ]);
         if ($request->hasFile('image')) {
             $file = $request->file('image');
@@ -67,6 +68,7 @@ class SliderController extends Controller
         slider::create([
             'image' => $imagePath ?? null,
             'heading' => $request->heading,
+            'short_description' => $request->short_description,
         ]);
 
         return redirect()->route('slider.index')
@@ -86,6 +88,7 @@ class SliderController extends Controller
         $request->validate([
             'image' => 'nullable|file|image|max:2048',
             'heading' => 'required|string|max:255',
+            'short_description' => 'required|string|max:255',
         ]);
 
         $slider = Slider::findOrFail($id);
@@ -107,6 +110,7 @@ class SliderController extends Controller
         }
 
         $slider->heading = $request->heading;
+        $slider->short_description = $request->short_description;
         $slider->save();
 
         return redirect()->route('slider.index')

@@ -53,7 +53,7 @@
             <div style="background-color: #f0f0f0; padding: 20px;">
                 <h2 style="text-align: center;">Edit Slider</h2>
             </div>
-            
+
             <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
                 <form action="{{ route('slider.update', $slider->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -78,12 +78,20 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
+                    {{-- short_description field  --}}
+                    <div class="form-group">
+                        <label for="short_description" class="mb-2 h5">Short Description:</label>
+                        <textarea name="short_description" id="short_description" class="form-control mb-2" cols="30" rows="10">{{$slider->short_description}}</textarea>
+                        @error('short_description')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <button type="submit" class="btn btn-primary btn-sm">Update</button>
                 </form>
             </div>
         </div>
 
-      
+
 
 
     </div>

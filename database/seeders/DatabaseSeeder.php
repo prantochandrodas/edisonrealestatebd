@@ -24,6 +24,10 @@ class DatabaseSeeder extends Seeder
         //  $this->call(AboutChairmenSeeder::class);
         //  $this->call(AboutUsBannersSeeder::class);
         //  $this->call(AboutUsInformationSeeder::class);
-        $this->call(PrivacyPoliciesSeeder::class);
+        // $this->call(PrivacyPoliciesSeeder::class);
+        $this->call(ProjectCategoriesSeeder::class,);
+        $this->call(ProjectTypesSeeder::class,);
+        $this->call(ProjectLocationsSeeder::class,);
+        
     }
 }
