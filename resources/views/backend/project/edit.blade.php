@@ -132,15 +132,6 @@
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- address field  --}}
-                <div class="form-group">
-                    <label for="address" class="mb-2 fs-5">Address:</label>
-                    <input type="text" class="form-control mb-2" id="address" name="address"
-                        value={{ $data->address }}>
-                    @error('address')
-                        <div class="alert alert-danger mt-2">{{ $message }}</div>
-                    @enderror
-                </div>
                 {{-- overview field  --}}
                 <div class="form-group">
                     <label for="overview" class="mb-2 fs-5">Overview:</label>
@@ -198,7 +189,7 @@
                     <div>
                         @foreach ($data->images as $image)
                             <div class="image-container mb-3" style="position: relative; display: inline-block;">
-                                <img src="{{ asset($image->image) }}" alt="Image" width="150" height="150"
+                                <img src="{{ asset('project/'.$image->image) }}" alt="Image" width="150" height="150"
                                     style="position: relative;">
                                 <button type="button" class="btn btn-sm delete-image"
                                     style="position: absolute; top: 15px; right: 15px; transform: translate(50%, -50%);"
@@ -210,6 +201,64 @@
                         @endforeach
                     </div>
                 </div>
+                  {{-- beds field  --}}
+                  <div class="form-group">
+                    <label for="beds" class="mb-2 fs-5">Number of Beds:</label>
+                    <input type="number" class="form-control mb-2" id="beds" name="beds" value="{{$data->beds}}">
+                    @error('beds')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                {{-- baths field  --}}
+                <div class="form-group">
+                    <label for="baths" class="mb-2 fs-5">Number of baths:</label>
+                    <input type="number" class="form-control mb-2" id="baths" name="baths" value="{{$data->baths}}">
+                    @error('baths')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                {{-- verandas field  --}}
+                <div class="form-group">
+                    <label for="verandas" class="mb-2 fs-5">Number of verandas:</label>
+                    <input type="number" class="form-control mb-2" id="verandas" name="verandas" value="{{$data->verandas}}">
+                    @error('verandas')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                {{-- area field  --}}
+                <div class="form-group">
+                    <label for="area" class="mb-2 fs-5">Number of area:</label>
+                    <input type="number" class="form-control mb-2" id="area" name="area" value="{{$data->area}}">
+                    @error('area')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                 {{-- plot field  --}}
+                 <div class="form-group">
+                    <label for="plot" class="mb-2 fs-5">Plot:</label>
+                    <input type="text" class="form-control mb-2" id="plot" name="plot" value="{{$data->plot}}">
+                    @error('plot')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                 {{-- road_no field  --}}
+                 <div class="form-group">
+                    <label for="road_no" class="mb-2 fs-5">road_no:</label>
+                    <input type="text" class="form-control mb-2" id="road_no" name="road_no" value="{{$data->road_no}}">
+                    @error('road_no')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                 
+                 {{-- block field  --}}
+                 <div class="form-group">
+                    <label for="block" class="mb-2 fs-5">block:</label>
+                    <input type="text" class="form-control mb-2" id="block" name="block" value="{{$data->block}}">
+                    @error('block')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+    
                 <button type="submit" class="btn btn-primary btn-sm">Update</button>
             </form>
         </div>

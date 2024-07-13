@@ -125,8 +125,8 @@ Route::put('/about-us-banner/update/{id}',[AboutUsBannerController::class,'updat
 
 
 // about us page about information 
-Route::get('/about-us-info',[AboutUsInformationController::class,'index'])->name('about-us-infos.index');
-Route::put('/about-us-info/update/{id}',[AboutUsInformationController::class,'update'])->name('about-us-infos.update');
+Route::get('/about-us',[AboutUsInformationController::class,'index'])->name('about-us-infos.index');
+Route::put('/about-us/update',[AboutUsInformationController::class,'update'])->name('about-us-infos.update');
 // end of about us page about information 
 
 // purpose route 

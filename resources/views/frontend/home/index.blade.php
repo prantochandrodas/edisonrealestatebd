@@ -259,7 +259,7 @@
                                    data-speed="1.5" data-thumb="" data-rotate="0" data-saveperformance="off"
                                    data-title="your dream our passion" data-description="">
                                    <!-- MAIN IMAGE -->
-                                   <img src="{{ $item->image }}" alt="" data-bgposition="bottom"
+                                   <img src="{{ asset('home/slider/'.$item->image) }}" alt="" data-bgposition="bottom"
                                        data-bgfit="cover" style="height: 100% !important;" data-bgrepeat="no-repeat"
                                        data-bgparallax="5" class="rev-slidebg" data-no-retina>
                                    <!-- LAYERS -->
@@ -347,7 +347,7 @@
                        <div class="col-md-6 col-sm-6 MissionVision__single__right anim-parent">
                            <h3 class="subTitle textOver anim"><span><span>About Us</span></span></h3>
                            <h2 class="Title textOver anim">
-                               <span><span>{{ $aboutCompanyInformation->short_description_title }}</span></span>
+                               <span><span>{{ $aboutCompanyInformation->title }}</span></span>
                            </h2>
                            <p style="text-align: justify;">{!! $aboutCompanyInformation->short_description !!}</p>
 
@@ -356,17 +356,16 @@
 
                        <div class="col-md-6 col-sm-6">
                            <div class="MissionVision__single__left Loader Light boxOver anim">
-                               <img class="modify-img "
-                                   data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/1.png"
-                                   data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/1.png"
-                                   data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/1.png"
-                                   data-src="" src="themes/cms/assets/images/static/blur.jpg"
-                                   alt=""><!-- 570x460 -->
-                               <a href="{{$aboutCompanyInformation->video_url}}">
+                               <img class="modify-img " data-image-small="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}"
+                                   data-image-large="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}"
+                                   data-image-standard="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}"
+                                   data-src="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}"
+                                   src="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}" alt=""><!-- 570x460 -->
+                               <a href="{{ $aboutCompanyInformation->video_url }}">
                                    <span class="Play">
                                        <!--<img class="Play" height="37" width="37"
-                                                   src="<? //= $this->theme->baseUrl . '/assets/images/static/play.svg'; ?>"
-                                                   alt=""> -->
+                                                                                                                           src="<? //= $this->theme->baseUrl . '/assets/images/static/play.svg'; ?>"
+                                                                                                                           alt=""> -->
                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                            viewBox="0 0 130 130" class="Play">
                                            <defs>
@@ -419,9 +418,11 @@
 
                <div class="Project-nav">
                    <ul>
-                       <li class="goLeft"><img src="themes/cms/assets/images/static/test_prev.svg" height="51"
+                       <li class="goLeft"><img
+                               src="{{ asset('frontend/themes/cms/assets/images/static/test_prev.svg') }}" height="51"
                                width="51" alt=""></li>
-                       <li class="goRight"><img src="themes/cms/assets/images/static/test_next.svg" height="51"
+                       <li class="goRight"><img
+                               src="{{ asset('frontend/themes/cms/assets/images/static/test_next.svg') }}" height="51"
                                width="51" alt=""></li>
                    </ul>
                </div>
@@ -434,304 +435,88 @@
                    <div class="Project__slider-wrap anim boxOver">
                        <div class="ProjectSlider-init">
 
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-angelo.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/noor_resident.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/noor_resident.png"
-                                       data-image-standard="admin/uploads/product/edison-angelo/555x900/1667717107bViJr_m.jpg"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Noor Residence</h3>
-                                               <h4> K Block, Bashundhara R/A</h4>
-                                               <p>The project offers a very calm and quite surroundings with lots of
-                                                   greenery and serenity. Easy access through well planned road network to
-                                                   the mainstream activities to the city . <br />
-                                                   <br />
-                                                   For Apartment Tour-&nbsp;<a href="https://youtu.be/Y7WJEQa5AyQ"
-                                                       target="_blank">click here</a><br />
-                                                   <br />
-                                                   <!-- For Virtual experience -&nbsp;&nbsp;<a
-                                                         href="https://latitude-23.net/VR/EDISON_ANGELO V1/tour.html"
-                                                         target="_blank">click here</a> -->
-                                               </p>
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                               </div>
-                                           </div>
+                           @foreach ($ongoingProjects as $item)
+                               <div class="Project__slider-wrap__single">
+                                   <div class="Project__slider-wrap__single__inner">
+                                       <a href="projects/edison-angelo.html"></a>
+                                       <div class="Project__slider-wrap__single__bg modify-bg bg-position"
+                                           data-image-small="{{asset('project/'.$item->images[0]->image )}}"
+                                           data-image-large="{{asset('project/'.$item->images[0]->image )}}"
+                                           data-image-standard="{{asset('project/'.$item->images[0]->image )}}"
+                                           style="background-image: url('{{asset('project/'.$item->images[0]->image )}}');">
 
                                        </div>
 
-                                       <a href="projects/edison-angelo.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
+                                       <!-- 370x600  && mobile > 374x450-->
+                                       <div class="Project__slider-wrap__single__inner__content">
+                                           <div class="Project__slider-wrap__single__inner__content__slide">
+                                               <div class="Project__slider-wrap__single__inner__content__slide__inner">
+                                                   <h3>
+                                                       @if ($item->name)
+                                                           {{ $item->name }}
+                                                       @endif
+                                                   </h3>
+                                                   <h4>
+                                                       @if ($item->plot)
+                                                           Plot {{ $item->plot }},
+                                                       @endif
 
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-prospero.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/alochaya.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/alochaya.png"
-                                       data-image-standard="admin/uploads/product/edison-angelo-copy/555x900/1701774315VhLWF_m.jpg"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
+                                                       @if ($item->block)
+                                                           Block {{ $item->block }},
+                                                       @endif
 
-                                   </div>
+                                                       @if ($item->location->name)
+                                                           {{ $item->location->name }}
+                                                       @endif
+                                                   </h4>
+                                                   <p>
+                                                       @if ($item->overview)
+                                                           {{ $item->overview }}
+                                                       @endif
+                                                       <br /><br />
+                                                       @if ($item->apartment_tour)
+                                                           For Apartment Tour-&nbsp;
+                                                           <a href="{{ $item->apartment_tour }}" target="_blank">click
+                                                               here</a>
+                                                       @endif
+                                                       <br />
+                                                       <br />
 
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Alo Chaya</h3>
-                                               <h4> J Block, Bashundhara R/A</h4>
-                                               <p>The project is situated at a very lucrative location between the well
-                                                   known school Playpen and Mosque.<br />
-                                                   <br />
-                                                   &nbsp;
-                                               </p>
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
+                                                       @if ($item->virtual_experience)
+                                                           For Virtual experience -&nbsp;&nbsp;
+                                                           <a href="{{ $item->virtual_experience }}"
+                                                               target="_blank">click here</a>
+                                                       @endif
+
+                                                   </p>
+                                                   <div
+                                                       style="color: white; font-size: 18px; display: flex; margin-top: 5px">
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Beds"
+                                                           style="margin-right: 20px;"><i class="fa fa-bed"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->beds, 0) }}</span></span>
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Baths"
+                                                           style="margin-right: 20px;"><i class="fa fa-bath"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->baths, 0) }}</span></span>
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Verandas"
+                                                           style="margin-right: 20px;"><i class="fa fa-square"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->verandas, 0) }}</span></span>
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Area"
+                                                           style="margin-right: 20px;"><i class="fa fa-share-square-o"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->area, 0) }}</span></span>
+                                                   </div>
                                                </div>
+
                                            </div>
 
+                                           <a href="projects/edison-angelo.html" class="dcBtn"><span>Explore</span></a>
                                        </div>
-
-                                       <a href="projects/edison-prospero.html" class="dcBtn"><span>Explore</span></a>
                                    </div>
                                </div>
-                           </div>
-
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-desdemona.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/noor_resident.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/noor_resident.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/noor_resident.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Saurav Garden</h3>
-                                               <h4> K Block, Bashundhara R/A</h4>
-                                               <p>This is a unique project due to its design aesthetic. The master bed and
-                                                   child bad has attached veranda which will give you proper
-                                                   sunlight.<br />
-                                                   <br />
-                                                   For Apartment Tour-&nbsp;<a href="https://youtu.be/jnW4g0Um1Dg"
-                                                       target="_blank">click here</a><br />
-                                                   <br />
-                                                   &nbsp;
-                                               </p>
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                               </div>
-                                           </div>
-
-                                       </div>
-
-                                       <a href="projects/edison-desdemona.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-cordelia.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/nammi.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/nammi.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/nammi.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Nammi Residence</h3>
-                                               <h4> H Block, Bashundhara R/A</h4>
-                                               <p>This is one of the finest building due to its location. This is very near
-                                                   to a well known school Sunnydale. </p>
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                               </div>
-                                           </div>
-
-                                       </div>
-
-                                       <a href="projects/edison-cordelia.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-Hermia.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/mrinmoy.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/mrinmoy.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/mrinmoy.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Mrinmoy</h3>
-                                               <h4>Bashundhara R/A</h4>
-                                               <p>The project is a combination of nature and modern architect aesthetic.
-                                                   The designers put lot of effort to make functional aspect ideal while
-                                                   visual sense is on focus. As this is a corner plot</p>
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                               </div>
-                                           </div>
-
-                                       </div>
-
-                                       <a href="projects/edison-Hermia.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-Valeria.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/symphony_residense.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/symphony_residense.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/symphony_residense.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Symphony Residence</h3>
-                                               <h4> I Block, Bashundhara R/A</h4>
-                                               <p>Another brand new project Symphony Residence with exiting new features
-                                                   using imported and local products with expert engineering is up for sale
-                                                   at the heart of Bashundhara R/A.</p>
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                               </div>
-                                           </div>
-
-                                       </div>
-
-                                       <a href="projects/edison-Valeria.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
-
-
+                           @endforeach
 
                        </div>
                    </div>
@@ -757,9 +542,11 @@
 
                <div class="Project-nav">
                    <ul>
-                       <li class="goLeftUpcoming"><img src="themes/cms/assets/images/static/icon-left.png" height="51"
-                               width="51" alt=""></li>
-                       <li class="goRightUpcoming"><img src="themes/cms/assets/images/static/icon-right.png"
+                       <li class="goLeftUpcoming"><img
+                               src="{{ asset('/frontend/themes/cms/assets/images/static/icon-left.png') }}"
+                               height="51" width="51" alt=""></li>
+                       <li class="goRightUpcoming"><img
+                               src="{{ asset('/frontend/themes/cms/assets/images/static/icon-right.png') }}"
                                height="51" width="51" alt=""></li>
                    </ul>
                </div>
@@ -771,202 +558,89 @@
                <div class="row">
                    <div class="Project__slider-wrap anim boxOver">
                        <div class="ProjectSliderUpcoming-init">
-
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-desdemona.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/reza_cottage.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/reza_cottage.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/reza_cottage.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Reza Cottage</h3>
-                                               <h4>Plot 2625, Block L, Bashundhara R/A </h4>
-                                               <!-- <p>This is a unique project due to its design aesthetic. The master bed and
-                                                     child bad has attached veranda which will give you proper
-                                                     sunlight.<br />
-                                                     <br />
-                                                     For Apartment Tour-&nbsp;<a href="https://youtu.be/jnW4g0Um1Dg"
-                                                         target="_blank">click here</a><br />
-                                                     <br />
-                                                     &nbsp;
-                                                 </p> -->
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span style="margin-left: 6px;">2130
-                                                           sqft</span></span>
-                                               </div>
-                                           </div>
+                           @foreach ($upcomingProjects as $item)
+                               <div class="Project__slider-wrap__single ">
+                                   <div class="Project__slider-wrap__single__inner ">
+                                       <a href="projects/edison-desdemona.html"></a>
+                                       <div class="Project__slider-wrap__single__bg modify-bg bg-position"
+                                           data-image-small="{{asset('project/'.$item->images[0]->image )}}"
+                                           data-image-large="{{asset('project/'.$item->images[0]->image )}}"
+                                           data-image-standard="{{asset('project/'.$item->images[0]->image )}}"
+                                           style="background-image: url('{{asset('project/'.$item->images[0]->image )}}');">
 
                                        </div>
 
-                                       <a href="projects/edison-desdemona.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
+                                       <!-- 370x600  && mobile > 374x450-->
+                                       <div class="Project__slider-wrap__single__inner__content">
+                                           <div class="Project__slider-wrap__single__inner__content__slide">
+                                               <div class="Project__slider-wrap__single__inner__content__slide__inner">
+                                                   <h3>
+                                                       @if ($item->name)
+                                                           {{ $item->name }}
+                                                       @endif
+                                                   </h3>
+                                                   <h4>
+                                                       @if ($item->plot)
+                                                           Plot {{ $item->plot }},
+                                                       @endif
 
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-cordelia.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/priyonty_cottage.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/priyonty_cottage.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/priyonty_cottage.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
+                                                       @if ($item->block)
+                                                           Block {{ $item->block }},
+                                                       @endif
 
-                                   </div>
+                                                       @if ($item->location->name)
+                                                           {{ $item->location->name }}
+                                                       @endif
+                                                   </h4>
+                                                   <p>
+                                                       @if ($item->overview)
+                                                           {{ $item->overview }}
+                                                       @endif
+                                                       <br /><br />
+                                                       @if ($item->apartment_tour)
+                                                           For Apartment Tour-&nbsp;
+                                                           <a href="{{ $item->apartment_tour }}" target="_blank">click
+                                                               here</a>
+                                                       @endif
+                                                       <br />
+                                                       <br />
 
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Priyonty Cottage</h3>
-                                               <h4> Plot 2311, R # Afroza B Soroni, Block L, Bashundhara</h4>
-                                               <!-- <p>This is one of the finest building due to its location. This is very near
-                                                     to a well known school Sunnydale. </p> -->
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span style="margin-left: 6px;">2130
-                                                           sqft</span></span>
+                                                       @if ($item->virtual_experience)
+                                                           For Virtual experience -&nbsp;&nbsp;
+                                                           <a href="{{ $item->virtual_experience }}"
+                                                               target="_blank">click here</a>
+                                                       @endif
+
+                                                   </p>
+                                                   <div
+                                                       style="color: white; font-size: 18px; display: flex; margin-top: 5px">
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Beds"
+                                                           style="margin-right: 20px;"><i class="fa fa-bed"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->beds, 0) }}</span></span>
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Baths"
+                                                           style="margin-right: 20px;"><i class="fa fa-bath"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->baths, 0) }}</span></span>
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Verandas"
+                                                           style="margin-right: 20px;"><i class="fa fa-square"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->verandas, 0) }}</span></span>
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Area"
+                                                           style="margin-right: 20px;"><i class="fa fa-share-square-o"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->area, 0) }} sqft</span></span>
+                                                   </div>
                                                </div>
+
                                            </div>
 
+                                           <a href="projects/edison-desdemona.html"
+                                               class="dcBtn"><span>Explore</span></a>
                                        </div>
-
-                                       <a href="projects/edison-cordelia.html" class="dcBtn"><span>Explore</span></a>
                                    </div>
                                </div>
-                           </div>
-
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-Hermia.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/nirjhor.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/nirjhor.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/nirjhor.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Nirjhor</h3>
-                                               <h4> Plot 2216, Block L, Bashundhara R/A</h4>
-                                               <!-- <p>The project is a combination of nature and modern architect aesthetic.
-                                                     The designers put lot of effort to make functional aspect ideal while
-                                                     visual sense is on focus. As this is a corner plot</p> -->
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span style="margin-left: 6px;">2130
-                                                           sqft</span></span>
-                                               </div>
-                                           </div>
-
-                                       </div>
-
-                                       <a href="projects/edison-Hermia.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-cordelia.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/priyonty_cottage.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/priyonty_cottage.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/priyonty_cottage.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Priyonty Cottage</h3>
-                                               <h4> Plot 2311, R # Afroza B Soroni, Block L, Bashundhara</h4>
-                                               <!-- <p>This is one of the finest building due to its location. This is very near
-                                                     to a well known school Sunnydale. </p> -->
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span style="margin-left: 6px;">2130
-                                                           sqft</span></span>
-                                               </div>
-                                           </div>
-
-                                       </div>
-
-                                       <a href="projects/edison-cordelia.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
-
-
-
-
+                           @endforeach
                        </div>
                    </div>
                </div>
@@ -989,9 +663,9 @@
 
                <div class="Project-nav">
                    <ul>
-                       <li class="goLeftHandOver"><img src="themes/cms/assets/images/static/test_prev.svg" height="51"
+                       <li class="goLeftHandOver"><img src="{{asset('/frontend/themes/cms/assets/images/static/test_prev.svg')}}" height="51"
                                width="51" alt=""></li>
-                       <li class="goRightHandOver"><img src="themes/cms/assets/images/static/test_next.svg"
+                       <li class="goRightHandOver"><img src="{{asset('/frontend/themes/cms/assets/images/static/test_next.svg')}}"
                                height="51" width="51" alt=""></li>
                    </ul>
                </div>
@@ -1004,201 +678,87 @@
                    <div class="Project__slider-wrap anim boxOver">
                        <div class="ProjectSliderHandOver-init">
 
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-desdemona.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/panshi.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/panshi.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/panshi.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Putul Panshi</h3>
-                                               <h4> I Block, Bashundhara R/A</h4>
-                                               <!-- <p>This is a unique project due to its design aesthetic. The master bed and
-                                                     child bad has attached veranda which will give you proper
-                                                     sunlight.<br />
-                                                     <br />
-                                                     For Apartment Tour-&nbsp;<a href="https://youtu.be/jnW4g0Um1Dg"
-                                                         target="_blank">click here</a><br />
-                                                     <br />
-                                                     &nbsp;
-                                                 </p> -->
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span style="margin-left: 6px;">2130
-                                                           sqft</span></span>
-                                               </div>
-                                           </div>
+                           @foreach ($handedOverProjects as $item)
+                               <div class="Project__slider-wrap__single ">
+                                   <div class="Project__slider-wrap__single__inner ">
+                                       <a href="projects/edison-desdemona.html"></a>
+                                       <div class="Project__slider-wrap__single__bg modify-bg bg-position"
+                                       data-image-small="{{asset('project/'.$item->images[0]->image )}}"
+                                       data-image-large="{{asset('project/'.$item->images[0]->image )}}"
+                                       data-image-standard="{{asset('project/'.$item->images[0]->image )}}"
+                                       style="background-image: url('{{asset('project/'.$item->images[0]->image )}}');">
 
                                        </div>
+                                     
+                                       <!-- 370x600  && mobile > 374x450-->
+                                       <div class="Project__slider-wrap__single__inner__content">
+                                           <div class="Project__slider-wrap__single__inner__content__slide">
+                                               <div class="Project__slider-wrap__single__inner__content__slide__inner">
+                                                   <h3>
+                                                       @if ($item->name)
+                                                           {{ $item->name }}
+                                                       @endif
+                                                   </h3>
+                                                   <h4>
+                                                       @if ($item->plot)
+                                                           Plot {{ $item->plot }},
+                                                       @endif
 
-                                       <a href="projects/edison-desdemona.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
+                                                       @if ($item->block)
+                                                           Block {{ $item->block }},
+                                                       @endif
 
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-cordelia.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/khan-dreams.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/khan-dreams.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/khan-dreams.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
+                                                       @if ($item->location->name)
+                                                           {{ $item->location->name }}
+                                                       @endif
+                                                   </h4>
+                                                   <p>
+                                                       @if ($item->overview)
+                                                           {{ $item->overview }}
+                                                       @endif
+                                                       <br /><br />
+                                                       @if ($item->apartment_tour)
+                                                           For Apartment Tour-&nbsp;
+                                                           <a href="{{ $item->apartment_tour }}" target="_blank">click
+                                                               here</a>
+                                                       @endif
+                                                       <br />
+                                                       <br />
 
-                                   </div>
+                                                       @if ($item->virtual_experience)
+                                                           For Virtual experience -&nbsp;&nbsp;
+                                                           <a href="{{ $item->virtual_experience }}"
+                                                               target="_blank">click here</a>
+                                                       @endif
 
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Khan Dreams</h3>
-                                               <h4> D Block, Bashundhara R/A</h4>
-                                               <p>This is one of the finest building due to its location. This is very near
-                                                   to a well known school Sunnydale. </p>
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span style="margin-left: 6px;">2130
-                                                           sqft</span></span>
+                                                   </p>
+                                                   <div
+                                                       style="color: white; font-size: 18px; display: flex; margin-top: 5px">
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Beds"
+                                                           style="margin-right: 20px;"><i class="fa fa-bed"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->beds, 0) }}</span></span>
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Baths"
+                                                           style="margin-right: 20px;"><i class="fa fa-bath"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->baths, 0) }}</span></span>
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Verandas"
+                                                           style="margin-right: 20px;"><i class="fa fa-square"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->verandas, 0) }}</span></span>
+                                                       <span id="mytooltip" data-toggle="tooltip" title="Area"
+                                                           style="margin-right: 20px;"><i class="fa fa-share-square-o"
+                                                               aria-hidden="true"></i><span
+                                                               style="margin-left: 6px;">{{ number_format($item->area, 0) }} sqft</span></span>
+                                                   </div>
                                                </div>
                                            </div>
-
+                                           <a href="projects/edison-desdemona.html"
+                                               class="dcBtn"><span>Explore</span></a>
                                        </div>
-
-                                       <a href="projects/edison-cordelia.html" class="dcBtn"><span>Explore</span></a>
                                    </div>
                                </div>
-                           </div>
-
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-Hermia.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/nasa-garden2.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/nasa-garden2.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/nasa-garden2.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Nasa Garden</h3>
-                                               <h4>C BLOCK, BASUNDHARA R/A</h4>
-                                               <p>The project is a combination of nature and modern architect aesthetic.
-                                                   The designers put lot of effort to make functional aspect ideal while
-                                                   visual sense is on focus. As this is a corner plot</p>
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                               </div>
-                                           </div>
-
-                                       </div>
-
-                                       <a href="projects/edison-Hermia.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
-
-                           <div class="Project__slider-wrap__single ">
-                               <div class="Project__slider-wrap__single__inner ">
-                                   <a href="projects/edison-cordelia.html"></a>
-                                   <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/khan-dreams.png"
-                                       data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/khan-dreams.png"
-                                       data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/khan-dreams.png"
-                                       style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-
-                                   </div>
-
-                                   <!-- 370x600  && mobile > 374x450-->
-                                   <div class="Project__slider-wrap__single__inner__content">
-                                       <div class="Project__slider-wrap__single__inner__content__slide">
-                                           <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                               <h3>Khan Dreams</h3>
-                                               <h4> D Block, Bashundhara R/A</h4>
-                                               <p>This is one of the finest building due to its location. This is very near
-                                                   to a well known school Sunnydale. </p>
-                                               <div style="color: white; font-size: 18px; display: flex; margin-top: 5px">
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Beds"
-                                                       style="margin-right: 20px;"><i class="fa fa-bed"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Baths"
-                                                       style="margin-right: 20px;"><i class="fa fa-bath"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">4</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Verandas"
-                                                       style="margin-right: 20px;"><i class="fa fa-square"
-                                                           aria-hidden="true"></i><span
-                                                           style="margin-left: 6px;">3</span></span>
-                                                   <span id="mytooltip" data-toggle="tooltip" title="Area"
-                                                       style="margin-right: 20px;"><i class="fa fa-share-square-o"
-                                                           aria-hidden="true"></i><span style="margin-left: 6px;">2130
-                                                           sqft</span></span>
-                                               </div>
-                                           </div>
-
-                                       </div>
-
-                                       <a href="projects/edison-cordelia.html" class="dcBtn"><span>Explore</span></a>
-                                   </div>
-                               </div>
-                           </div>
-
-
-
-
+                           @endforeach
                        </div>
                    </div>
                </div>
@@ -1238,8 +798,8 @@
                                    <span class="Play">
                                        <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
                                            width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30"
-                                               cy="30" r="30" fill="#fff" />
+                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
+                                               r="30" fill="#fff" />
                                            <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
                                                transform="translate(39 21) rotate(90)" fill="#003a71" />
                                        </svg>
@@ -1286,8 +846,8 @@
                                    <span class="Play">
                                        <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
                                            width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30"
-                                               cy="30" r="30" fill="#fff" />
+                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
+                                               r="30" fill="#fff" />
                                            <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
                                                transform="translate(39 21) rotate(90)" fill="#003a71" />
                                        </svg>
@@ -1335,8 +895,8 @@
                                    <span class="Play">
                                        <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
                                            width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30"
-                                               cy="30" r="30" fill="#fff" />
+                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
+                                               r="30" fill="#fff" />
                                            <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
                                                transform="translate(39 21) rotate(90)" fill="#003a71" />
                                        </svg>
@@ -1385,8 +945,8 @@
                                    <span class="Play">
                                        <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
                                            width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30"
-                                               cy="30" r="30" fill="#fff" />
+                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
+                                               r="30" fill="#fff" />
                                            <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
                                                transform="translate(39 21) rotate(90)" fill="#003a71" />
                                        </svg>
@@ -1433,8 +993,8 @@
                                    <span class="Play">
                                        <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
                                            width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30"
-                                               cy="30" r="30" fill="#fff" />
+                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
+                                               r="30" fill="#fff" />
                                            <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
                                                transform="translate(39 21) rotate(90)" fill="#003a71" />
                                        </svg>
@@ -1481,8 +1041,7 @@
                                            transform="translate(0 5)" fill="none" stroke="#1a1818"
                                            stroke-width="1" />
                                        <line id="Line_26" data-name="Line 26" x2="5" y2="5"
-                                           transform="translate(15)" fill="none" stroke="#1a1818"
-                                           stroke-width="1" />
+                                           transform="translate(15)" fill="none" stroke="#1a1818" stroke-width="1" />
                                        <line id="Line_27" data-name="Line 27" y1="5" x2="5"
                                            transform="translate(15 5)" fill="none" stroke="#1a1818"
                                            stroke-width="1" />
@@ -1496,8 +1055,7 @@
                                            transform="translate(0 5)" fill="none" stroke="#1a1818"
                                            stroke-width="1" />
                                        <line id="Line_26" data-name="Line 26" x2="5" y2="5"
-                                           transform="translate(15)" fill="none" stroke="#1a1818"
-                                           stroke-width="1" />
+                                           transform="translate(15)" fill="none" stroke="#1a1818" stroke-width="1" />
                                        <line id="Line_27" data-name="Line 27" y1="5" x2="5"
                                            transform="translate(15 5)" fill="none" stroke="#1a1818"
                                            stroke-width="1" />
@@ -1714,8 +1272,7 @@
                                                <feComposite in="SourceGraphic"></feComposite>
                                            </filter>
                                        </defs>
-                                       <g id="Component_27_3" data-name="Component 27 – 3"
-                                           transform="translate(30 25)">
+                                       <g id="Component_27_3" data-name="Component 27 – 3" transform="translate(30 25)">
                                            <g transform="matrix(1, 0, 0, 1, -30, -25)" filter="url(#Ellipse_6)">
                                                <circle id="Ellipse_6-2" data-name="Ellipse 6" cx="35"
                                                    cy="35" r="35" transform="translate(30 25)" fill="#ff0000">
@@ -1790,8 +1347,7 @@
                                            <span class="success_container_schedule-a-meeting"></span>
                                        </div>
                                    </div>
-                                   <div
-                                       class="form-message-container error_wrapper hide error_wrapper_schedule-a-meeting">
+                                   <div class="form-message-container error_wrapper hide error_wrapper_schedule-a-meeting">
                                        <div class="form-message-body">
                                            <span class="error_container_schedule-a-meeting"></span>
                                        </div>

@@ -20,13 +20,13 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Slider</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Project</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Home-page</span>
+                        <span class="text-muted text-hover-primary">Project</span>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -35,7 +35,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Slider</li>
+                    <li class="breadcrumb-item text-muted">Project</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -57,7 +57,8 @@
                         <th>Serial ID</th>
                         <th>Name</th>
                         <th>Short title</th>
-                        <th>Address</th>
+                        <th>Category</th>
+                        <th>Type</th>
                         <th>Image</th>
                         <th>Action</th>
                     </tr>
@@ -92,8 +93,12 @@
                         name: 'short_title'
                     },
                     {
-                        data: 'address',
-                        name: 'address'
+                        data:'category',
+                        name:'category'
+                    },
+                    {
+                        data:'type',
+                        name:'type'
                     },
                     {
                         data: 'first_image',

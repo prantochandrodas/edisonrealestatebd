@@ -13,12 +13,27 @@ class AboutUsInformationController extends Controller
         return view('backend.about_us.information.index',compact('data'));
     }
 
-    public function update(Request $request, $id){
+    public function update(Request $request){
 
-        $data=AboutUsInformation::findOrFail($id);
-        $data->short_description_title=$request->short_description_title;
+        $data=AboutUsInformation::first();
+        if ($request->hasFile('thumbnail_image')) {
+            // Delete the old image
+            $oldImagePath = public_path('about_us/thumbnail/'.$data->thumbnail_image);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
+            }
+
+            // Store the new image
+            $file = $request->file('thumbnail_image');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '_' . '.' . $extension;
+            $path = 'about_us/thumbnail/';
+            $file->move(public_path($path), $filename);
+            $data->thumbnail_image = $filename;
+        }
+
+        $data->title=$request->title;
         $data->short_description=$request->short_description;
-        $data->long_description_title=$request->long_description_title;
         $data->long_description=$request->long_description;
         $data->video_url=$request->video_url;
         $data->save();

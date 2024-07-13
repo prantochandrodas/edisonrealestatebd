@@ -66,7 +66,7 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                         @if ($slider->image)
-                            <img src="{{ asset($slider->image) }}" height="100" class="mb-2" alt="Current Image">
+                            <img src="{{ asset('home/slider/'.$slider->image) }}" height="100" class="mb-2" alt="Current Image">
                         @endif
                     </div>
                     {{-- heading input field  --}}

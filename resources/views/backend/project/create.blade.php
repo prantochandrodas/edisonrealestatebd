@@ -109,7 +109,7 @@
                         <option value="Active">Active</option>
                         <option value="Inactive">Inactive</option>
                         <option value="HandedOver">HandedOver</option>
-                        <option value="SoldOut">HandedOver</option>
+                        <option value="SoldOut">SoldOut</option>
                     </select>
                     @error('status')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -131,14 +131,7 @@
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>
-                {{-- address field  --}}
-                <div class="form-group">
-                    <label for="address" class="mb-2 fs-5">Address:</label>
-                    <input type="text" class="form-control mb-2" id="address" name="address">
-                    @error('address')
-                        <div class="alert alert-danger mt-2">{{ $message }}</div>
-                    @enderror
-                </div>
+               
                 {{-- overview field  --}}
                 <div class="form-group">
                     <label for="overview" class="mb-2 fs-5">Overview:</label>
@@ -218,6 +211,31 @@
                     <label for="area" class="mb-2 fs-5">Number of area:</label>
                     <input type="number" class="form-control mb-2" id="area" name="area">
                     @error('area')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                  {{-- plot field  --}}
+                  <div class="form-group">
+                    <label for="plot" class="mb-2 fs-5">Plot:</label>
+                    <input type="text" class="form-control mb-2" id="plot" name="plot">
+                    @error('plot')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                 {{-- road_no field  --}}
+                 <div class="form-group">
+                    <label for="road_no" class="mb-2 fs-5">road_no:</label>
+                    <input type="text" class="form-control mb-2" id="road_no" name="road_no">
+                    @error('road_no')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                 
+                 {{-- block field  --}}
+                 <div class="form-group">
+                    <label for="block" class="mb-2 fs-5">block:</label>
+                    <input type="text" class="form-control mb-2" id="block" name="block">
+                    @error('block')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>

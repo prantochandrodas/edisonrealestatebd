@@ -76,6 +76,11 @@
                     <input name="owner_title" type="text" id="owner_title" class="form-control"
                         style="width: 100%; padding: 8px;" value={{ $post->owner_title }}>
                 </div>
+                <div style="margin-bottom: 20px;">
+                    <label for="thumbnail_image" style="display: block; margin-bottom: 5px;">Thumbnail Image:</label>
+                    <input name="thumbnail_image" type="file" id="thumbnail_image" class="form-control"
+                        style="width: 100%; padding: 8px;" value={{ $post->thumbnail_image }}>
+                </div>
                 <div class="form-group">
                     <label for="video">Video:</label>
                     <input type="text" class="form-control" id="video" name="video" value="{{ $post->video }}">

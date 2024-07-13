@@ -53,15 +53,15 @@
             <h2 style="text-align: center;">Update Company-Information</h2>
         </div>
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-            <form action="{{ route('about-us-infos.update', $data->id) }}" method="POST">
+            <form action="{{ route('about-us-infos.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
-                {{-- short_description_title inpu field --}}
+                {{-- title inpu field --}}
                 <div class="form-group">
-                    <label for="short_description_title">Short Description Title:</label>
-                    <input type="text" class="form-control" id="short_description_title" name="short_description_title"
-                        value="{{ $data->short_description_title }}" required>
+                    <label for="title">Short Description Title:</label>
+                    <input type="text" class="form-control" id="title" name="title"
+                        value="{{ $data->title }}" required>
                 </div>
 
                 {{-- short_description input field --}}
@@ -71,19 +71,22 @@
                         style="width: 100%; padding: 8px;">{{ $data->short_description }}</textarea>
                 </div>
 
-
-                {{-- long_description_title inpu field --}}
-                <div class="form-group">
-                    <label for="long_description_title">Long Description Title:</label>
-                    <input type="text" class="form-control" id="long_description_title" name="long_description_title"
-                        value="{{ $data->long_description_title }}" required>
-                </div>
-
                 {{-- long_description input field --}}
                 <div style="margin-bottom: 20px;">
                     <label for="long_description" style="display: block; margin-bottom: 5px;">Long Description:</label>
                     <textarea name="long_description" id="summernote2" cols="30" rows="10" class="form-control"
                         style="width: 100%; padding: 8px;">{{ $data->long_description }}</textarea>
+                </div>
+                 {{-- thumbnail_image input field  --}}
+                 <div class="form-group">
+                    <label for="thumbnail_image" class="mb-2 h5">Thumbnail Image:</label>
+                    <input type="file" class="form-control mb-2" id="thumbnail_image" name="thumbnail_image">
+                    @error('thumbnail_image')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                    @if ($data->thumbnail_image)
+                        <img src="{{ asset('about_us/thumbnail/'.$data->thumbnail_image) }}" height="300" class="mb-2" alt="Current Image">
+                    @endif
                 </div>
 
                 <div class="form-group">

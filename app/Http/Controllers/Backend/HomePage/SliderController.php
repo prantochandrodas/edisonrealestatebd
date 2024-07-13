@@ -20,6 +20,14 @@ class SliderController extends Controller
         if ($request->ajax()) {
             $data = slider::all();
             return DataTables::of($data)
+                ->addColumn('image', function ($row) {
+                    $firstImage = $row->image;
+                    if ($firstImage) {
+                        return asset('home/slider/' . $firstImage); // Return full URL to the image
+                    } else {
+                        return 'No image';
+                    }
+                })
                 ->addColumn('action', function ($row) {
                     $editUrl = route('slider.edit', $row->id);
                     $deleteUrl = route('slider.distory', $row->id);
@@ -62,7 +70,7 @@ class SliderController extends Controller
             $filename = time() . '_' . '.' . $extension;
             $path = 'home/slider/';
             $file->move(public_path($path), $filename);
-            $imagePath = $path . $filename;
+            $imagePath = $filename;
         }
 
         slider::create([
@@ -95,7 +103,7 @@ class SliderController extends Controller
 
         if ($request->hasFile('image')) {
             // Delete the old image
-            $oldImagePath = public_path($slider->image);
+            $oldImagePath = public_path('home/slider/', $slider->image);
             if (file_exists($oldImagePath)) {
                 unlink($oldImagePath);
             }
@@ -106,7 +114,7 @@ class SliderController extends Controller
             $filename = time() . '_' . '.' . $extension;
             $path = 'home/slider/';
             $file->move(public_path($path), $filename);
-            $slider->image = $path . $filename;
+            $slider->image = $filename;
         }
 
         $slider->heading = $request->heading;
@@ -124,7 +132,7 @@ class SliderController extends Controller
 
         $slider = slider::findOrFail($id);
         // Delete the image file if it exists
-        $imagePath = public_path($slider->image);
+        $imagePath = public_path('home/slider/', $slider->image);
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }

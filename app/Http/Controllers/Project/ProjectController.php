@@ -24,15 +24,21 @@ class ProjectController extends Controller
     {
 
         if ($request->ajax()) {
-            $data = Project::with('images')->get();
+            $data = Project::with('images','category','type')->orderBy('created_at', 'desc')->get();
             return DataTables::of($data)
                 ->addColumn('first_image', function ($row) {
                     $firstImage = $row->images->first();
                     if ($firstImage) {
-                        return asset($firstImage->image); // Return full URL to the image
+                        return asset('project/'.$firstImage->image); // Return full URL to the image
                     } else {
                         return 'No image';
                     }
+                })
+                ->addColumn('category', function ($row) {
+                    return $row->category ? $row->category->name : '';
+                })
+                ->addColumn('type', function ($row) {
+                    return $row->type ? $row->type->name : '';
                 })
                 ->addColumn('action', function ($row) {
                     $editUrl = route('projects.edit', $row->id);
@@ -86,6 +92,9 @@ class ProjectController extends Controller
             'baths' => 'nullable|numeric',
             'verandas' => 'nullable|numeric',
             'area' => 'nullable|numeric',
+            'plot' => 'nullable|string|max:255',            
+            'road_no' => 'nullable|string|max:255',            
+            'block' => 'nullable|string|max:255',            
         ]);
 
         // Save the project data
@@ -105,7 +114,10 @@ class ProjectController extends Controller
             'beds' => $request->beds,
             'baths' => $request->baths,
             'verandas' => $request->verandas,
-            'area' => $request->area
+            'area' => $request->area,
+            'plot' => $request->plot,
+            'road_no' => $request->road_no,
+            'block' => $request->block,
         ]);
         // Save the images to project_pivots table
         if ($request->hasFile('images')) {
@@ -114,7 +126,7 @@ class ProjectController extends Controller
                 $filename = time() . '_' . rand(1, 100) . '.' . $extension;
                 $path = 'project/';
                 $file->move(public_path($path), $filename);
-                $imagePath = $path . $filename;
+                $imagePath = $filename;
 
                 ProjectPivot::create([
                     'project_id' => $project->id,
@@ -161,6 +173,9 @@ class ProjectController extends Controller
             'baths' => 'nullable|numeric',
             'verandas' => 'nullable|numeric',
             'area' => 'nullable|numeric',
+            'plot' => 'nullable|string|max:255',            
+            'road_no' => 'nullable|string|max:255',            
+            'block' => 'nullable|string|max:255',            
         ]);
 
         $data = Project::findOrFail($id);
@@ -182,9 +197,13 @@ class ProjectController extends Controller
             'beds' => $request->beds,
             'baths' => $request->baths,
             'verandas' => $request->verandas,
-            'area' => $request->area
+            'area' => $request->area,
+            'plot' => $request->plot,
+            'road_no' => $request->road_no,
+            'block' => $request->block,
         ]);
 
+      
 
         // Save the images to property_pivots table
         if ($request->hasFile('images')) {
@@ -193,7 +212,7 @@ class ProjectController extends Controller
                 $filename = time() . '_' . rand(1, 100) . '.' . $extension;
                 $path = 'project/';
                 $file->move(public_path($path), $filename);
-                $imagePath = $path . $filename;
+                $imagePath = $filename;
 
                 ProjectPivot::create([
                     'project_id' => $data->id,
@@ -212,7 +231,7 @@ class ProjectController extends Controller
         $image = ProjectPivot::findOrFail($id);
 
         // Delete the image from the public/project folder
-        $imagePath = public_path($image->image);
+        $imagePath = public_path('project/' . $image->image);
         if (file_exists($imagePath)) {
             unlink($imagePath); // Delete the image file
         }
@@ -231,7 +250,7 @@ class ProjectController extends Controller
 
         // Delete associated images from the file system and database
         foreach ($project->images as $pivot) {
-            $imagePath = public_path($pivot->image);
+            $imagePath = public_path('project/' . $pivot->image);
             if (file_exists($imagePath)) {
                 unlink($imagePath); // Delete the image file
             }
