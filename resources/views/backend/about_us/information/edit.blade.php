@@ -52,7 +52,7 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
-            <form action="{{ route('about-us-infos.update', $data->id) }}" method="POST">
+            <form action="{{ route('about-companys.update', $data->id) }}" method="POST">
                 @csrf
                 @method('PUT')
 

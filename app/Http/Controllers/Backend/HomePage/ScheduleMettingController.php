@@ -20,11 +20,11 @@ class ScheduleMettingController extends Controller
             'image' => 'nullable|file|image|max:2048',
         ]);
 
-        $slider = ScheduleMetting::findOrFail($id);
+        $data = ScheduleMetting::findOrFail($id);
 
         if ($request->hasFile('image')) {
             // Delete the old image
-            $oldImagePath = public_path($slider->image);
+            $oldImagePath = public_path('home/schedulemetting/'.$data->image);
             if (file_exists($oldImagePath)) {
                 unlink($oldImagePath);
             }
@@ -33,13 +33,13 @@ class ScheduleMettingController extends Controller
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '_' . '.' . $extension;
-            $path = 'home/slider/';
+            $path = 'home/schedulemetting/';
             $file->move(public_path($path), $filename);
-            $slider->image = $path . $filename;
+            $data->image = $filename;
         }
 
-        $slider->title = $request->title;
-        $slider->save();
+        $data->title = $request->title;
+        $data->save();
 
         return redirect()->route('schedule-mettings.index')
             ->with('success', 'data updated successfully.');

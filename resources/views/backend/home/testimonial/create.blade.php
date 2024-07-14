@@ -74,7 +74,7 @@
                 </div>
                  {{-- owner_name field  --}}
                  <div class="form-group">
-                    <label for="owner_name" class="mb-2 h5">owner_name:</label>
+                    <label for="owner_name" class="mb-2 h5">Owner Name:</label>
                     <input type="text" class="form-control mb-2" id="owner_name" name="owner_name">
                     @error('owner_name')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
@@ -82,9 +82,17 @@
                 </div>
                  {{-- owner_title field  --}}
                  <div class="form-group">
-                    <label for="owner_title" class="mb-2 h5">owner_title:</label>
+                    <label for="owner_title" class="mb-2 h5">Owner Title:</label>
                     <input type="text" class="form-control mb-2" id="owner_title" name="owner_title">
                     @error('owner_title')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+                {{-- thumbnail_image field  --}}
+                <div class="form-group">
+                    <label for="thumbnail_image" class="mb-2 h5">Thumbnail Image:</label>
+                    <input type="file" class="form-control mb-2" id="thumbnail_image" name="thumbnail_image">
+                    @error('thumbnail_image')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                 </div>

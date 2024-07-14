@@ -53,7 +53,7 @@
             <h2 style="text-align: center;">Update Company-Information</h2>
         </div>
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-            <form action="{{ route('about-us-infos.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('about-companys.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 

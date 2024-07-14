@@ -259,9 +259,9 @@
                                    data-speed="1.5" data-thumb="" data-rotate="0" data-saveperformance="off"
                                    data-title="your dream our passion" data-description="">
                                    <!-- MAIN IMAGE -->
-                                   <img src="{{ asset('home/slider/'.$item->image) }}" alt="" data-bgposition="bottom"
-                                       data-bgfit="cover" style="height: 100% !important;" data-bgrepeat="no-repeat"
-                                       data-bgparallax="5" class="rev-slidebg" data-no-retina>
+                                   <img src="{{ asset('home/slider/' . $item->image) }}" alt=""
+                                       data-bgposition="bottom" data-bgfit="cover" style="height: 100% !important;"
+                                       data-bgrepeat="no-repeat" data-bgparallax="5" class="rev-slidebg" data-no-retina>
                                    <!-- LAYERS -->
                                    <!--                        <div class="overlay"></div>-->
 
@@ -351,21 +351,23 @@
                            </h2>
                            <p style="text-align: justify;">{!! $aboutCompanyInformation->short_description !!}</p>
 
-                           <a href="about-us.html" class="dcBtn anim justFade"><span>learn more</span></a>
+                           <a href="/about-us" class="dcBtn anim justFade"><span>learn more</span></a>
                        </div>
 
                        <div class="col-md-6 col-sm-6">
                            <div class="MissionVision__single__left Loader Light boxOver anim">
-                               <img class="modify-img " data-image-small="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}"
-                                   data-image-large="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}"
-                                   data-image-standard="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}"
-                                   data-src="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}"
-                                   src="{{ asset('about_us/thumbnail/'.$aboutCompanyInformation->thumbnail_image) }}" alt=""><!-- 570x460 -->
+                               <img class="modify-img "
+                                   data-image-small="{{ asset('about_us/thumbnail/' . $aboutCompanyInformation->thumbnail_image) }}"
+                                   data-image-large="{{ asset('about_us/thumbnail/' . $aboutCompanyInformation->thumbnail_image) }}"
+                                   data-image-standard="{{ asset('about_us/thumbnail/' . $aboutCompanyInformation->thumbnail_image) }}"
+                                   data-src="{{ asset('about_us/thumbnail/' . $aboutCompanyInformation->thumbnail_image) }}"
+                                   src="{{ asset('about_us/thumbnail/' . $aboutCompanyInformation->thumbnail_image) }}"
+                                   alt=""><!-- 570x460 -->
                                <a href="{{ $aboutCompanyInformation->video_url }}">
                                    <span class="Play">
                                        <!--<img class="Play" height="37" width="37"
-                                                                                                                           src="<? //= $this->theme->baseUrl . '/assets/images/static/play.svg'; ?>"
-                                                                                                                           alt=""> -->
+                                                                                                                                   src="<? //= $this->theme->baseUrl . '/assets/images/static/play.svg'; ?>"
+                                                                                                                                   alt=""> -->
                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                            viewBox="0 0 130 130" class="Play">
                                            <defs>
@@ -440,10 +442,10 @@
                                    <div class="Project__slider-wrap__single__inner">
                                        <a href="projects/edison-angelo.html"></a>
                                        <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                           data-image-small="{{asset('project/'.$item->images[0]->image )}}"
-                                           data-image-large="{{asset('project/'.$item->images[0]->image )}}"
-                                           data-image-standard="{{asset('project/'.$item->images[0]->image )}}"
-                                           style="background-image: url('{{asset('project/'.$item->images[0]->image )}}');">
+                                           data-image-small="{{ asset('project/' . $item->images[0]->image) }}"
+                                           data-image-large="{{ asset('project/' . $item->images[0]->image) }}"
+                                           data-image-standard="{{ asset('project/' . $item->images[0]->image) }}"
+                                           style="background-image: url('{{ asset('project/' . $item->images[0]->image) }}');">
 
                                        </div>
 
@@ -563,10 +565,10 @@
                                    <div class="Project__slider-wrap__single__inner ">
                                        <a href="projects/edison-desdemona.html"></a>
                                        <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                           data-image-small="{{asset('project/'.$item->images[0]->image )}}"
-                                           data-image-large="{{asset('project/'.$item->images[0]->image )}}"
-                                           data-image-standard="{{asset('project/'.$item->images[0]->image )}}"
-                                           style="background-image: url('{{asset('project/'.$item->images[0]->image )}}');">
+                                           data-image-small="{{ asset('project/' . $item->images[0]->image) }}"
+                                           data-image-large="{{ asset('project/' . $item->images[0]->image) }}"
+                                           data-image-standard="{{ asset('project/' . $item->images[0]->image) }}"
+                                           style="background-image: url('{{ asset('project/' . $item->images[0]->image) }}');">
 
                                        </div>
 
@@ -629,7 +631,8 @@
                                                        <span id="mytooltip" data-toggle="tooltip" title="Area"
                                                            style="margin-right: 20px;"><i class="fa fa-share-square-o"
                                                                aria-hidden="true"></i><span
-                                                               style="margin-left: 6px;">{{ number_format($item->area, 0) }} sqft</span></span>
+                                                               style="margin-left: 6px;">{{ number_format($item->area, 0) }}
+                                                               sqft</span></span>
                                                    </div>
                                                </div>
 
@@ -663,9 +666,11 @@
 
                <div class="Project-nav">
                    <ul>
-                       <li class="goLeftHandOver"><img src="{{asset('/frontend/themes/cms/assets/images/static/test_prev.svg')}}" height="51"
-                               width="51" alt=""></li>
-                       <li class="goRightHandOver"><img src="{{asset('/frontend/themes/cms/assets/images/static/test_next.svg')}}"
+                       <li class="goLeftHandOver"><img
+                               src="{{ asset('/frontend/themes/cms/assets/images/static/test_prev.svg') }}"
+                               height="51" width="51" alt=""></li>
+                       <li class="goRightHandOver"><img
+                               src="{{ asset('/frontend/themes/cms/assets/images/static/test_next.svg') }}"
                                height="51" width="51" alt=""></li>
                    </ul>
                </div>
@@ -683,13 +688,13 @@
                                    <div class="Project__slider-wrap__single__inner ">
                                        <a href="projects/edison-desdemona.html"></a>
                                        <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                       data-image-small="{{asset('project/'.$item->images[0]->image )}}"
-                                       data-image-large="{{asset('project/'.$item->images[0]->image )}}"
-                                       data-image-standard="{{asset('project/'.$item->images[0]->image )}}"
-                                       style="background-image: url('{{asset('project/'.$item->images[0]->image )}}');">
+                                           data-image-small="{{ asset('project/' . $item->images[0]->image) }}"
+                                           data-image-large="{{ asset('project/' . $item->images[0]->image) }}"
+                                           data-image-standard="{{ asset('project/' . $item->images[0]->image) }}"
+                                           style="background-image: url('{{ asset('project/' . $item->images[0]->image) }}');">
 
                                        </div>
-                                     
+
                                        <!-- 370x600  && mobile > 374x450-->
                                        <div class="Project__slider-wrap__single__inner__content">
                                            <div class="Project__slider-wrap__single__inner__content__slide">
@@ -749,7 +754,8 @@
                                                        <span id="mytooltip" data-toggle="tooltip" title="Area"
                                                            style="margin-right: 20px;"><i class="fa fa-share-square-o"
                                                                aria-hidden="true"></i><span
-                                                               style="margin-left: 6px;">{{ number_format($item->area, 0) }} sqft</span></span>
+                                                               style="margin-left: 6px;">{{ number_format($item->area, 0) }}
+                                                               sqft</span></span>
                                                    </div>
                                                </div>
                                            </div>
@@ -784,251 +790,55 @@
                    </div>
 
                </div>
+
                <div class="testimonial-slider">
-                   <div class="row testimonial__data">
-                       <div class="col-md-5">
-                           <div class="testimonial__data__left Light boxOver anim">
+                   @foreach ($testimonials as $item)
+                       <div class="row testimonial__data">
+                           <div class="col-md-5">
+                               <div class="testimonial__data__left Light boxOver anim">
 
-                               <img class=" modify-img "
-                                   data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person1.jpg"
-                                   data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person1.jpg"
-                                   data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/person1.jpg"
-                                   style="background-image: url('themes/cms/assets/images/static/blur.jpg');"><!-- 570x460 -->
-                               <a href="https://youtu.be/N8BJIP1dvAY?list=PL_6GYIbBDDCveyFof3qMlUP4ZSoeP1JNn">
-                                   <span class="Play">
-                                       <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
-                                           width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
-                                               r="30" fill="#fff" />
-                                           <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
-                                               transform="translate(39 21) rotate(90)" fill="#003a71" />
-                                       </svg>
-                                   </span>
+                                   <img class=" modify-img "
+                                       data-image-small="{{asset('home/testimonial/'.$item->thumbnail_image)}}"
+                                       data-image-large="{{asset('home/testimonial/'.$item->thumbnail_image)}}"
+                                       data-image-standard="video"
+                                       style="background-image: url('{{asset('home/testimonial/'.$item->thumbnail_image)}}');"><!-- 570x460 -->
+                                   <a href="{{$item->video}}">
+                                       <span class="Play">
+                                           <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
+                                               width="60" height="60" viewBox="0 0 60 60">
+                                               <circle id="Ellipse_36" data-name="Ellipse 36" cx="30"
+                                                   cy="30" r="30" fill="#fff" />
+                                               <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
+                                                   transform="translate(39 21) rotate(90)" fill="#003a71" />
+                                           </svg>
+                                       </span>
 
-                               </a>
+                                   </a>
+                               </div>
                            </div>
-                       </div>
-                       <div class="col-md-7">
-                           <div class="testimonial__data__right">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="46.75" height="40"
-                                   viewBox="0 0 46.75 40">
-                                   <g id="Group_22489" data-name="Group 22489" transform="translate(-674.623 -3249)">
-                                       <path id="Path_720" data-name="Path 720"
-                                           d="M411.174,390.694v20.047h19.953V390.694H421.1q.374-9.6,10.023-9.93V370.741Q411.174,373.037,411.174,390.694Z"
-                                           transform="translate(263.449 2878.259)" fill="#f8f8f8" />
-                                       <path id="Path_721" data-name="Path 721"
-                                           d="M515.432,380.765V370.741q-19.953,2.3-19.953,19.953v20.047h19.953V390.694H505.409Q505.783,381.093,515.432,380.765Z"
-                                           transform="translate(205.941 2878.259)" fill="#f8f8f8" />
-                                   </g>
-                               </svg>
+                           <div class="col-md-7">
+                               <div class="testimonial__data__right">
+                                   <svg xmlns="http://www.w3.org/2000/svg" width="46.75" height="40"
+                                       viewBox="0 0 46.75 40">
+                                       <g id="Group_22489" data-name="Group 22489" transform="translate(-674.623 -3249)">
+                                           <path id="Path_720" data-name="Path 720"
+                                               d="M411.174,390.694v20.047h19.953V390.694H421.1q.374-9.6,10.023-9.93V370.741Q411.174,373.037,411.174,390.694Z"
+                                               transform="translate(263.449 2878.259)" fill="#f8f8f8" />
+                                           <path id="Path_721" data-name="Path 721"
+                                               d="M515.432,380.765V370.741q-19.953,2.3-19.953,19.953v20.047h19.953V390.694H505.409Q505.783,381.093,515.432,380.765Z"
+                                               transform="translate(205.941 2878.259)" fill="#f8f8f8" />
+                                       </g>
+                                   </svg>
 
-                               <h3>Homeowner’s Reflections on Apartments </h3>
-                               <p>
-                                   “ Purchasing an apartment was not easy for me but PPL assured me and help me in every
-                                   aspect to take the decision. I must acknowledge the fact that without their help, I
-                                   would not able to buy this flat. Thank you PPL. ” </p>
-                               <p class="name">Fatema Haque</p>
-                               <p>Flat Owner </p>
+                                   <h3>{{$item->title}}</h3>
+                                   <p>{{$item->description}}</p>
+                                   <p class="name">{{$item->owner_name}}</p>
+                                   <p>{{$item->owner_title}} </p>
+                               </div>
                            </div>
+
                        </div>
-
-                   </div>
-                   <div class="row testimonial__data">
-                       <div class="col-md-5">
-                           <div class="testimonial__data__left Light boxOver anim">
-
-                               <img class=" modify-img "
-                                   data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person2.jpg"
-                                   data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person2.jpg"
-                                   data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/person2.jpg"
-                                   style="background-image: url('themes/cms/assets/images/static/blur.jpg');"><!-- 570x460 -->
-                               <a href="https://youtu.be/T-mf7tX5ytg?list=PL_6GYIbBDDCveyFof3qMlUP4ZSoeP1JNn">
-                                   <span class="Play">
-                                       <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
-                                           width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
-                                               r="30" fill="#fff" />
-                                           <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
-                                               transform="translate(39 21) rotate(90)" fill="#003a71" />
-                                       </svg>
-                                   </span>
-
-                               </a>
-                           </div>
-                       </div>
-                       <div class="col-md-7">
-                           <div class="testimonial__data__right">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="46.75" height="40"
-                                   viewBox="0 0 46.75 40">
-                                   <g id="Group_22489" data-name="Group 22489" transform="translate(-674.623 -3249)">
-                                       <path id="Path_720" data-name="Path 720"
-                                           d="M411.174,390.694v20.047h19.953V390.694H421.1q.374-9.6,10.023-9.93V370.741Q411.174,373.037,411.174,390.694Z"
-                                           transform="translate(263.449 2878.259)" fill="#f8f8f8" />
-                                       <path id="Path_721" data-name="Path 721"
-                                           d="M515.432,380.765V370.741q-19.953,2.3-19.953,19.953v20.047h19.953V390.694H505.409Q505.783,381.093,515.432,380.765Z"
-                                           transform="translate(205.941 2878.259)" fill="#f8f8f8" />
-                                   </g>
-                               </svg>
-
-                               <h3>Homeowner’s Reflections on Apartments </h3>
-                               <p>
-                                   “ I was looking for a apartment to purchase for 2 years but could not come to any
-                                   decision as long as I met one of the sales executive of PPL. They showed me quality,
-                                   commitment and compassion together. I want to thank PPL team for helping me.
-                                   ” </p>
-                               <p class="name">Badal Saha</p>
-                               <p>Flat Owner </p>
-                           </div>
-                       </div>
-
-                   </div>
-                   <div class="row testimonial__data">
-                       <div class="col-md-5">
-                           <div class="testimonial__data__left Light boxOver anim">
-
-                               <img class=" modify-img "
-                                   data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person4.jpg"
-                                   data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person4.jpg"
-                                   data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/person4.jpg"
-                                   style="background-image: url('themes/cms/assets/images/static/blur.jpg');"><!-- 570x460 -->
-                               <a href="https://youtu.be/PT5h3aOI0hc?list=PL_6GYIbBDDCveyFof3qMlUP4ZSoeP1JNn">
-                                   <span class="Play">
-                                       <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
-                                           width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
-                                               r="30" fill="#fff" />
-                                           <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
-                                               transform="translate(39 21) rotate(90)" fill="#003a71" />
-                                       </svg>
-                                   </span>
-
-                               </a>
-                           </div>
-                       </div>
-                       <div class="col-md-7">
-                           <div class="testimonial__data__right">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="46.75" height="40"
-                                   viewBox="0 0 46.75 40">
-                                   <g id="Group_22489" data-name="Group 22489" transform="translate(-674.623 -3249)">
-                                       <path id="Path_720" data-name="Path 720"
-                                           d="M411.174,390.694v20.047h19.953V390.694H421.1q.374-9.6,10.023-9.93V370.741Q411.174,373.037,411.174,390.694Z"
-                                           transform="translate(263.449 2878.259)" fill="#f8f8f8" />
-                                       <path id="Path_721" data-name="Path 721"
-                                           d="M515.432,380.765V370.741q-19.953,2.3-19.953,19.953v20.047h19.953V390.694H505.409Q505.783,381.093,515.432,380.765Z"
-                                           transform="translate(205.941 2878.259)" fill="#f8f8f8" />
-                                   </g>
-                               </svg>
-
-                               <h3>Homeowner’s Reflections on Apartments </h3>
-                               <p>
-                                   “ I was in Canada when I made the decision to buy a flat in Bangladesh. The problem was
-                                   I cannot trust anyone until I talked with PPL sale executive. They send me lots of
-                                   videos and pictures and depicted their values. Now I am a proud owner of a flat from
-                                   Noor Taj where my parents live now. Thank a lot for helping me.
-                                   ”. </p>
-                               <p class="name">Dr. Niraj Hossain</p>
-                               <p>Flat Owner </p>
-                           </div>
-                       </div>
-
-                   </div>
-                   <div class="row testimonial__data">
-                       <div class="col-md-5">
-                           <div class="testimonial__data__left Light boxOver anim">
-
-                               <img class=" modify-img "
-                                   data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person4.jpg"
-                                   data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person4.jpg"
-                                   data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/person4.jpg"
-                                   style="background-image: url('themes/cms/assets/images/static/blur.jpg');"><!-- 570x460 -->
-                               <a href="https://youtu.be/n-Wn2KxUXq8?list=PL_6GYIbBDDCveyFof3qMlUP4ZSoeP1JNn">
-                                   <span class="Play">
-                                       <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
-                                           width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
-                                               r="30" fill="#fff" />
-                                           <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
-                                               transform="translate(39 21) rotate(90)" fill="#003a71" />
-                                       </svg>
-                                   </span>
-
-                               </a>
-                           </div>
-                       </div>
-                       <div class="col-md-7">
-                           <div class="testimonial__data__right">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="46.75" height="40"
-                                   viewBox="0 0 46.75 40">
-                                   <g id="Group_22489" data-name="Group 22489" transform="translate(-674.623 -3249)">
-                                       <path id="Path_720" data-name="Path 720"
-                                           d="M411.174,390.694v20.047h19.953V390.694H421.1q.374-9.6,10.023-9.93V370.741Q411.174,373.037,411.174,390.694Z"
-                                           transform="translate(263.449 2878.259)" fill="#f8f8f8" />
-                                       <path id="Path_721" data-name="Path 721"
-                                           d="M515.432,380.765V370.741q-19.953,2.3-19.953,19.953v20.047h19.953V390.694H505.409Q505.783,381.093,515.432,380.765Z"
-                                           transform="translate(205.941 2878.259)" fill="#f8f8f8" />
-                                   </g>
-                               </svg>
-
-                               <h3>Homeowner’s Reflections on Apartments </h3>
-                               <p>
-                                   “ I live in Canada but I wanted to give my land to a developer who are committed to
-                                   quality and commitment. One of my friends refer PPL, after talking to them I decided to
-                                   give the land. Now I have 4 ready flats. ” </p>
-                               <p class="name">Md. Moniruzzaman</p>
-                               <p>Land Owner </p>
-                           </div>
-                       </div>
-
-                   </div>
-                   <div class="row testimonial__data">
-                       <div class="col-md-5">
-                           <div class="testimonial__data__left Light boxOver anim">
-
-                               <img class=" modify-img "
-                                   data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person2.jpg"
-                                   data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person2.jpg"
-                                   data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/person2.jpg"
-                                   style="background-image: url('themes/cms/assets/images/static/blur.jpg');"><!-- 570x460 -->
-                               <a href="https://youtu.be/tUq42SmgtxI?list=PL_6GYIbBDDCveyFof3qMlUP4ZSoeP1JNn">
-                                   <span class="Play">
-                                       <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
-                                           width="60" height="60" viewBox="0 0 60 60">
-                                           <circle id="Ellipse_36" data-name="Ellipse 36" cx="30" cy="30"
-                                               r="30" fill="#fff" />
-                                           <path id="Polygon_1" data-name="Polygon 1" d="M8.5,0,17,14H0Z"
-                                               transform="translate(39 21) rotate(90)" fill="#003a71" />
-                                       </svg>
-                                   </span>
-
-                               </a>
-                           </div>
-                       </div>
-                       <div class="col-md-7">
-                           <div class="testimonial__data__right">
-                               <svg xmlns="http://www.w3.org/2000/svg" width="46.75" height="40"
-                                   viewBox="0 0 46.75 40">
-                                   <g id="Group_22489" data-name="Group 22489" transform="translate(-674.623 -3249)">
-                                       <path id="Path_720" data-name="Path 720"
-                                           d="M411.174,390.694v20.047h19.953V390.694H421.1q.374-9.6,10.023-9.93V370.741Q411.174,373.037,411.174,390.694Z"
-                                           transform="translate(263.449 2878.259)" fill="#f8f8f8" />
-                                       <path id="Path_721" data-name="Path 721"
-                                           d="M515.432,380.765V370.741q-19.953,2.3-19.953,19.953v20.047h19.953V390.694H505.409Q505.783,381.093,515.432,380.765Z"
-                                           transform="translate(205.941 2878.259)" fill="#f8f8f8" />
-                                   </g>
-                               </svg>
-
-                               <h3>Homeowner’s Reflections on Apartments </h3>
-                               <p>
-                                   “ When I met Sumaya Mostafa the MD of the company I was so impressed with her morals and
-                                   values that I decided immediatly to give my land to them for development. Now i already
-                                   got my flats within the time period as committed. ” </p>
-                               <p class="name">Dr. Roksana Begum</p>
-                               <p>Land Owner</p>
-                           </div>
-                       </div>
-
-                   </div>
-
+                   @endforeach
                </div>
                <div class="col-md-7">
                    <div class="testimonial__nav">
@@ -1242,22 +1052,22 @@
 
 
        <section class="investor-information">
-           <img class=" modify-img " data-image-small="themes/cms/assets/images/static/landowner.svg"
-               data-image-large="themes/cms/assets/images/static/landowner.svg"
-               data-image-standard="themes/cms/assets/images/static/landowner.svg" data-src=""
-               src="themes/cms/assets/images/static/blur.jpg" alt=""> <!-- 1366x700 -->
+           <img class=" modify-img " data-image-small="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}"
+               data-image-large="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}"
+               data-image-standard="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}" data-src=""
+               src="{{asset('frontend/themes/cms/assets/images/static/blur.jpg')}}" alt=""> <!-- 1366x700 -->
            <div class="container">
                <div class="row">
                    <div class="col-md-12">
                        <div class="investor-information__wrap Light">
                            <div class="investor-information__wrap__img modify-img"
-                               data-image-small="admin/uploads/page/home-video/1170x500/1682834056o1Lm0_s.jpg"
-                               data-image-large="admin/uploads/page/home-video/1170x500/1682834056o1Lm0_l.jpg"
-                               data-image-standard="admin/uploads/page/home-video/1170x500/1682834056o1Lm0_m.jpg"
-                               style="background: url('themes/cms/assets/images/static/blur.jpg');" data-src="">
+                               data-image-small="{{asset('home/InvestorInformation/'.$investorInformation->thumbnail_image)}}"
+                               data-image-large="{{asset('home/InvestorInformation/'.$investorInformation->thumbnail_image)}}"
+                               data-image-standard="{{asset('home/InvestorInformation/'.$investorInformation->thumbnail_image)}}"
+                               style="background: url('{{asset('home/InvestorInformation/'.$investorInformation->thumbnail_image)}}');" data-src="">
                            </div>
                            <!-- 1170 x 500 -->
-                           <a href="https://youtu.be/qTQF9q21kOw?t=4">
+                           <a href="{{$investorInformation->video}}">
 
                                <div class="youtube-btn">
                                    <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130"
@@ -1303,10 +1113,10 @@
 
        <!-------------form section start ------------->
        <section class="homeForm pt100 pb100 Loader">
-           <img class=" modify-img " data-image-small="themes/cms/assets/images/static/landowner.svg"
-               data-image-large="themes/cms/assets/images/static/landowner.svg"
-               data-image-standard="themes/cms/assets/images/static/landowner.svg" data-src=""
-               src="themes/cms/assets/images/static/blur.jpg" alt=""> <!-- 1366x700 -->
+           <img class=" modify-img " data-image-small="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}"
+               data-image-large="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}"
+               data-image-standard="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}" data-src=""
+               src="{{asset('frontend/themes/cms/assets/images/static/blur.jpg')}}" alt=""> <!-- 1366x700 -->
            <div class="container">
                <div class="row">
 
@@ -1314,19 +1124,17 @@
                        <div class="homeForm__left col-md-7 anim boxOver">
                            <div class="homeForm__left__inner">
                                <img class=" modify-img "
-                                   data-image-small="themes/cms/assets/images/static/appointment.jpg"
-                                   data-image-large="themes/cms/assets/images/static/appointment.jpg"
-                                   data-image-standard="themes/cms/assets/images/static/appointment.jpg" data-src=""
-                                   src="themes/cms/assets/images/static/blur.jpg" alt=""> <!-- 670x500 -->
-
-
+                                   data-image-small="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}"
+                                   data-image-large="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}"
+                                   data-image-standard="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}" data-src="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}"
+                                   src="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}" alt=""> <!-- 670x500 -->
                            </div>
                        </div>
 
 
                        <div class="col-md-5 homeForm__right pl0">
                            <div class="homeForm__right__form">
-                               <h2 class="Title anim textOver"><span><span>Schedule a meeting</span></span></h2>
+                               <h2 class="Title anim textOver"><span><span>{{$ScheduleMettings->title}}</span></span></h2>
 
 
 

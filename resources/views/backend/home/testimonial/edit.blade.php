@@ -51,7 +51,7 @@
         <div style="background-color: #f0f0f0; padding: 20px;">
             <h2 style="text-align: center;">Update Testimonial Post</h2>
         </div>
-        
+
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
             <form method="POST" action="{{ route('testimonials.update', $post->id) }}" enctype="multipart/form-data">
                 @csrf
@@ -72,7 +72,7 @@
                         style="width: 100%; padding: 8px;" value={{ $post->owner_name }}>
                 </div>
                 <div style="margin-bottom: 20px;">
-                    <label for="owner_title" style="display: block; margin-bottom: 5px;">Owner Totle:</label>
+                    <label for="owner_title" style="display: block; margin-bottom: 5px;">Owner Title:</label>
                     <input name="owner_title" type="text" id="owner_title" class="form-control"
                         style="width: 100%; padding: 8px;" value={{ $post->owner_title }}>
                 </div>
@@ -80,6 +80,10 @@
                     <label for="thumbnail_image" style="display: block; margin-bottom: 5px;">Thumbnail Image:</label>
                     <input name="thumbnail_image" type="file" id="thumbnail_image" class="form-control"
                         style="width: 100%; padding: 8px;" value={{ $post->thumbnail_image }}>
+                    @if ($post->thumbnail_image)
+                        <img src="{{ asset('home/testimonial/' . $post->thumbnail_image) }}" height="100" class="mb-2"
+                            alt="Current Image">
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="video">Video:</label>

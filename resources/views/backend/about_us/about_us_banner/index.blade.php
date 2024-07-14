@@ -77,7 +77,7 @@
                         <label for="image" class="h5 mb-2">Image:</label>
                         <input type="file" class="form-control mb-2" id="image" name="image">
                         @if ($data->image)
-                            <img src="{{ asset($data->image) }}" height="100" alt="Current Image">
+                            <img src="{{ asset('about/about-us-banner/'.$data->image) }}" height="100" alt="Current Image">
                         @endif
                     </div>
                     

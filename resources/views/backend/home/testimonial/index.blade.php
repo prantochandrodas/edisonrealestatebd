@@ -61,7 +61,6 @@
                         <th>Title</th>
                         <th>Owner_name</th>
                         <th>Owner_title</th>
-                        <th>Video</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -98,13 +97,6 @@
                     {
                         data: 'owner_title',
                         name: 'owner_title'
-                    },
-                    {
-                        data: 'video',
-                        name: 'video',
-                        render: function(data, type, row) {
-                            return  `<a href="${data}" target="_blank">${data}</a>`
-                        }
                     },
                     {
                         data: 'action',

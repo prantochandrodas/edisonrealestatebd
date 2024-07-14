@@ -27,7 +27,7 @@ class AboutUsBannerController extends Controller
 
         if ($request->hasFile('image')) {
 
-            $oldImagePath = public_path($data->image);
+            $oldImagePath = public_path('about/about-us-banner/',$data->image);
             if (file_exists($oldImagePath)) {
                 unlink($oldImagePath);
             }
@@ -38,7 +38,7 @@ class AboutUsBannerController extends Controller
             $filename = time() . '_' . '.' . $extension;
             $path = 'about/about-us-banner/';
             $file->move(public_path($path), $filename);
-            $data->image = $path . $filename;
+            $data->image = $filename;
         }
         $data->title = $request->title;
         $data->save();

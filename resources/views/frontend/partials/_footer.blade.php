@@ -2,14 +2,14 @@
 
 
  <section class="Footer pt100 pb100 Loader">
-    <img class=" modify-img " data-image-small="themes/cms/assets/images/static/footer.jpg"
-        data-image-large="themes/cms/assets/images/static/footer.jpg"
-        data-image-standard="themes/cms/assets/images/static/footer.jpg" data-src=""
-        src="themes/cms/assets/images/static/blur.jpg" alt="">1366x550
+    <img class=" modify-img " data-image-small="{{asset('frontend/themes/cms/assets/images/static/footer.jpg')}}"
+        data-image-large="{{asset('frontend/themes/cms/assets/images/static/footer.jpg')}}"
+        data-image-standard="{{asset('frontend/themes/cms/assets/images/static/footer.jpg')}}" data-src=""
+        src="{{asset('frontend/themes/cms/assets/images/static/blur.jpg')}}" alt="">1366x550
     <div class="container ">
         <div class="row">
             <div class="col-md-5 Footer__top-left">
-                <img src="themes/cms/assets/images/static/logo-white.png" alt="">
+                <img src="{{asset('frontend/themes/cms/assets/images/static/logo-white.png')}}" alt="">
                 <!--<p>HOTLINE: <a href="tel:16760">16760</a></p> -->
                 <p>HOTLINE: <a href="tel:01310817493" target="_blank">01310817493</a> </p>
                 <p>EMAIL: <a href="mailto:info@putulproperties.com">info@putulproperties.com</a></p>
@@ -28,19 +28,19 @@
                 <ul>
                     <li>
                         <a target="_blank" href=""
-                            style="background-image: url('themes/cms/assets/images/static/social_icons.svg')"></a>
+                            style="background-image: url('{{asset('frontend/themes/cms/assets/images/static/social_icons.svg')}}')"></a>
                     </li>
                     <li>
                         <a target="_blank" href=""
-                            style="background-image: url('themes/cms/assets/images/static/social_icons.svg')"></a>
+                            style="background-image: url('{{asset('frontend/themes/cms/assets/images/static/social_icons.svg')}}')"></a>
                     </li>
                     <li>
                         <a target="_blank" href=""
-                            style="background-image: url('themes/cms/assets/images/static/social_icons.svg')"></a>
+                            style="background-image: url('{{asset('frontend/themes/cms/assets/images/static/social_icons.svg')}}')"></a>
                     </li>
                     <li>
                         <a target="_blank" href=""
-                            style="background-image: url('themes/cms/assets/images/static/social_icons.svg')"></a>
+                            style="background-image: url('{{asset('frontend/themes/cms/assets/images/static/social_icons.svg')}}')"></a>
                     </li>
 
                 </ul>

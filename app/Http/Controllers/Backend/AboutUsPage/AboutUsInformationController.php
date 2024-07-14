@@ -37,7 +37,7 @@ class AboutUsInformationController extends Controller
         $data->long_description=$request->long_description;
         $data->video_url=$request->video_url;
         $data->save();
-        return redirect()->route('about-us-infos.index')->with('success','successfully updated');
+        return redirect()->route('about-companys.index')->with('success','successfully updated');
     }
 
   

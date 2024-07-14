@@ -11,14 +11,19 @@ use App\Http\Controllers\Backend\AboutUsPage\TimelineController;
 use App\Http\Controllers\Backend\AboutUsPage\visionController;
 use App\Http\Controllers\Backend\BlogPage\BlogBannerController;
 use App\Http\Controllers\Backend\BlogPage\BlogPostController;
+use App\Http\Controllers\Backend\HomePage\CompanyVideoController;
 use App\Http\Controllers\Backend\HomePage\FeaturedProjectController;
 use App\Http\Controllers\Backend\HomePage\FeaturedProjectPostController;
+use App\Http\Controllers\Backend\HomePage\InvestorInformationController;
 use App\Http\Controllers\Backend\HomePage\ScheduleMettingController;
 use App\Http\Controllers\Backend\HomePage\SliderController;
 use App\Http\Controllers\Backend\HomePage\TestimonialPostController;
 use App\Http\Controllers\Backend\Property\PropertyController;
+use App\Http\Controllers\Frontend\AboutUsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Project\ProjectController;
+use App\Models\CompanyVideo;
+use App\Models\InvestorInformation;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -26,6 +31,7 @@ use Illuminate\Support\Facades\Route;
 // });
 //font end route 
 Route::get('/',[HomeController::class,'index']);
+Route::get('/about-us',[AboutUsController::class,'index']);
 Route::get('/slider',[HomeController::class,'slider']);
 
 // home slider route start 
@@ -79,6 +85,9 @@ Route::delete('/testimonial/distory/{id}',[TestimonialPostController::class,'dis
 
 
 // testimonial-post route end 
+// CompanyVideo
+Route::get('/investor-information',[InvestorInformationController::class,'index'])->name('investor-informations.index');
+Route::put('/investor-information/update/{id}',[InvestorInformationController::class,'update'])->name('investor-informations.update');
 
 // schedule-metting route start
 
@@ -125,8 +134,8 @@ Route::put('/about-us-banner/update/{id}',[AboutUsBannerController::class,'updat
 
 
 // about us page about information 
-Route::get('/about-us',[AboutUsInformationController::class,'index'])->name('about-us-infos.index');
-Route::put('/about-us/update',[AboutUsInformationController::class,'update'])->name('about-us-infos.update');
+Route::get('/about-company',[AboutUsInformationController::class,'index'])->name('about-companys.index');
+Route::put('/about-company-update',[AboutUsInformationController::class,'update'])->name('about-companys.update');
 // end of about us page about information 
 
 // purpose route 

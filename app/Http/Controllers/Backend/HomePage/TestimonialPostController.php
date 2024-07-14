@@ -58,7 +58,6 @@ class TestimonialPostController extends Controller
             'owner_name' => 'required|string|max:255',
             'owner_title' => 'required|string|max:255'
         ]);
-
         if ($request->hasFile('thumbnail_image')) {
             $file = $request->file('thumbnail_image');
             $extention = $file->getClientOriginalExtension();
@@ -67,9 +66,10 @@ class TestimonialPostController extends Controller
             $file->move(public_path($path), $fileName);
             $imagePath = $fileName;
         }
+        
 
         TestimonialPost::create([
-            'thumbnail_image' => $imagePath,
+            'thumbnail_image' => $imagePath ?? null,
             'video' => $request->video,
             'title' => $request->title,
             'description' => $request->description,
@@ -102,11 +102,9 @@ class TestimonialPostController extends Controller
 
         if ($request->hasFile('thumbnail_image')) {
             // Delete the old image
-            $oldImagePath = public_path($post->image);
-            if ($oldImagePath) {
-                if (file_exists($oldImagePath)) {
-                    unlink($oldImagePath);
-                }
+            $oldImagePath = public_path('home/testimonial/'.$post->thumbnail_image);
+            if (file_exists($oldImagePath)) {
+                unlink($oldImagePath);
             }
 
 

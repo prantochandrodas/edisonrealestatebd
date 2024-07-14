@@ -33,7 +33,7 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Update
-                        Schedule-Metting</h1>
+                        Investor-information</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -48,7 +48,7 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Schedule-Metting</li>
+                        <li class="breadcrumb-item text-muted">Investor-information</li>
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
@@ -61,24 +61,26 @@
 
         <div class="app-container container-fluid">
             <div style="background-color: #f0f0f0; padding: 20px;">
-                <h2 style="text-align: center;">Update Schedule-Metting</h2>
+                <h2 style="text-align: center;">Update Investor-information</h2>
             </div>
             
             <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-                <form action="{{ route('schedule-mettings.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('investor-informations.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    
                     <div class="form-group">
-                        <label for="title" class="h5 mb-2">Title:</label>
-                        <input type="text" class="form-control mb-4" id="title" name="title"
-                            value="{{ $data->title }}" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="image" class="h5 mb-2">Image:</label>
-                        <input type="file" class="form-control mb-2" id="image" name="image">
-                        @if ($data->image)
-                            <img src="{{ asset('home/schedulemetting/'.$data->image) }}" height="100" alt="Current Image">
+                        <label for="thumbnail_image" class="h5 mb-2">Thumbnail Image:</label>
+                        <input type="file" class="form-control mb-2" id="thumbnail_image" name="thumbnail_image">
+                        @if ($data->thumbnail_image)
+                            <img src="{{ asset('home/InvestorInformation/'.$data->thumbnail_image) }}" height="100" alt="Current Image">
                         @endif
+                    </div>
+
+                    <div class="form-group">
+                        <label for="video" class="h5 mb-2">Video:</label>
+                        <input type="text" class="form-control mb-4" id="video" name="video"
+                            value="{{ $data->video }}" required>
                     </div>
                    
                     <button type="submit" class="btn btn-primary btn-sm mt-2">Update</button>
