@@ -38,7 +38,7 @@ class AboutChairmanController extends Controller
               $filename = time() . '_' . '.' . $extension;
               $path = 'about/chairman-image/';
               $file->move(public_path($path), $filename);
-              $data->chairman_image = $path . $filename;
+              $data->chairman_image = $filename;
         }
 
         // institute_logo
@@ -54,7 +54,7 @@ class AboutChairmanController extends Controller
               $filename = time() . '_' . '.' . $extension;
               $path = 'about/institute-logo/';
               $file->move(public_path($path), $filename);
-              $data->institute_logo = $path . $filename;
+              $data->institute_logo = $filename;
         }
 
         $data->title=$request->title;

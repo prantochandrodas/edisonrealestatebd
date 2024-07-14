@@ -93,7 +93,7 @@
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                     @if ($data->chairman_image)
-                        <img src="{{ asset($data->chairman_image) }}" height="100" class="mb-2" alt="Current Image">
+                        <img src="{{ asset('about/chairman-image/'.$data->chairman_image) }}" height="100" class="mb-2" alt="Current Image">
                     @endif
                 </div>
 
@@ -115,7 +115,7 @@
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                     @if ($data->institute_logo)
-                        <img src="{{ asset($data->institute_logo) }}" height="100" class="mb-2" alt="Current Image">
+                        <img src="{{ asset('about/institute-logo/'.$data->institute_logo) }}" height="100" class="mb-2" alt="Current Image">
                     @endif
                 </div>
 

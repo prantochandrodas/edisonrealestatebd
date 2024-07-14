@@ -20,6 +20,14 @@ class TimelineController extends Controller
         if ($request->ajax()) {
             $data = Timeline::all();
             return DataTables::of($data)
+                ->addColumn('image', function ($row) {
+                    $firstImage = $row->image;
+                    if ($firstImage) {
+                        return asset('about/timeline/' . $firstImage); // Return full URL to the image
+                    } else {
+                        return 'No image';
+                    }
+                })
                 ->addColumn('action', function ($row) {
                     $editUrl = route('timelines.edit', $row->id);
                     $deleteUrl = route('timelines.distroy', $row->id);
@@ -64,7 +72,7 @@ class TimelineController extends Controller
             $filename = time() . '_' . '.' . $extension;
             $path = 'about/timeline/';
             $file->move(public_path($path), $filename);
-            $imagePath = $path . $filename;
+            $imagePath = $filename;
         }
 
         Timeline::create([
@@ -110,7 +118,7 @@ class TimelineController extends Controller
             $filename = time() . '_' . '.' . $extension;
             $path = 'about/timeline/';
             $file->move(public_path($path), $filename);
-            $data->image = $path . $filename;
+            $data->image = $filename;
         }
 
         $data->title = $request->title;

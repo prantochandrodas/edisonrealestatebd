@@ -5538,11 +5538,19 @@ input::-webkit-inner-spin-button {
 
 .ChairmanMessageText__right {
   background-color: #003a71;
-  padding: 80px 15px 80px 100px;
+  padding: 80px 55px 80px 60px;
 }
 
 .ChairmanMessageText__right p {
-  color: #ffffff;
+  color: #ffffff!important;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  margin-bottom: 0;
+}
+.ChairmanMessageText__right div {
+  text-align: justify;
+  color: #ffffff!important;
   font-size: 16px;
   font-weight: 300;
   line-height: 24px;

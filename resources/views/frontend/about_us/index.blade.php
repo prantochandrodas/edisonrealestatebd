@@ -171,7 +171,7 @@
     </section>
     <!--------- mission vision --------->
 
-
+    
     <!------------- about text start------------->
     <section class="ChairmanMessage">
         <div class="MissionVision">
@@ -181,12 +181,12 @@
 
                         <div class="col-md-6 col-sm-6 MissionVision__single__right anim-parent">
                             <h4 class="subTitle anim textOver">
-                                <span><span>{{$chairman->title}}</span></span>
+                                <span><span>{{ $chairman->title }}</span></span>
                             </h4>
                             <h2 class="Title anim textOver">
-                                <span><span>{{$chairman->name}}</span></span>
+                                <span><span>{{ $chairman->name }}</span></span>
                             </h2>
-                            <p>{!!$chairman->company_information!!}</p>
+                            <p>{!! $chairman->company_information !!}</p>
 
                             <a href="javascript:" class="dcBtn hidden anim justFade"><span>Learn More</span></a>
                         </div>
@@ -204,10 +204,10 @@
 
                             <div class="MissionVision__single__left Loader">
                                 <img class=" modify-img "
-                                    data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/book_demo_man.webp"
-                                    data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/book_demo_man.webp"
-                                    data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/book_demo_man.webp"
-                                    data-src="" src="themes/cms/assets/images/static/blur.jpg"
+                                    data-image-small="{{ asset('about/chairman-image/' . $chairman->chairman_image) }}"
+                                    data-image-large="{{ asset('about/chairman-image/' . $chairman->chairman_image) }}"
+                                    data-image-standard="{{ asset('about/chairman-image/' . $chairman->chairman_image) }}"
+                                    data-src="" src="{{ asset('about/chairman-image/' . $chairman->chairman_image) }}"
                                     alt=""><!-- 470x500 -->
 
                             </div>
@@ -227,38 +227,32 @@
             <div class="row ">
                 <div class="Flex">
                     <div class="col-md-5 ChairmanMessageText__left Loader anim boxOver">
-                        <img class=" modify-img" data-image-small="themes/cms/assets/images/static/ch-bg.png"
-                            data-image-large="themes/cms/assets/images/static/ch-bg.png"
-                            data-image-standard="themes/cms/assets/images/static/ch-bg.png" data-src=""
-                            src="themes/cms/assets/images/static/blur.jpg" alt=""> <!-- 570x550 -->
+                        <img class=" modify-img"
+                            data-image-small="{{ asset('frontend/themes/cms/assets/images/static/ch-bg.png') }}"
+                            data-image-large="{{ asset('frontend/themes/cms/assets/images/static/ch-bg.png') }}"
+                            data-image-standard="{{ asset('frontend/themes/cms/assets/images/static/ch-bg.png') }}"
+                            data-src="" src="{{ asset('frontend/themes/cms/assets/images/static/blur.jpg') }}"
+                            alt=""> <!-- 570x550 -->
 
                         <div class="ChairmanMessageText__left__logo">
                             <img class=" modify-img no-pos"
-                                data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/Chicago-University-Logo.png"
-                                data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/Chicago-University-Logo.png"
-                                data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/Chicago-University-Logo.png"
-                                data-src="" src="themes/cms/assets/images/static/blur.jpg" alt="">
+                                data-image-small="{{ asset('about/institute-logo/' . $chairman->institute_logo) }}"
+                                data-image-large="{{ asset('about/institute-logo/' . $chairman->institute_logo) }}"
+                                data-image-standard="{{ asset('about/institute-logo/' . $chairman->institute_logo) }}"
+                                data-src="" src="{{ asset('about/institute-logo/' . $chairman->institute_logo) }}"
+                                alt="">
                             <!-- 570x550 -->
                         </div>
                     </div>
 
 
                     <div class="col-md-7 ChairmanMessageText__right">
-                        <p style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                            mollitia nemo neque dolores quibusdam cumque quis fuga explicabo unde esse.</p>
+                        <p style="text-align: justify;">{!! $chairman->chairman_information !!}</p>
 
-                        <p style="text-align: justify;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quo
-                            corporis atque totam tempore voluptatem ex illum cum molestiae nihil soluta! Animi in
-                            necessitatibus tempora quia laudantium. Id unde molestias, quas doloribus necessitatibus
-                            laborum animi asperiores dolor pariatur esse vero tenetur delectus veniam? Ad quos
-                            voluptatum in esse totam odit nisi ipsam nam culpa voluptas dolor minima, numquam asperiores
-                            deserunt ex, quis reprehenderit doloribus, veniam vitae necessitatibus. Rerum odio corporis
-                            libero.</p>
+                        <p style="text-align: justify;">Reference: <a
+                                href="{{ $chairman->reference }}">https://mittalsouthasiainstitute.harvard.edu/bangladesh-rising-speakers/</a>
+                        </p>
 
-                        <!-- <p style="text-align: justify;">Reference: <a
-                                                href="https://mittalsouthasiainstitute.harvard.edu/bangladesh-rising-speakers/">https://mittalsouthasiainstitute.harvard.edu/bangladesh-rising-speakers/</a>
-                                        </p>
-                                    -->
                     </div>
                 </div>
             </div>
@@ -267,8 +261,6 @@
 
     <!------------ timeline start ------------>
     <section class="timeline pt100 pb100">
-
-
         <div class="timeline__slider-bg">
             <div class="container">
                 <div class="row">
@@ -278,147 +270,24 @@
                 </div>
             </div>
             <div class="slider-for">
-                <div class="timeline__slider-bg__item">
-                    <div class="timeline__slider-bg__item__bg-zoom"
-                        style="background: url('admin/uploads/page/timeline/1920x914/1614574959YpZj7_l.jpg')"></div>
-                    <!--1366x650-->
-                    <div class="timeline__slider-bg__item__content">
-                        <div class="timeline__slider-bg__item__content__loader">
-                            <img src="themes/cms/assets/images/static/loader.gif" alt="">
-                        </div>
-                        <div class="timeline__slider-bg__item__content__zoom triangle">
-                            <h3>2025</h3>
-                            <h1>Lorem ipsum dolor sit amet.</h1>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam impedit facilis perferendis
-                                consequatur, fugiat enim.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline__slider-bg__item">
-                    <div class="timeline__slider-bg__item__bg-zoom"
-                        style="background: url('admin/uploads/page/timeline/1920x914/1637674556rvDtv_l.jpg')"></div>
-                    <!--1366x650-->
-                    <div class="timeline__slider-bg__item__content">
-                        <div class="timeline__slider-bg__item__content__loader">
-                            <img src="themes/cms/assets/images/static/loader.gif" alt="">
-                        </div>
-                        <div class="timeline__slider-bg__item__content__zoom triangle">
-                            <h3>2025</h3>
-                            <h1>lorem ipsum</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos pariatur, aperiam vitae possimus
-                                voluptate nostrum cupiditate totam voluptatem eum recusandae.</p>
+                @foreach ($timelines as $item)
+                    <div class="timeline__slider-bg__item">
+                        <div class="timeline__slider-bg__item__bg-zoom"
+                            style="background: url({{ asset('about/timeline/' . $item->image) }})"></div>
+                        <!--1366x650-->
+                        <div class="timeline__slider-bg__item__content">
+                            <div class="timeline__slider-bg__item__content__loader">
+                                <img src="{{ asset('frontend/themes/cms/assets/images/static/loader.gif') }}"
+                                    alt="">
+                            </div>
+                            <div class="timeline__slider-bg__item__content__zoom triangle">
+                                <h3>{{ $item->year }}</h3>
+                                <h1>{{ $item->title }}</h1>
+                                <p>{{ $item->description }}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="timeline__slider-bg__item">
-                    <div class="timeline__slider-bg__item__bg-zoom"
-                        style="background: url('admin/uploads/page/timeline/1920x914/1637746387DPJvY_l.jpg')"></div>
-                    <!--1366x650-->
-                    <div class="timeline__slider-bg__item__content">
-                        <div class="timeline__slider-bg__item__content__loader">
-                            <img src="themes/cms/assets/images/static/loader.gif" alt="">
-                        </div>
-                        <div class="timeline__slider-bg__item__content__zoom triangle">
-                            <h3>2024</h3>
-                            <h1>Lorem ipsum</h1>
-                            <p>Lorem ipsum dolor sit amet.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline__slider-bg__item">
-                    <div class="timeline__slider-bg__item__bg-zoom"
-                        style="background: url('admin/uploads/page/timeline/1920x914/1637582137Rbqik_l.jpg')"></div>
-                    <!--1366x650-->
-                    <div class="timeline__slider-bg__item__content">
-                        <div class="timeline__slider-bg__item__content__loader">
-                            <img src="themes/cms/assets/images/static/loader.gif" alt="">
-                        </div>
-                        <div class="timeline__slider-bg__item__content__zoom triangle">
-                            <h3>2023</h3>
-                            <h1>Lorem ipsum</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt accusamus repudiandae
-                                architecto commodi illo non officia magni ducimus quas quos.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline__slider-bg__item">
-                    <div class="timeline__slider-bg__item__bg-zoom"
-                        style="background: url('admin/uploads/page/timeline/1920x914/1637746566EI63A_l.jpg')"></div>
-                    <!--1366x650-->
-                    <div class="timeline__slider-bg__item__content">
-                        <div class="timeline__slider-bg__item__content__loader">
-                            <img src="themes/cms/assets/images/static/loader.gif" alt="">
-                        </div>
-                        <div class="timeline__slider-bg__item__content__zoom triangle">
-                            <h3>2022</h3>
-                            <h1>Lorem ipsum dolor sit amet.</h1>
-                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatem amet dolore in odit
-                                temporibus perspiciatis!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline__slider-bg__item">
-                    <div class="timeline__slider-bg__item__bg-zoom"
-                        style="background: url('admin/uploads/page/timeline/1920x914/1637746738BvHy0_l.jpg')"></div>
-                    <!--1366x650-->
-                    <div class="timeline__slider-bg__item__content">
-                        <div class="timeline__slider-bg__item__content__loader">
-                            <img src="themes/cms/assets/images/static/loader.gif" alt="">
-                        </div>
-                        <div class="timeline__slider-bg__item__content__zoom triangle">
-                            <h3>2022</h3>
-                            <h1>lorem ipsum</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea adipisci corporis sunt non vero,
-                                dolores quisquam quos praesentium minima mollitia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline__slider-bg__item">
-                    <div class="timeline__slider-bg__item__bg-zoom"
-                        style="background: url('admin/uploads/page/timeline/1920x914/1613286431Xo7Sf_l.jpg')"></div>
-                    <!--1366x650-->
-                    <div class="timeline__slider-bg__item__content">
-                        <div class="timeline__slider-bg__item__content__loader">
-                            <img src="themes/cms/assets/images/static/loader.gif" alt="">
-                        </div>
-                        <div class="timeline__slider-bg__item__content__zoom triangle">
-                            <h3>2022</h3>
-                            <h1>Lorem ipsum dolor sit amet.</h1>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, enim.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline__slider-bg__item">
-                    <div class="timeline__slider-bg__item__bg-zoom"
-                        style="background: url('admin/uploads/page/timeline/1920x914/1613287125wWoGH_l.jpg')"></div>
-                    <!--1366x650-->
-                    <div class="timeline__slider-bg__item__content">
-                        <div class="timeline__slider-bg__item__content__loader">
-                            <img src="themes/cms/assets/images/static/loader.gif" alt="">
-                        </div>
-                        <div class="timeline__slider-bg__item__content__zoom triangle">
-                            <h3>2022</h3>
-                            <h1>Lorem ipsum dolor sit amet.</h1>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo error nihil repellendus odit
-                                non asperiores!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline__slider-bg__item">
-                    <div class="timeline__slider-bg__item__bg-zoom"
-                        style="background: url('admin/uploads/page/timeline/1920x914/16132869089F2Oo_l.jpg')"></div>
-                    <!--1366x650-->
-                    <div class="timeline__slider-bg__item__content">
-                        <div class="timeline__slider-bg__item__content__loader">
-                            <img src="themes/cms/assets/images/static/loader.gif" alt="">
-                        </div>
-                        <div class="timeline__slider-bg__item__content__zoom triangle">
-                            <h3>2021</h3>
-                            <h1>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</h1>
-                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, delectus?</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
 
@@ -427,88 +296,17 @@
 
         <div class="timeline__nav">
             <div class="slider-nav">
-                <div class="full-nav-wrapper">
-                    <div class="single-nav-wrapper">
-                        <div class="single-nav">
-                            <img src='admin/uploads/page/timeline/1920x914/1614574959YpZj7_s.jpg' alt="">
+                @foreach ($timelines as $item)
+                    <div class="full-nav-wrapper">
+                        <div class="single-nav-wrapper">
+                            <div class="single-nav">
+                                <img src='{{ asset('about/timeline/' . $item->image) }}' alt="">
+                            </div>
+                            <div class="single-counter">{{ $item->year }}</div>
                         </div>
-                        <div class="single-counter">2025</div>
+                        <div class="single-title">{{ $item->year }}</div>
                     </div>
-                    <div class="single-title">2025</div>
-                </div>
-                <div class="full-nav-wrapper">
-                    <div class="single-nav-wrapper">
-                        <div class="single-nav">
-                            <img src='admin/uploads/page/timeline/1920x914/1637674556rvDtv_s.jpg' alt="">
-                        </div>
-                        <div class="single-counter">2025</div>
-                    </div>
-                    <div class="single-title">2025</div>
-                </div>
-                <div class="full-nav-wrapper">
-                    <div class="single-nav-wrapper">
-                        <div class="single-nav">
-                            <img src='admin/uploads/page/timeline/1920x914/1637746387DPJvY_s.jpg' alt="">
-                        </div>
-                        <div class="single-counter">2024</div>
-                    </div>
-                    <div class="single-title">2024</div>
-                </div>
-                <div class="full-nav-wrapper">
-                    <div class="single-nav-wrapper">
-                        <div class="single-nav">
-                            <img src='admin/uploads/page/timeline/1920x914/1637582137Rbqik_s.jpg' alt="">
-                        </div>
-                        <div class="single-counter">2023</div>
-                    </div>
-                    <div class="single-title">2023</div>
-                </div>
-                <div class="full-nav-wrapper">
-                    <div class="single-nav-wrapper">
-                        <div class="single-nav">
-                            <img src='admin/uploads/page/timeline/1920x914/1637746566EI63A_s.jpg' alt="">
-                        </div>
-                        <div class="single-counter">2022</div>
-                    </div>
-                    <div class="single-title">2022</div>
-                </div>
-                <div class="full-nav-wrapper">
-                    <div class="single-nav-wrapper">
-                        <div class="single-nav">
-                            <img src='admin/uploads/page/timeline/1920x914/1637746738BvHy0_s.jpg' alt="">
-                        </div>
-                        <div class="single-counter">2022</div>
-                    </div>
-                    <div class="single-title">2022</div>
-                </div>
-                <div class="full-nav-wrapper">
-                    <div class="single-nav-wrapper">
-                        <div class="single-nav">
-                            <img src='admin/uploads/page/timeline/1920x914/1613286431Xo7Sf_s.jpg' alt="">
-                        </div>
-                        <div class="single-counter">2022</div>
-                    </div>
-                    <div class="single-title">2022</div>
-                </div>
-                <div class="full-nav-wrapper">
-                    <div class="single-nav-wrapper">
-                        <div class="single-nav">
-                            <img src='admin/uploads/page/timeline/1920x914/1613287125wWoGH_s.jpg' alt="">
-                        </div>
-                        <div class="single-counter">2022</div>
-                    </div>
-                    <div class="single-title">2022</div>
-                </div>
-                <div class="full-nav-wrapper">
-                    <div class="single-nav-wrapper">
-                        <div class="single-nav">
-                            <img src='admin/uploads/page/timeline/1920x914/16132869089F2Oo_s.jpg' alt="">
-                        </div>
-                        <div class="single-counter">2021</div>
-                    </div>
-                    <div class="single-title">2021</div>
-                </div>
-
+                @endforeach
             </div>
             <div class="timeline__nav__horizontal-line"></div>
         </div>

@@ -43,9 +43,11 @@ the finest in luxury living with Edison Real Estate.">
     <link href="site/index.html" rel="canonical">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600&amp;display=swap" rel="preload"
         media="all">
+        
 
     <link href="{{ asset('frontend/themes/cms/assets/css/bootstrap.min.css') }}" rel="stylesheet" as="style">
     <link href="{{asset('frontend/themes/cms/assets/css/inner09fd.css?=v2.3434')}}" rel="stylesheet" media="all">
+    <link href="{{asset('frontend/themes/cms/assets/css/inner8a54.css')}}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/font-awesome.min.css') }}" rel="stylesheet" as="style">
     <link href="{{ asset('frontend/themes/cms/assets/css/slick.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/lightgallery.css') }}" rel="stylesheet" media="all">
@@ -80,6 +82,7 @@ the finest in luxury living with Edison Real Estate.">
     </script>
 
     <!-- Meta Pixel Code -->
+    
     <script>
         ! function(f, b, e, v, n, t, s) {
             if (f.fbq) return;
@@ -102,6 +105,12 @@ the finest in luxury living with Edison Real Estate.">
         fbq('init', '');
         fbq('track', 'PageView');
     </script>
+     <style>
+        @media(max-width: 767px) {
+            .image_wrapper {
+                margin: 0 15px !important;
+            }
+    </style>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=&amp;ev=PageView&amp;noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
@@ -320,6 +329,74 @@ the finest in luxury living with Edison Real Estate.">
             </span>
         </div>
     </div>
+    {{-- about page  --}}
+    <script src="{{asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js')}}"></script>
+    <script src="{{asset('frontend/themes/cms/assets/js/inner-bundle.min4d76.js?=v2.2')}}"></script>
+    <script src="{{asset('frontend//cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js')}}"></script>
+    <script src="{{asset('frontend/themes/cms/assets/js/inner4d76.js?=v2.2')}}"></script>
+    <script>jQuery(function ($) {
+        jQuery('#suggestion-form').yiiActiveForm([], []);
+
+        $(document).delegate('.dynamic_submit_btn', 'click', function (event, jqXHR, settings) {
+            var form = $(this).closest('form');
+            var form_id = form.attr('id');
+
+            if (form.find('.has-error').length) {
+                return false;
+            }
+
+
+
+            $('.dynamic_submit_btn').attr('disabled', true);
+
+            $.ajax({
+
+                url: form.attr('action'),
+                type: 'post',
+                data: form.serialize(),
+                beforeSend: function (request) {
+                    $('.success_wrapper_form_message').addClass('hide');
+                    $('.error_wrapper_form_message').addClass('hide');
+                },
+                success: function (data) {
+                    if (data.result == 'success') {
+                        form[0].reset();
+                        $('.success_wrapper_form_message').removeClass('hide');
+                        $('.error_wrapper_form_message').addClass('hide');
+                        $('.success_container_msg').html(data.msg);
+                        $('.dynamic_submit_btn').removeAttr('disabled');
+                        $('.error_container_msg').html('');
+
+                        setTimeout(function () {
+                            $('.success_wrapper_form_message').addClass('hide');
+                            $('.form-overlay').removeClass('doit');
+                            if ($('#brochure_link_download').length > 0) {
+                                $('#brochure_link_download')[0].click();
+
+                            }
+                        }, 4000);
+
+                    }
+                    else {
+                        $('.error_container_msg').html(data.msg);
+                        $('.success_container_msg').html('');
+                        $('.success_wrapper_form_message').addClass('hide');
+                        $('.error_wrapper_form_message').removeClass('hide');
+
+                        $('.dynamic_submit_btn').removeAttr('disabled');
+
+                        setTimeout(function () {
+                            $('.error_wrapper_form_message').addClass('hide');
+                            $('.form-overlay').removeClass('doit');
+                        }, 4000);
+                    }
+                }
+
+            });
+            return false;
+        });
+
+    });</script>
 
     <script src="{{asset('frontend/assets/2ff7c954/yii.js')}}"></script>
     <script src="{{asset('frontend/assets/2ff7c954/yii.activeForm.js')}}"></script>

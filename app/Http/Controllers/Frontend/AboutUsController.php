@@ -8,6 +8,7 @@ use App\Models\AboutUsBanner;
 use App\Models\AboutUsInformation;
 use App\Models\OurValues;
 use App\Models\Purpose;
+use App\Models\Timeline;
 use App\Models\Vision;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class AboutUsController extends Controller
         $vision=Vision::first();
         $ourvalues=OurValues::all();
         $chairman=AboutChairman::first();
-        return view('frontend.about_us.index',compact('banner','aboutCompanyInformation','purpose','vision','ourvalues','chairman'));
+        $timelines=Timeline::all();
+        return view('frontend.about_us.index',compact('banner','aboutCompanyInformation','purpose','vision','ourvalues','chairman','timelines'));
     }
 }
