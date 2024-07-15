@@ -46,7 +46,6 @@ the finest in luxury living with Edison Real Estate.">
         
     <link href="{{ asset('frontend/themes/cms/assets/css/bootstrap.min.css') }}" rel="stylesheet" as="style">
     <link href="{{asset('frontend/themes/cms/assets/css/inner09fd.css?=v2.3434')}}" rel="stylesheet" media="all">
-    <link href="{{asset('frontend/themes/cms/assets/css/inner8a54.css')}}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/font-awesome.min.css') }}" rel="stylesheet" as="style">
     <link href="{{ asset('frontend/themes/cms/assets/css/slick.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/lightgallery.css') }}" rel="stylesheet" media="all">
@@ -329,11 +328,11 @@ the finest in luxury living with Edison Real Estate.">
         </div>
     </div>
     {{-- about page  --}}
-    <script src="{{asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js')}}"></script>
+   
     <script src="{{asset('frontend/themes/cms/assets/js/inner-bundle.min4d76.js?=v2.2')}}"></script>
     <script src="{{asset('frontend//cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js')}}"></script>
     <script src="{{asset('frontend/themes/cms/assets/js/inner4d76.js?=v2.2')}}"></script>
-    <script>jQuery(function ($) {
+     <script>jQuery(function ($) {
         jQuery('#suggestion-form').yiiActiveForm([], []);
 
         $(document).delegate('.dynamic_submit_btn', 'click', function (event, jqXHR, settings) {
@@ -395,17 +394,19 @@ the finest in luxury living with Edison Real Estate.">
             return false;
         });
 
-    });</script>
+    });</script> 
+
+    
 
     <script src="{{asset('frontend/assets/2ff7c954/yii.js')}}"></script>
     <script src="{{asset('frontend/assets/2ff7c954/yii.activeForm.js')}}"></script>
     <script src="{{asset('frontend/admin/resources/js/jquery.ui.widget.js')}}"></script>
     <script src="{{asset('frontend/admin/resources/js/jquery.iframe-transport.js')}}"></script>
-    <script src="{{'frontend/admin/resources/js/jquery.fileupload.js'}}"></script>
-    <script src="{{'frontend/admin/resources/js/jquery.fileupload-process.js'}}"></script>
-    <script src="{{'frontend/admin/resources/js/jquery.fileupload-validate.js'}}"></script>
-    <script src="{{'frontend/themes/cms/assets/js/home-bundle.min.js'}}"></script>
-    <script src="{{'frontend/themes/cms/assets/js/lg-thumb.js'}}"></script>
+    <script src="{{asset('frontend/admin/resources/js/jquery.fileupload.js')}}"></script>
+    <script src="{{asset('frontend/admin/resources/js/jquery.fileupload-process.js')}}"></script>
+    <script src="{{asset('frontend/admin/resources/js/jquery.fileupload-validate.js')}}"></script>
+    <script src="{{asset('frontend/themes/cms/assets/js/home-bundle.min.js')}}"></script>
+    <script src="{{asset('frontend/themes/cms/assets/js/lg-thumb.js')}}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkSqz0FBm4_Xb4nSGgU-eC0s7dGxFxxf0&amp;callback=initMap"
         async defer></script>
     <script src="{{asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js')}}"></script>

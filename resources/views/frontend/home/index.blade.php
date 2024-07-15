@@ -323,12 +323,9 @@
                                </a></span><img src="themes/cms/assets/images/static/caret.svg" alt=""
                                height="9 px" width="8 px">
                        </li>
-                       <li><a href="projects/ongoingb907.html?&amp;type=%23&amp;location=%23">Ongoing</a>
-                       </li>
-                       <li><a href="projects/completedb907.html?&amp;type=%23&amp;location=%23">Completed</a>
-                       </li>
-                       <li><a href="projects/upcomingb907.html?&amp;type=%23&amp;location=%23">Upcoming</a>
-                       </li>
+                       @foreach ($projectCategories as $item)
+                           <li><a href="projects/ongoingb907.html?&amp;type=%23&amp;location=%23">{{ $item->name }}</a>
+                       @endforeach
                    </ul>
                </div>
 
@@ -366,8 +363,8 @@
                                <a href="{{ $aboutCompanyInformation->video_url }}">
                                    <span class="Play">
                                        <!--<img class="Play" height="37" width="37"
-                                                                                                                                   src="<? //= $this->theme->baseUrl . '/assets/images/static/play.svg'; ?>"
-                                                                                                                                   alt=""> -->
+                                                                                                                                       src="<? //= $this->theme->baseUrl . '/assets/images/static/play.svg'; ?>"
+                                                                                                                                       alt=""> -->
                                        <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"
                                            viewBox="0 0 130 130" class="Play">
                                            <defs>
@@ -513,8 +510,8 @@
                                                </div>
 
                                            </div>
-
-                                           <a href="projects/edison-angelo.html" class="dcBtn"><span>Explore</span></a>
+                                           <a href="{{ route('projects.details', ['name' => $item->slug]) }}" class="dcBtn"><span>Explore</span></a>
+                                           
                                        </div>
                                    </div>
                                </div>
@@ -798,11 +795,11 @@
                                <div class="testimonial__data__left Light boxOver anim">
 
                                    <img class=" modify-img "
-                                       data-image-small="{{asset('home/testimonial/'.$item->thumbnail_image)}}"
-                                       data-image-large="{{asset('home/testimonial/'.$item->thumbnail_image)}}"
+                                       data-image-small="{{ asset('home/testimonial/' . $item->thumbnail_image) }}"
+                                       data-image-large="{{ asset('home/testimonial/' . $item->thumbnail_image) }}"
                                        data-image-standard="video"
-                                       style="background-image: url('{{asset('home/testimonial/'.$item->thumbnail_image)}}');"><!-- 570x460 -->
-                                   <a href="{{$item->video}}">
+                                       style="background-image: url('{{ asset('home/testimonial/' . $item->thumbnail_image) }}');"><!-- 570x460 -->
+                                   <a href="{{ $item->video }}">
                                        <span class="Play">
                                            <svg id="Group_369" data-name="Group 369" xmlns="http://www.w3.org/2000/svg"
                                                width="60" height="60" viewBox="0 0 60 60">
@@ -830,10 +827,10 @@
                                        </g>
                                    </svg>
 
-                                   <h3>{{$item->title}}</h3>
-                                   <p>{{$item->description}}</p>
-                                   <p class="name">{{$item->owner_name}}</p>
-                                   <p>{{$item->owner_title}} </p>
+                                   <h3>{{ $item->title }}</h3>
+                                   <p>{{ $item->description }}</p>
+                                   <p class="name">{{ $item->owner_name }}</p>
+                                   <p>{{ $item->owner_title }} </p>
                                </div>
                            </div>
 
@@ -1052,22 +1049,24 @@
 
 
        <section class="investor-information">
-           <img class=" modify-img " data-image-small="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}"
-               data-image-large="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}"
-               data-image-standard="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}" data-src=""
-               src="{{asset('frontend/themes/cms/assets/images/static/blur.jpg')}}" alt=""> <!-- 1366x700 -->
+           <img class=" modify-img "
+               data-image-small="{{ asset('frontend/themes/cms/assets/images/static/landowner.svg') }}"
+               data-image-large="{{ asset('frontend/themes/cms/assets/images/static/landowner.svg') }}"
+               data-image-standard="{{ asset('frontend/themes/cms/assets/images/static/landowner.svg') }}" data-src=""
+               src="{{ asset('frontend/themes/cms/assets/images/static/blur.jpg') }}" alt=""> <!-- 1366x700 -->
            <div class="container">
                <div class="row">
                    <div class="col-md-12">
                        <div class="investor-information__wrap Light">
                            <div class="investor-information__wrap__img modify-img"
-                               data-image-small="{{asset('home/InvestorInformation/'.$investorInformation->thumbnail_image)}}"
-                               data-image-large="{{asset('home/InvestorInformation/'.$investorInformation->thumbnail_image)}}"
-                               data-image-standard="{{asset('home/InvestorInformation/'.$investorInformation->thumbnail_image)}}"
-                               style="background: url('{{asset('home/InvestorInformation/'.$investorInformation->thumbnail_image)}}');" data-src="">
+                               data-image-small="{{ asset('home/InvestorInformation/' . $investorInformation->thumbnail_image) }}"
+                               data-image-large="{{ asset('home/InvestorInformation/' . $investorInformation->thumbnail_image) }}"
+                               data-image-standard="{{ asset('home/InvestorInformation/' . $investorInformation->thumbnail_image) }}"
+                               style="background: url('{{ asset('home/InvestorInformation/' . $investorInformation->thumbnail_image) }}');"
+                               data-src="">
                            </div>
                            <!-- 1170 x 500 -->
-                           <a href="{{$investorInformation->video}}">
+                           <a href="{{ $investorInformation->video }}">
 
                                <div class="youtube-btn">
                                    <svg xmlns="http://www.w3.org/2000/svg" width="130" height="130"
@@ -1113,10 +1112,11 @@
 
        <!-------------form section start ------------->
        <section class="homeForm pt100 pb100 Loader">
-           <img class=" modify-img " data-image-small="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}"
-               data-image-large="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}"
-               data-image-standard="{{asset('frontend/themes/cms/assets/images/static/landowner.svg')}}" data-src=""
-               src="{{asset('frontend/themes/cms/assets/images/static/blur.jpg')}}" alt=""> <!-- 1366x700 -->
+           <img class=" modify-img "
+               data-image-small="{{ asset('frontend/themes/cms/assets/images/static/landowner.svg') }}"
+               data-image-large="{{ asset('frontend/themes/cms/assets/images/static/landowner.svg') }}"
+               data-image-standard="{{ asset('frontend/themes/cms/assets/images/static/landowner.svg') }}" data-src=""
+               src="{{ asset('frontend/themes/cms/assets/images/static/blur.jpg') }}" alt=""> <!-- 1366x700 -->
            <div class="container">
                <div class="row">
 
@@ -1124,17 +1124,20 @@
                        <div class="homeForm__left col-md-7 anim boxOver">
                            <div class="homeForm__left__inner">
                                <img class=" modify-img "
-                                   data-image-small="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}"
-                                   data-image-large="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}"
-                                   data-image-standard="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}" data-src="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}"
-                                   src="{{asset('home/schedulemetting/'.$ScheduleMettings->image)}}" alt=""> <!-- 670x500 -->
+                                   data-image-small="{{ asset('home/schedulemetting/' . $ScheduleMettings->image) }}"
+                                   data-image-large="{{ asset('home/schedulemetting/' . $ScheduleMettings->image) }}"
+                                   data-image-standard="{{ asset('home/schedulemetting/' . $ScheduleMettings->image) }}"
+                                   data-src="{{ asset('home/schedulemetting/' . $ScheduleMettings->image) }}"
+                                   src="{{ asset('home/schedulemetting/' . $ScheduleMettings->image) }}" alt="">
+                               <!-- 670x500 -->
                            </div>
                        </div>
 
 
                        <div class="col-md-5 homeForm__right pl0">
                            <div class="homeForm__right__form">
-                               <h2 class="Title anim textOver"><span><span>{{$ScheduleMettings->title}}</span></span></h2>
+                               <h2 class="Title anim textOver"><span><span>{{ $ScheduleMettings->title }}</span></span>
+                               </h2>
 
 
 

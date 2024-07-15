@@ -19,12 +19,14 @@ use App\Http\Controllers\Backend\HomePage\InvestorInformationController;
 use App\Http\Controllers\Backend\HomePage\ScheduleMettingController;
 use App\Http\Controllers\Backend\HomePage\SliderController;
 use App\Http\Controllers\Backend\HomePage\TestimonialPostController;
+use App\Http\Controllers\Backend\Project\ProjectController;
+use App\Http\Controllers\Backend\Project\ProjectPageBannerController;
 use App\Http\Controllers\Backend\Property\PropertyController;
 use App\Http\Controllers\Frontend\AboutUsController;
 use App\Http\Controllers\Frontend\AboutUsPrivacyPolicyController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutUsTeamController;
-use App\Http\Controllers\Project\ProjectController;
+use App\Http\Controllers\Frontend\ProjectsController;
 use App\Models\CompanyVideo;
 use App\Models\InvestorInformation;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +39,9 @@ Route::get('/',[HomeController::class,'index']);
 Route::get('/about-us',[AboutUsController::class,'index']);
 Route::get('/about-us/team',[AboutUsTeamController::class,'index']);
 Route::get('/about-us/privacy-policy',[AboutUsPrivacyPolicyController::class,'index']);
+Route::get('/projects',[ProjectsController::class,'index']); 
+Route::get('/projects/{name}',[ProjectsController::class,'projectDetails'])->name('projects.details'); 
+
 
 // home slider route start 
 Route::get('/slider',[SliderController::class,'index'])->name('slider.index');
@@ -207,14 +212,19 @@ Route::get('/privacy-policy',[PrivacyPolicyController::class,'index'])->name('pr
 Route::put('/privacy-policy/update/{id}',[PrivacyPolicyController::class,'update'])->name('privacy-policys.update');
 // end privacy policy 
 
+// projectpage-banner  route start 
+Route::get('/projectpage-banner',[ProjectPageBannerController::class,'index'])->name('projectpage-banners.index');
+Route::put('/projectpage-banner/update/{id}',[ProjectPageBannerController::class,'update'])->name('projectpage-banners.update');
+// end privacy policy
+
 // start team PropertyController 
-Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
-Route::get('/projects/getdata', [ProjectController::class, 'getdata'])->name('projects.getdata');
-Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
-Route::post('/projects/store', [ProjectController::class, 'store'])->name('projects.store');
-Route::get('/projects/edit/{id}', [ProjectController::class, 'edit'])->name('projects.edit');
-Route::put('/projects/update/{id}', [ProjectController::class, 'update'])->name('projects.update');
-Route::delete('/projects/distroy/{id}', [ProjectController::class, 'distroy'])->name('projects.distroy');
-Route::get('/projects/view/{id}', [ProjectController::class, 'view'])->name('projects.view');
+Route::get('/projects-information', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects-information/getdata', [ProjectController::class, 'getdata'])->name('projects.getdata');
+Route::get('/projects-information/create', [ProjectController::class, 'create'])->name('projects.create');
+Route::post('/projects-information/store', [ProjectController::class, 'store'])->name('projects.store');
+Route::get('/projects-information/edit/{id}', [ProjectController::class, 'edit'])->name('projects.edit');
+Route::put('/projects-information/update/{id}', [ProjectController::class, 'update'])->name('projects.update');
+Route::delete('/projects-information/distroy/{id}', [ProjectController::class, 'distroy'])->name('projects.distroy');
+Route::get('/projects-information/view/{id}', [ProjectController::class, 'view'])->name('projects.view');
 Route::delete('projects/delete-image/{id}', [ProjectController::class, 'deleteImage'])->name('projects.delete-image');
 // end property route

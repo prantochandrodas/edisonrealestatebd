@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers\Project;
-
+namespace App\Http\Controllers\Backend\Project;
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\ProjectCategory;
@@ -9,15 +9,13 @@ use App\Models\ProjectLocation;
 use App\Models\ProjectPivot;
 use App\Models\Projectype;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use PhpParser\Builder\Property;
 use Yajra\DataTables\Facades\DataTables;
 
 class ProjectController extends Controller
 {
     public function index()
     {
-        return view('backend.project.index');
+        return view('backend.project.project.index');
     }
 
     public function getdata(Request $request)
@@ -68,7 +66,7 @@ class ProjectController extends Controller
         $category = ProjectCategory::all();
         $type = Projectype::all();
         $location = ProjectLocation::all();
-        return view('backend.project.create', compact('category', 'type', 'location'));
+        return view('backend.project.project.create', compact('category', 'type', 'location'));
     }
 
     public function store(Request $request)
@@ -96,7 +94,7 @@ class ProjectController extends Controller
             'road_no' => 'nullable|string|max:255',            
             'block' => 'nullable|string|max:255',            
         ]);
-
+        $slug = $request->name ? Str::slug($request->name) : null;
         // Save the project data
         $project = Project::create([
             'project_category_id' => $request->project_category_id,
@@ -104,6 +102,7 @@ class ProjectController extends Controller
             'location_id' => $request->location_id,
             'status' => $request->status,
             'name' => $request->name,
+            'slug' => $slug,
             'short_title' => $request->short_title,
             'address' => $request->address,
             'overview' => $request->overview,
@@ -146,7 +145,7 @@ class ProjectController extends Controller
         $types = Projectype::all();
         $locations = ProjectLocation::all();
 
-        return view('backend.project.edit', compact('data', 'categories', 'types', 'locations'));
+        return view('backend.project.project.edit', compact('data', 'categories', 'types', 'locations'));
     }
 
 
@@ -177,7 +176,8 @@ class ProjectController extends Controller
             'road_no' => 'nullable|string|max:255',            
             'block' => 'nullable|string|max:255',            
         ]);
-
+         // Generate slug
+       
         $data = Project::findOrFail($id);
 
         // Update the property details

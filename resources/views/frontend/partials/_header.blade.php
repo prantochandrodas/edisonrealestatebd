@@ -23,12 +23,9 @@
                                     <li><a href="/about-us/team">Our Team</a></li>
 
                                     <li><a href="/about-us/privacy-policy">Privacy Policy</a></li>
-
-
-
                                 </ul>
                             </li>
-                            <li class="menu_items"><a href="projects.html">Projects</a>
+                            <li class="menu_items"><a href="/projects">Projects</a>
                                 <ul>
 
                                     <li><a href="projects/ongoingb907.html?&amp;type=%23&amp;location=%23">Ongoing</a>
