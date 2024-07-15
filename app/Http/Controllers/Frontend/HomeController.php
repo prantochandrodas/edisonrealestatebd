@@ -8,6 +8,7 @@ use App\Models\InvestorInformation;
 use App\Models\Project;
 use App\Models\ScheduleMetting;
 use App\Models\slider;
+use App\Models\Team;
 use App\Models\TestimonialPost;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class HomeController extends Controller
         $testimonials=TestimonialPost::all();
         $investorInformation=InvestorInformation::first();
         $ScheduleMettings=ScheduleMetting::first();
+       
         return view('frontend.home.index',compact('sliders','aboutCompanyInformation','ongoingProjects','upcomingProjects','handedOverProjects','testimonials','investorInformation','ScheduleMettings'));
     }
 }

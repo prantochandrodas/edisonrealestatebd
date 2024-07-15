@@ -44,7 +44,6 @@ the finest in luxury living with Edison Real Estate.">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600&amp;display=swap" rel="preload"
         media="all">
         
-
     <link href="{{ asset('frontend/themes/cms/assets/css/bootstrap.min.css') }}" rel="stylesheet" as="style">
     <link href="{{asset('frontend/themes/cms/assets/css/inner09fd.css?=v2.3434')}}" rel="stylesheet" media="all">
     <link href="{{asset('frontend/themes/cms/assets/css/inner8a54.css')}}" rel="stylesheet" media="all">

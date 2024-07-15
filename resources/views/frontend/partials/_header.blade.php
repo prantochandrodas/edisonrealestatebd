@@ -16,15 +16,13 @@
                 <div class="col-md-8">
                     <div class="menu-list">
                         <ul>
-                            <li class="menu_items"><a href="index.html">Home</a>
+                            <li class="menu_items"><a href="/">Home</a>
                             </li>
-                            <li class="menu_items"><a href="about-us.html">About Us</a>
+                            <li class="menu_items"><a href="/about-us">About Us</a>
                                 <ul>
+                                    <li><a href="/about-us/team">Our Team</a></li>
 
-                                    <li><a href="about-us.html">About Us</a></li>
-                                    <li><a href="about-us/team.html">Our Team</a></li>
-
-                                    <li><a href="about-us/privacy-policy.html">Privacy Policy</a></li>
+                                    <li><a href="/about-us/privacy-policy">Privacy Policy</a></li>
 
 
 

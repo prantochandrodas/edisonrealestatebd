@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AboutUsPage\AboutChairmanController;
 use App\Http\Controllers\Backend\AboutUsPage\AboutUsBannerController;
 use App\Http\Controllers\Backend\AboutUsPage\AboutUsInformationController;
+use App\Http\Controllers\Backend\AboutUsPage\DreamTeamController;
 use App\Http\Controllers\Backend\AboutUsPage\OurValueController;
 use App\Http\Controllers\Backend\AboutUsPage\PrivacyPolicyController;
 use App\Http\Controllers\Backend\AboutUsPage\PurposeController;
@@ -20,7 +21,9 @@ use App\Http\Controllers\Backend\HomePage\SliderController;
 use App\Http\Controllers\Backend\HomePage\TestimonialPostController;
 use App\Http\Controllers\Backend\Property\PropertyController;
 use App\Http\Controllers\Frontend\AboutUsController;
+use App\Http\Controllers\Frontend\AboutUsPrivacyPolicyController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\AboutUsTeamController;
 use App\Http\Controllers\Project\ProjectController;
 use App\Models\CompanyVideo;
 use App\Models\InvestorInformation;
@@ -32,7 +35,8 @@ use Illuminate\Support\Facades\Route;
 //font end route 
 Route::get('/',[HomeController::class,'index']);
 Route::get('/about-us',[AboutUsController::class,'index']);
-Route::get('/slider',[HomeController::class,'slider']);
+Route::get('/about-us/team',[AboutUsTeamController::class,'index']);
+Route::get('/about-us/privacy-policy',[AboutUsPrivacyPolicyController::class,'index']);
 
 // home slider route start 
 Route::get('/slider',[SliderController::class,'index'])->name('slider.index');
@@ -192,6 +196,11 @@ Route::put('/team/update/{id}',[TeamController::class,'update'])->name('teams.up
 Route::delete('/team/distory/{id}',[TeamController::class,'distroy'])->name('teams.distroy');
 Route::get('/team/view/{id}',[TeamController::class,'view'])->name('teams.view');
 // end team route
+
+// dream-team  route start 
+Route::get('/dream-team',[DreamTeamController::class,'index'])->name('dream-teams.index');
+Route::put('/dream-team/update/{id}',[DreamTeamController::class,'update'])->name('dream-teams.update');
+// end privacy policy
 
 // privacy policy route start 
 Route::get('/privacy-policy',[PrivacyPolicyController::class,'index'])->name('privacy-policys.index');

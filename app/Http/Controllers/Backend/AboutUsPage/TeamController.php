@@ -20,6 +20,14 @@ class TeamController extends Controller
         if ($request->ajax()) {
             $data = Team::all();
             return DataTables::of($data)
+                ->addColumn('image', function ($row) {
+                    $firstImage = $row->image;
+                    if ($firstImage) {
+                        return asset('about/team/' . $firstImage); // Return full URL to the image
+                    } else {
+                        return 'No image';
+                    }
+                }) 
                 ->addColumn('action', function ($row) {
                     $editUrl = route('teams.edit', $row->id);
                     $deleteUrl = route('teams.distroy', $row->id);
@@ -62,9 +70,9 @@ class TeamController extends Controller
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '_' . '.' . $extension;
-            $path = 'about/timeline/';
+            $path = 'about/team/';
             $file->move(public_path($path), $filename);
-            $imagePath = $path . $filename;
+            $imagePath = $filename;
         }
 
         Team::create([
@@ -99,7 +107,7 @@ class TeamController extends Controller
 
         if ($request->hasFile('image')) {
             // Delete the old image
-            $oldImagePath = public_path($data->image);
+            $oldImagePath = public_path('about/team/'.$data->image);
             if (file_exists($oldImagePath)) {
                 unlink($oldImagePath);
             }
@@ -108,9 +116,9 @@ class TeamController extends Controller
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '_' . '.' . $extension;
-            $path = 'about/timeline/';
+            $path = 'about/team/';
             $file->move(public_path($path), $filename);
-            $data->image = $path . $filename;
+            $data->image = $filename;
         }
 
         $data->name = $request->name;
@@ -129,7 +137,7 @@ class TeamController extends Controller
 
         $data = Team::findOrFail($id);
         // Delete the image file if it exists
-        $imagePath = public_path($data->image);
+        $imagePath = public_path('about/team/'.$data->image);
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }

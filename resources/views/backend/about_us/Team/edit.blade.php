@@ -91,7 +91,7 @@
                         <div class="alert alert-danger mt-2">{{ $message }}</div>
                     @enderror
                     @if ($data->image)
-                        <img src="{{ asset($data->image) }}" height="100" class="mb-2" alt="Current Image">
+                        <img src="{{ asset('about/team/'.$data->image) }}" height="100" class="mb-2" alt="Current Image">
                     @endif
                 </div>
                 {{-- submit button  --}}

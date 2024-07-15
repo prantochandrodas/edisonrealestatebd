@@ -171,7 +171,7 @@
     </section>
     <!--------- mission vision --------->
 
-    
+
     <!------------- about text start------------->
     <section class="ChairmanMessage">
         <div class="MissionVision">
@@ -328,10 +328,10 @@
 
             <div class="Project-nav">
                 <ul>
-                    <li class="goLeft"><img src="themes/cms/assets/images/static/test_prev.svg" height="51"
-                            width="51" alt=""></li>
-                    <li class="goRight"><img src="themes/cms/assets/images/static/test_next.svg" height="51"
-                            width="51" alt=""></li>
+                    <li class="goLeft"><img src="{{ asset('frontend/themes/cms/assets/images/static/test_prev.svg') }}"
+                            height="51" width="51" alt=""></li>
+                    <li class="goRight"><img src="{{ asset('frontend/themes/cms/assets/images/static/test_next.svg') }}"
+                            height="51" width="51" alt=""></li>
                 </ul>
             </div>
 
@@ -341,118 +341,24 @@
             <div class="row">
                 <div class="Project__slider-wrap anim boxOver">
                     <div class="ProjectSlider-init">
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner  modify-bg"
-                                data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/book_demo_man.webp"
-                                data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/book_demo_man.webp"
-                                data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/book_demo_man.webp"
-                                style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-                                <!-- 370x400-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <h3>MD. IMRANUL KABIR</h3>
-                                        <p>Chairman & CEO</p>
-                                    </div>
+                        @foreach ($teams as $item)
+                            <div class="Project__slider-wrap__single ">
+                                <div class="Project__slider-wrap__single__inner  modify-bg"
+                                    data-image-small="{{ asset('about/team/' . $item->image) }}"
+                                    data-image-large="{{ asset('about/team/' . $item->image) }}"
+                                    data-image-standard="{{ asset('about/team/' . $item->image) }}"
+                                    style="background-image: url('{{ asset('about/team/' . $item->image) }}');">
+                                    <!-- 370x400-->
+                                    <div class="Project__slider-wrap__single__inner__content">
+                                        <div class="Project__slider-wrap__single__inner__content__slide">
+                                            <h3>{{ $item->name }}</h3>
+                                            <p>{{ $item->designation }}</p>
+                                        </div>
 
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner  modify-bg"
-                                data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person11.jpg"
-                                data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person11.jpg"
-                                data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/person11.jpg"
-                                style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-                                <!-- 370x400-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <h3>Md Karim</h3>
-                                        <p>Director </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner  modify-bg"
-                                data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person13.jpg"
-                                data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person13.jpg"
-                                data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/person13.jpg"
-                                style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-                                <!-- 370x400-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <h3>Rahim Khan</h3>
-                                        <p>Additional Director</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner  modify-bg"
-                                data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person14.jpg"
-                                data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person14.jpg"
-                                data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/person14.jpg"
-                                style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-                                <!-- 370x400-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <h3>Nabila</h3>
-                                        <p>Assistant Director</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner  modify-bg"
-                                data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person15.jpg"
-                                data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person15.jpg"
-                                data-image-standard="admin/uploads/page/team/555x600/1684304569D1VVD_m.jpg"
-                                style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-                                <!-- 370x400-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <h3>Riazul Islam</h3>
-                                        <p>Additional Director </p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner  modify-bg"
-                                data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person16.jpg"
-                                data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person16.jpg"
-                                data-image-standard="admin/uploads/page/team/555x600/1693299084AX773_m.jpg"
-                                style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-                                <!-- 370x400-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <h3>Sariful Islam</h3>
-                                        <p>Assistant Director</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner  modify-bg"
-                                data-image-small="/edisonrealestatebd.com/themes/cms/assets/images/static/person17.jpg"
-                                data-image-large="/edisonrealestatebd.com/themes/cms/assets/images/static/person17.jpg"
-                                data-image-standard="/edisonrealestatebd.com/themes/cms/assets/images/static/person17.jpg"
-                                style="background-image: url('themes/cms/assets/images/static/blur.jpg');">
-                                <!-- 370x400-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <h3>Shakil Khan</h3>
-                                        <p>Advisor</p>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -469,62 +375,5 @@
     <div class="fb-customerchat" attribution="install_email" attribution_version="biz_inbox" page_id="329218885142661">
     </div>
 
-    <!------------footer start ------------>
-
-
-    <section class="Footer pt100 pb100 Loader">
-        <img class=" modify-img " data-image-small="themes/cms/assets/images/static/footer.jpg"
-            data-image-large="themes/cms/assets/images/static/footer.jpg"
-            data-image-standard="themes/cms/assets/images/static/footer.jpg" data-src=""
-            src="themes/cms/assets/images/static/blur.jpg" alt="">1366x550
-        <div class="container ">
-            <div class="row">
-                <div class="col-md-5 Footer__top-left">
-                    <img src="themes/cms/assets/images/static/logo-white.png" alt="">
-                    <!--<p>HOTLINE: <a href="tel:16760">16760</a></p> -->
-                    <p>HOTLINE: <a href="tel:01310817493" target="_blank">01310817493</a> </p>
-                    <p>EMAIL: <a href="mailto:info@putulproperties.com">info@putulproperties.com</a></p>
-                </div>
-
-                <div class="col-md-7 Footer__top-right">
-                    <!-- <img class="logo_rehab" src="themes/cms/assets/images/static/rehab.jpg" alt=""> -->
-                </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-
-            <div class="row">
-                <div class="Footer__social col-md-12">
-                    <ul>
-                        <li>
-                            <a target="_blank" href=""
-                                style="background-image: url('themes/cms/assets/images/static/social_icons.svg')"></a>
-                        </li>
-                        <li>
-                            <a target="_blank" href=""
-                                style="background-image: url('themes/cms/assets/images/static/social_icons.svg')"></a>
-                        </li>
-                        <li>
-                            <a target="_blank" href=""
-                                style="background-image: url('themes/cms/assets/images/static/social_icons.svg')"></a>
-                        </li>
-                        <li>
-                            <a target="_blank" href=""
-                                style="background-image: url('themes/cms/assets/images/static/social_icons.svg')"></a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-                <div class="Footer__copyright col-md-12">
-                    <p>© 2024 Putul Properties Limited. All Rights Reserved. <a href="https://www.stitbd.com/">Designed
-                            &amp; Developed by STITBD</a></p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
+  
 @endsection
