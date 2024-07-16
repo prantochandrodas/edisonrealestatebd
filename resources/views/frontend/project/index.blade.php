@@ -19,31 +19,31 @@
         <div class="container">
             <div class="row">
                 <div class="Products__short col-md-12 Select">
-                    <form method="get" id="search" data-pjax action="https://edisonrealestatebd.com/projects">
+                    <form method="get"   action="{{route('projects.index')}}">
                         <div class="col-md-4 col-sm-4 col-xs-12">
-                            <select class="category">
-                                <option value="">All</option>
+                            <select class="category"  name="category">
+                                <option value="">Project Status</option>
 
                                 @foreach ($projectCategories as $item)
-                                    <option value="{{ $item->id }}"> {{ $item->name }} </option>
+                                    <option value="{{ $item->slug }}"  {{ request('category') == $item->slug ? 'selected' : '' }}> {{ $item->name }} </option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <select class="type" name="type">
-                                <option value="#">Type</option>
+                                <option value="">Project Type</option>
                                 @foreach ($projectType as $item)
-                                    <option value="{{ $item->id }}"> {{ $item->name }} </option>
+                                    <option value="{{ $item->id }}"  {{ request('type') == $item->id ? 'selected' : '' }}> {{ $item->name }} </option>
                                 @endforeach
                             </select>
                         </div>
 
                         <div class="col-md-4 col-sm-4 col-xs-12">
                             <select class="location" name="location">
-                                <option value="#">Location</option>
+                                <option value="">Project Location</option>
                                 @foreach ($projectLocation as $item)
-                                    <option value="{{ $item->id }}"> {{ $item->name }} </option>
+                                    <option value="{{ $item->id }}" {{ request('location') == $item->id ? 'selected' : '' }}> {{ $item->name }} </option>
                                 @endforeach
                             </select>
                         </div>
@@ -67,7 +67,7 @@
                             @foreach ($projects as $item)
                                 <div class="Project__slider-wrap__single  col-xs-6 anim boxOver col-md-4">
                                     <div class="Project__slider-wrap__single__inner ">
-                                        <a href="projects/edison-angelo.html"></a>
+                                       
                                         <div class="Project__slider-wrap__single__bg modify-bg bg-position"
                                             data-image-small="{{asset('project/'.$item->images[0]->image)}}"
                                             data-image-large="{{asset('project/'.$item->images[0]->image)}}"
@@ -100,7 +100,7 @@
 
                                             </div>
 
-                                            <a href="projects/edison-angelo.html" class="dcBtn"><span>Explore</span></a>
+                                            <a href="{{ route('projects.details', ['name' => $item->slug]) }}" class="dcBtn"><span>Explore</span></a>
                                         </div>
                                     </div>
                                 </div>

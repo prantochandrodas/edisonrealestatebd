@@ -1,5 +1,5 @@
-@extends('layouts.frontend')
-@section('frontend-content')
+@extends('layouts.project_details_page')
+@section('projectdetails-content')
     <div class="Project-detail-banner">
         <div class="container-fluid p0">
             <div class="row">
@@ -53,20 +53,21 @@
                         <ul class="Bredcum">
                             <li><a href="../project">Projects</a></li>
                             <li>
-                                <a href="../projectsbd51.html?category=1&amp;type=%23&amp;location=%23">{{$data->category->name}}</a>
+                                <a
+                                    href="../projectsbd51.html?category=1&amp;type=%23&amp;location=%23">{{ $data->category->name }}</a>
                             </li>
                         </ul>
 
                         <h1 class="Title anim textOver">
-                            <span><span>{{$data->name}}</span></span>
+                            <span><span>{{ $data->name }}</span></span>
                         </h1>
                         <h4 class="anim textOver">
-                            <span><span>{{$data->short_title}}</span></span>
+                            <span><span>{{ $data->short_title }}</span></span>
                         </h4>
 
                         <p class="location anim justFade">
                             <span><img src="../themes/cms/assets/images/static/location.svg" alt=""></span>
-                            <span> {{$data->block}}, {{$data->location->name}}</span>
+                            <span>Block {{ $data->block }}, {{ $data->location->name }}</span>
                         </p>
 
 
@@ -79,8 +80,8 @@
                                 <h2 class="Title anim textOver"><span><span>specification</span></span></h2>
                                 <table class="table anim justFade">
                                     <tr>
-                                        <td> {!!$data->specification!!}</td>
-                                        
+                                        <td> {!! $data->specification !!}</td>
+
                                     </tr>
                                 </table>
                             </div>
@@ -114,7 +115,7 @@
                 <div class="modal-header">
                     <!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
                     <!--                </button>-->
-                    <img src="../themes/cms/assets/images/static/modal-close.svg" class="modalClose" alt=""
+                    <img src="{{asset('frontend/themes/cms/assets/images/static/modal-close.svg')}}" class="modalClose" alt=""
                         data-dismiss="modal" aria-label="Close">
                 </div>
                 <div class="modal-body">
@@ -132,8 +133,7 @@
                                 action="https://edisonrealestatebd.com/site/dynamic_form" method="post" data-pjax="false">
                                 <input type="hidden" name="_csrf-frontend"
                                     value="pG-qaZJx3OBCMScX1ZyJwVZ7UokdLreiZMpBFH29OvHvAvsC-SPphC91akWN-da3IB0-sFtNz8wVjzNaL8tStA==">
-                                <input type="hidden" id="brochure" class="form-control" name="form_id"
-                                    value="brochure">
+                                <input type="hidden" id="brochure" class="form-control" name="form_id" value="brochure">
 
 
 
@@ -205,7 +205,7 @@
                 <div class="modal-header">
                     <!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
                     <!--                </button>-->
-                    <img src="../themes/cms/assets/images/static/modal-close.svg" class="modalClose" alt=""
+                    <img src="{{asset('frontend/themes/cms/assets/images/static/modal-close.svg')}}" class="modalClose" alt=""
                         data-dismiss="modal" aria-label="Close">
                 </div>
                 <div class="modal-body">
@@ -299,12 +299,20 @@
             <div class="row">
                 <div class="col-md-5 Location_map__address pt100" style="padding-left: 119.5px;">
                     <h2 class="Title anim textOver"><span><span>project <br> location </span></span></h2>
-                    <p class="anim justFade">Address: {{$data->block}} Block, {{$data->location->name}}</p>
+                    <p class="anim justFade">Address: {{ $data->block }} Block, {{ $data->location->name }}</p>
+
                 </div>
 
                 <div class="col-md-7 Location_map__map">
+                   
+                    {{-- <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.132133322695!2d90.44161277439373!3d23.81389998633732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c75b642414b9%3A0xecc14ee899dd36b3!2sEdison%20Prospero%20(Tower-1)!5e0!3m2!1sen!2sbd!4v1721119674581!5m2!1sen!2sbd"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
                     <div id="map"
-                        data-map-pointer="{{asset('/frontend/themes/cms/assets/images/static/pointer.png')}}"></div>
+                        data-map-pointer="{{ asset('/frontend/themes/cms/assets/images/static/pointer.png') }}">
+                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -321,10 +329,10 @@
 
             <div class="Projects-nav">
                 <ul>
-                    <li class="goLeft"><img src="../themes/cms/assets/images/static/test_prev.svg" height="51"
-                            width="51" alt=""></li>
-                    <li class="goRight"><img src="../themes/cms/assets/images/static/test_next.svg" height="51"
-                            width="51" alt=""></li>
+                    <li class="goLeft"><img src="{{ asset('frontend/themes/cms/assets/images/static/test_prev.svg') }}"
+                            height="51" width="51" alt=""></li>
+                    <li class="goRight"><img src="{{ asset('frontend/themes/cms/assets/images/static/test_next.svg') }}"
+                            height="51" width="51" alt=""></li>
                 </ul>
             </div>
 
@@ -335,350 +343,48 @@
             <div class="row">
                 <div class="Projects__slider-wrap anim boxOver">
                     <div class="ProjectSlider-init">
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="apricus.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/apricus/555x900/1697003794JDHdy_s.jpg"
-                                    data-image-large="../admin/uploads/product/apricus/555x900/1697003794JDHdy_l.jpg"
-                                    data-image-standard="../admin/uploads/product/apricus/555x900/1697003794JDHdy_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
-
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Apricus</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>
-                                            <p>Relish unmatched lifestyle experiences with<a href="amour_edison.html"
-                                                    target="_blank"> </a><a href="amour_edison.html"
-                                                    target="_blank">Edison</a> Apricus as you devour unprecedented
-                                                quality of facilities. It infuses all elements of opulence that enhances
-                                                your sense of inner peace.<br />
-                                                <br />
-                                                For Apartment Tour-<a href="http://<iframe src="
-                                                    https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Fedisonrealestateltd%2Fvideos%2F944219292869764%2F&amp;show_text=false&amp;width=380&amp;t=0%22%20width=%22380%22%20height=%22476%22%20style=%22border:none;overflow:hidden%22%20scrolling=%22no%22%20frameborder=%220%22%20allowfullscreen=%22true%22%20allow=%22autoplay;%20clipboard-write;%20encrypted-media;%20picture-in-picture;%20web-share%22%20allowFullScreen=%22true%22></iframe>"
-                                                    target="_blank"> </a><a href="https://youtu.be/kw0syW4_0m0"
-                                                    target="_blank">Click here</a><br />
-                                                <br />
-                                                &nbsp;
-                                            </p>
-                                            </p>
-                                        </div>
+                        @foreach ($relatedProjects as $item)
+                            <div class="Project__slider-wrap__single ">
+                                <div class="Project__slider-wrap__single__inner">
+                                    <a href="apricus.html"></a>
+                                    <div class="Project__slider-wrap__single__bg modify-bg bg-position"
+                                        data-image-small="{{asset('project/'.$item->images[0]->image)}}"
+                                        data-image-large="{{asset('project/'.$item->images[0]->image)}}"
+                                        data-image-standard="{{asset('project/'.$item->images[0]->image)}}"
+                                        style="background-image: url('{{asset('project/'.$item->images[0]->image)}}');">
 
                                     </div>
 
-                                    <a href="apricus.html" class="dcBtn"><span>Explore</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="amour_edison.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/amour-copy/555x900/1667715948Uyv3B_s.jpg"
-                                    data-image-large="../admin/uploads/product/amour-copy/555x900/1667715948Uyv3B_l.jpg"
-                                    data-image-standard="../admin/uploads/product/amour-copy/555x900/1667715948Uyv3B_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
+                                    <!-- 370x600  && mobile > 374x450-->
+                                    <div class="Project__slider-wrap__single__inner__content">
+                                        <div class="Project__slider-wrap__single__inner__content__slide">
+                                            <div class="Project__slider-wrap__single__inner__content__slide__inner">
+                                                <h3>Edison Apricus</h3>
+                                                <h4>Bashundhara R/A</h4>
+                                                <p>
+                                                <p>Relish unmatched lifestyle experiences with<a href="amour_edison.html"
+                                                        target="_blank"> </a><a href="amour_edison.html"
+                                                        target="_blank">Edison</a> Apricus as you devour unprecedented
+                                                    quality of facilities. It infuses all elements of opulence that enhances
+                                                    your sense of inner peace.<br />
+                                                    <br />
+                                                    For Apartment Tour-<a href="http://<iframe src="
+                                                        https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Fedisonrealestateltd%2Fvideos%2F944219292869764%2F&amp;show_text=false&amp;width=380&amp;t=0%22%20width=%22380%22%20height=%22476%22%20style=%22border:none;overflow:hidden%22%20scrolling=%22no%22%20frameborder=%220%22%20allowfullscreen=%22true%22%20allow=%22autoplay;%20clipboard-write;%20encrypted-media;%20picture-in-picture;%20web-share%22%20allowFullScreen=%22true%22></iframe>"
+                                                        target="_blank"> </a><a href="https://youtu.be/kw0syW4_0m0"
+                                                        target="_blank">Click here</a><br />
+                                                    <br />
+                                                    &nbsp;
+                                                </p>
+                                                </p>
+                                            </div>
 
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Amour</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>
-                                            <p>This proposition is an evolution of&nbsp;morphology towards the urban
-                                                context.&nbsp;Unique approach in expression and&nbsp;identical
-                                                appearance with enthralling&nbsp;lakeside view makes the
-                                                experience&nbsp;ecstatic.<br />
-                                                <br />
-                                                For Apartment Tour- <a href="https://youtu.be/T1EQ1U0mIAs"
-                                                    target="_blank">click here</a>
-                                            </p>
-                                            </p>
                                         </div>
 
+                                        <a href="apricus.html" class="dcBtn"><span>Explore</span></a>
                                     </div>
-
-                                    <a href="amour_edison.html" class="dcBtn"><span>Explore</span></a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="adelia.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/adelia-copy/555x900/16637484177DjW4_s.jpg"
-                                    data-image-large="../admin/uploads/product/adelia-copy/555x900/16637484177DjW4_l.jpg"
-                                    data-image-standard="../admin/uploads/product/adelia-copy/555x900/16637484177DjW4_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
-
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Adelia</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>Edison Adelia platter comfort within your reach. It is another piece of
-                                                continuous commitments to our customers to redefine their happiness
-                                                within affordability at the same time ensuring quality.</p>
-                                        </div>
-
-                                    </div>
-
-                                    <a href="adelia.html" class="dcBtn"><span>Explore</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="edison-othello.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/edison-othello/555x900/1684220009tRzkO_s.jpg"
-                                    data-image-large="../admin/uploads/product/edison-othello/555x900/1684220009tRzkO_l.jpg"
-                                    data-image-standard="../admin/uploads/product/edison-othello/555x900/1684220009tRzkO_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
-
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Othello</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>Edison Othello located in the K block of Bashundhara R/A, is a sublime
-                                                beauty that ornaments the placid surrounding opted to adorn you with
-                                                vital necessities of a deluxe residence in the capital. At Edison
-                                                Othello each of the expansive living spaces are accompanied with fully
-                                                equipped gymnasium and community area at tip of the double heighted
-                                                entrance of this architectural magnificence.&nbsp;&nbsp;<br />
-                                                <br />
-                                                For Apartment Tour- <a href="https://youtu.be/okcvMll-fiM"
-                                                    target="_blank">Click Here</a>
-                                            </p>
-                                        </div>
-
-                                    </div>
-
-                                    <a href="edison-othello.html" class="dcBtn"><span>Explore</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="edison-rosalind.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/edison-rosalind/555x900/166374724676lsH_s.jpg"
-                                    data-image-large="../admin/uploads/product/edison-rosalind/555x900/166374724676lsH_l.jpg"
-                                    data-image-standard="../admin/uploads/product/edison-rosalind/555x900/166374724676lsH_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
-
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Rosalind</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>Edison Rosalind resonates robustness and exquisiteness. Each DNA of this
-                                                concrete structure is full of vital essence to keep its residents in
-                                                peace. A deluxe, you would love to call home. Edison Rosalind, as you
-                                                like it.<br />
-                                                <br />
-                                                <br />
-                                                For Apartment Tour-<a href="http://<iframe  data-cke-saved-src="
-                                                    https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Fedisonrealestateltd%2Fvideos%2F944219292869764%2F&amp;show_text=false&amp;width=380&amp;t=0%22%20src=%22https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Fedisonrealestateltd%2Fvideos%2F944219292869764%2F&amp;show_text=false&amp;width=380&amp;t=0%22%20width=%22380%22%20height=%22476%22%20style=%22border:none;overflow:hidden%22%20scrolling=%22no%22%20frameborder=%220%22%20allowfullscreen=%22true%22%20allow=%22autoplay;%20clipboard-write;%20encrypted-media;%20picture-in-picture;%20web-share%22%20allowFullScreen=%22true%22></iframe>"
-                                                    target="_blank">&nbsp;</a><a href="https://youtu.be/QiOPkU1YXYk?t=4"
-                                                    target="_blank">Click here</a><br />
-                                                &nbsp;
-                                            </p>
-                                        </div>
-
-                                    </div>
-
-                                    <a href="edison-rosalind.html" class="dcBtn"><span>Explore</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="edison-titania.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/edison-taitania/555x900/1663747998C5y1Y_s.jpg"
-                                    data-image-large="../admin/uploads/product/edison-taitania/555x900/1663747998C5y1Y_l.jpg"
-                                    data-image-standard="../admin/uploads/product/edison-taitania/555x900/1663747998C5y1Y_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
-
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Titania</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>Edison Titania reflects the characteristics of a sublime creation in
-                                                Bashundhara R/A assuring all necessities for a peaceful habitat inside
-                                                and out. It is a sheer illustration of premium living amid the humdrum
-                                                of the capital.<br />
-                                                <br />
-                                                For Apartment Tour-<a href="http://<iframe  data-cke-saved-src="
-                                                    https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Fedisonrealestateltd%2Fvideos%2F944219292869764%2F&amp;show_text=false&amp;width=380&amp;t=0%22%20src=%22https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Fedisonrealestateltd%2Fvideos%2F944219292869764%2F&amp;show_text=false&amp;width=380&amp;t=0%22%20width=%22380%22%20height=%22476%22%20style=%22border:none;overflow:hidden%22%20scrolling=%22no%22%20frameborder=%220%22%20allowfullscreen=%22true%22%20allow=%22autoplay;%20clipboard-write;%20encrypted-media;%20picture-in-picture;%20web-share%22%20allowFullScreen=%22true%22></iframe>"
-                                                    target="_blank">&nbsp;</a><a href="https://youtu.be/_LFfZpVzOWk"
-                                                    target="_blank">Click here</a><br />
-                                                &nbsp;
-                                            </p>
-                                        </div>
-
-                                    </div>
-
-                                    <a href="edison-titania.html" class="dcBtn"><span>Explore</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="edison_Ophelia.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/edison_Ophelia/555x900/1667715147uLl1M_s.jpg"
-                                    data-image-large="../admin/uploads/product/edison_Ophelia/555x900/1667715147uLl1M_l.jpg"
-                                    data-image-standard="../admin/uploads/product/edison_Ophelia/555x900/1667715147uLl1M_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
-
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Ophelia</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>Edison Ophelia is a dreamy atmosphere in Bashundhara R/A creating a
-                                                unique fusion between convenience and luxury. You will love this
-                                                masterpiece as an address close to your heart.<br />
-                                                &nbsp;<br />
-                                                <br />
-                                                &nbsp;
-                                            </p>
-                                        </div>
-
-                                    </div>
-
-                                    <a href="edison_Ophelia.html" class="dcBtn"><span>Explore</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="edison-angelo.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/edison-angelo/555x900/1667717107bViJr_s.jpg"
-                                    data-image-large="../admin/uploads/product/edison-angelo/555x900/1667717107bViJr_l.jpg"
-                                    data-image-standard="../admin/uploads/product/edison-angelo/555x900/1667717107bViJr_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
-
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Angelo</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>EDISON ANGELO, a true luxurious sculpture to transcend your living
-                                                artistry that will make you fall in love with every stroll you take in
-                                                this angelic address.<br />
-                                                <br />
-                                                For Apartment Tour-&nbsp;<a href="https://youtu.be/Y7WJEQa5AyQ"
-                                                    target="_blank">click here</a><br />
-                                                <br />
-                                                For Virtual experience -&nbsp;&nbsp;<a
-                                                    href="https://latitude-23.net/VR/EDISON_ANGELO V1/tour.html"
-                                                    target="_blank">click here</a>
-                                            </p>
-                                        </div>
-
-                                    </div>
-
-                                    <a href="edison-angelo.html" class="dcBtn"><span>Explore</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="edison-prospero.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/edison-angelo-copy/555x900/1701774315VhLWF_s.jpg"
-                                    data-image-large="../admin/uploads/product/edison-angelo-copy/555x900/1701774315VhLWF_l.jpg"
-                                    data-image-standard="../admin/uploads/product/edison-angelo-copy/555x900/1701774315VhLWF_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
-
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Prospero</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>A terrestrial mammoth structure synonymous to the architectural essence
-                                                and climate of Bangladesh, EDISON PROSPERO stands strong to bind all
-                                                your living experience in a poetic way.<br />
-                                                <br />
-                                                &nbsp;
-                                            </p>
-                                        </div>
-
-                                    </div>
-
-                                    <a href="edison-prospero.html" class="dcBtn"><span>Explore</span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Project__slider-wrap__single ">
-                            <div class="Project__slider-wrap__single__inner">
-                                <a href="edison-desdemona.html"></a>
-                                <div class="Project__slider-wrap__single__bg modify-bg bg-position"
-                                    data-image-small="../admin/uploads/product/edison-desdemona/555x900/1667716974UIMnN_s.jpg"
-                                    data-image-large="../admin/uploads/product/edison-desdemona/555x900/1667716974UIMnN_l.jpg"
-                                    data-image-standard="../admin/uploads/product/edison-desdemona/555x900/1667716974UIMnN_m.jpg"
-                                    style="background-image: url('../themes/cms/assets/images/static/blur.jpg');">
-
-                                </div>
-
-                                <!-- 370x600  && mobile > 374x450-->
-                                <div class="Project__slider-wrap__single__inner__content">
-                                    <div class="Project__slider-wrap__single__inner__content__slide">
-                                        <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                            <h3>Edison Desdemona</h3>
-                                            <h4>Bashundhara R/A</h4>
-                                            <p>A lively structure, full of exclusivity. An Edifice that encourages you
-                                                to live your life in the moment. Where memories are carved as existence
-                                                sees. Edison Desdemona is a home where your senses find peace.<br />
-                                                <br />
-                                                For Apartment Tour-&nbsp;<a href="https://youtu.be/jnW4g0Um1Dg"
-                                                    target="_blank">click here</a><br />
-                                                <br />
-                                                &nbsp;
-                                            </p>
-                                        </div>
-
-                                    </div>
-
-                                    <a href="edison-desdemona.html" class="dcBtn"><span>Explore</span></a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

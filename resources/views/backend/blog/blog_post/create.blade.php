@@ -59,7 +59,7 @@
     </div>
     <!--end::Toolbar-->
 
-    <div style="max-width: 600px; margin: 0 auto;">
+    <div class="container-fluid">
         <div style="background-color: #f0f0f0; padding: 20px;">
             <h2 style="text-align: center;">Create Blog-post</h2>
         </div>
@@ -72,16 +72,38 @@
                     <label for="title" style="display: block; margin-bottom: 5px;">Title:</label>
                     <input type="text" id="title" name="title" class="form-control"
                         style="width: 100%; padding: 8px;">
+                    @error('title')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
+                </div>
+
+                <div style="margin-bottom: 20px;">
+                    <label for="description" style="display: block; margin-bottom: 5px;">Description:</label>
+                    <textarea name="description" id="summernote" cols="30" rows="10"></textarea>
+                    
+                    @error('description')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div style="margin-bottom: 20px;">
                     <label for="image" style="display: block; margin-bottom: 5px;">Image:</label>
                     <input type="file" id="image" name="image" class="form-control"
                         style="width: 100%; padding: 8px;">
+                    @error('image')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
                 </div>
                 <button type="submit"
                     style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius: 5px;">Create</button>
             </form>
         </div>
     </div>
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 500
+            });
+        });
+    </script>
 @endsection

@@ -324,7 +324,7 @@
                                height="9 px" width="8 px">
                        </li>
                        @foreach ($projectCategories as $item)
-                           <li><a href="projects/ongoingb907.html?&amp;type=%23&amp;location=%23">{{ $item->name }}</a>
+                           <li><a href={{route('projects.index',['category' => $item->slug])}}>{{ $item->name }}</a>
                        @endforeach
                    </ul>
                </div>
@@ -521,7 +521,7 @@
                    </div>
                </div>
                <div class="d-flex justify-content-center" style="display: flex; justify-content: center;">
-                   <button class="custom-button">View All Projects</button>
+                 <a href="{{route('projects.index',['category' => 'ongoing'])}}"><button class="custom-button">View All Projects</button></a>  
                </div>
 
            </div>
@@ -635,7 +635,7 @@
 
                                            </div>
 
-                                           <a href="projects/edison-desdemona.html"
+                                           <a href="{{ route('projects.details', ['name' => $item->slug]) }}"
                                                class="dcBtn"><span>Explore</span></a>
                                        </div>
                                    </div>
@@ -645,7 +645,7 @@
                    </div>
                </div>
                <div class="d-flex justify-content-center" style="display: flex; justify-content: center;">
-                   <button class="custom-button">View All Projects</button>
+                <a href="{{route('projects.index',['category' => 'upcoming'])}}"><button class="custom-button">View All Projects</button></a>  
                </div>
 
            </div>
@@ -756,7 +756,7 @@
                                                    </div>
                                                </div>
                                            </div>
-                                           <a href="projects/edison-desdemona.html"
+                                           <a href="{{ route('projects.details', ['name' => $item->slug]) }}"
                                                class="dcBtn"><span>Explore</span></a>
                                        </div>
                                    </div>
@@ -766,7 +766,7 @@
                    </div>
                </div>
                <div class="d-flex justify-content-center" style="display: flex; justify-content: center;">
-                   <button class="custom-button">View All Projects</button>
+                <a href="{{route('projects.index',['category' => 'completed'])}}"><button class="custom-button">View All Projects</button></a>  
                </div>
 
            </div>

@@ -26,6 +26,7 @@ use App\Http\Controllers\Frontend\AboutUsController;
 use App\Http\Controllers\Frontend\AboutUsPrivacyPolicyController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutUsTeamController;
+use App\Http\Controllers\Frontend\BlogController;
 use App\Http\Controllers\Frontend\ProjectsController;
 use App\Models\CompanyVideo;
 use App\Models\InvestorInformation;
@@ -39,8 +40,10 @@ Route::get('/',[HomeController::class,'index']);
 Route::get('/about-us',[AboutUsController::class,'index']);
 Route::get('/about-us/team',[AboutUsTeamController::class,'index']);
 Route::get('/about-us/privacy-policy',[AboutUsPrivacyPolicyController::class,'index']);
-Route::get('/projects',[ProjectsController::class,'index']); 
-Route::get('/projects/{name}',[ProjectsController::class,'projectDetails'])->name('projects.details'); 
+Route::get('/projects/{category?}', [ProjectsController::class, 'index'])->name('projects.index');
+Route::get('/project/{name}',[ProjectsController::class,'projectDetails'])->name('projects.details'); 
+Route::get('/blogs',[BlogController::class,'index'])->name('blog.index'); 
+Route::get('/blogs/{name}',[BlogController::class,'details'])->name('blogs.details'); 
 
 
 // home slider route start 
@@ -110,13 +113,7 @@ Route::put('/schedule-metting/update/{id}',[ScheduleMettingController::class,'up
 // blog banner route start 
 
 Route::get('/blog-banner',[BlogBannerController::class,'index'])->name('blog-banners.index');
-Route::get('/blog-banner/getdata',[BlogBannerController::class,'getdata'])->name('blog-banners.getdata');
-Route::get('/blog-banner/create',[BlogBannerController::class,'create'])->name('blog-banners.create');
-Route::post('/blog-banner/store',[BlogBannerController::class,'store'])->name('blog-banners.store');
-Route::get('/blog-banner/edit/{id}',[BlogBannerController::class,'edit'])->name('blog-banners.edit');
 Route::put('/blog-banner/update/{id}',[BlogBannerController::class,'update'])->name('blog-banners.update');
-Route::delete('/blog-banner/distory/{id}',[BlogBannerController::class,'distroy'])->name('blog-banners.distroy');
-Route::get('/blog-banner/view/{id}',[BlogBannerController::class,'view'])->name('blog-banners.view');
 
 // blog banner route end 
 
@@ -218,7 +215,7 @@ Route::put('/projectpage-banner/update/{id}',[ProjectPageBannerController::class
 // end privacy policy
 
 // start team PropertyController 
-Route::get('/projects-information', [ProjectController::class, 'index'])->name('projects.index');
+Route::get('/projects-information', [ProjectController::class, 'index'])->name('projects-information.index');
 Route::get('/projects-information/getdata', [ProjectController::class, 'getdata'])->name('projects.getdata');
 Route::get('/projects-information/create', [ProjectController::class, 'create'])->name('projects.create');
 Route::post('/projects-information/store', [ProjectController::class, 'store'])->name('projects.store');

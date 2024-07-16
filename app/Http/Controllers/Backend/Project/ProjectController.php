@@ -135,7 +135,7 @@ class ProjectController extends Controller
         }
 
 
-        return redirect()->route('projects.index')
+        return redirect()->route('projects-information.index')
             ->with('success', 'data created successfully.');
     }
     public function edit($id)
@@ -221,7 +221,7 @@ class ProjectController extends Controller
             }
         }
 
-        return redirect()->route('projects.index')
+        return redirect()->route('projects-information.index')
             ->with('success', 'data updated successfully.');
     }
 
@@ -260,7 +260,7 @@ class ProjectController extends Controller
         // Delete the project
         $project->delete();
 
-        return redirect()->route('projects.index')
+        return redirect()->route('projects-information.index')
             ->with('success', 'Project deleted successfully.');
     }
 

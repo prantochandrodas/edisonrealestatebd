@@ -28,23 +28,23 @@
                             <li class="menu_items"><a href="/projects">Projects</a>
                                 <ul>
 
-                                    <li><a href="projects/ongoingb907.html?&amp;type=%23&amp;location=%23">Ongoing</a>
+                                    <li><a href="{{route('projects.index',['category' => 'ongoing'])}}">Ongoing</a>
                                     </li>
 
 
 
-                                    <li><a href="projects/upcomingb907.html?&amp;type=%23&amp;location=%23">Upcoming</a>
+                                    <li><a href="{{route('projects.index',['category' => 'upcoming'])}}">Upcoming</a>
                                     </li>
 
 
 
-                                    <li><a href="projects/completed946c.html">Completed</a>
+                                    <li><a href="{{route('projects.index',['category' => 'completed'])}}">Completed</a>
                                     </li>
 
 
                                 </ul>
                             </li>
-                            <li class="menu_items"><a href="blog/index.html">Blog</a>
+                            <li class="menu_items"><a href="/blogs">Blog</a>
                             </li>
                             <li class="menu_items"><a href="javascript:void(0)">Gallery</a>
                                 <ul>

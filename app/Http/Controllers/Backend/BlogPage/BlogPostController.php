@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Backend\BlogPage;
-
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 use App\Models\BlogPost;
 use Illuminate\Http\Request;
@@ -17,6 +17,14 @@ class BlogPostController extends Controller
         if($request->ajax()){
             $data=BlogPost::all();
             return datatables($data)
+            ->addColumn('image', function ($row) {
+                $firstImage = $row->image;
+                if ($firstImage) {
+                    return asset('blog/blog-post/' . $firstImage); // Return full URL to the image
+                } else {
+                    return 'No image';
+                }
+            })
             ->addColumn('action',function($row){
                 $editUrl=route('blog-posts.edit',$row->id);
                 $deleteUrl=route('blog-posts.distroy',$row->id);
@@ -47,20 +55,24 @@ class BlogPostController extends Controller
         
         $request->validate([
             'title' => 'required|string|max:255',
-            'image' => 'required|image|file|max:2048'
+            'slug' => 'nullable|string|unique:blog_posts,slug|max:255',
+            'image' => 'required|image|file|max:2048',
+            'description' => 'nullable'
         ]);
-
+        $slug = $request->title ? Str::slug($request->title) : null;
        if($request->hasFile('image')){
         $file=$request->file('image');
         $extention=$file->getClientOriginalExtension();
         $fileName=time() .'_'.'_'.$extention;
         $path='blog/blog-post/';
         $file->move(public_path($path),$fileName);
-        $imagePath=$path.$fileName;
+        $imagePath=$fileName;
        }
 
        BlogPost::create([
         'title' => $request->title,
+        'slug' => $slug,
+        'description' => $request->description,
         'image' => $imagePath
        ]);
 
@@ -74,16 +86,15 @@ class BlogPostController extends Controller
     }
 
     public function update(Request $request, $id){
-
+       
         $request->validate([
             'title' => 'nullable|string|max:255',
             'image' => 'nullable|image|file|max:2048',
+            'description' => 'nullable'
         ]);
-
         $data=BlogPost::findOrFail($id);
-
         if($request->hasFile('image')){
-            $oldImagePath=public_path($data->image);
+            $oldImagePath=public_path('blog/blog-post/'.$data->image);
             if(file_exists($oldImagePath)){
                 unlink($oldImagePath);
             }
@@ -94,10 +105,11 @@ class BlogPostController extends Controller
             $fileName=time() .'_'.'_'.$extention;
             $path='blog/blog-post/';
             $file->move(public_path($path),$fileName);
-            $data->image=$path . $fileName;
+            $data->image= $fileName;
         }
 
         $data->title=$request->title;
+        $data->description=$request->description;
         $data->save();
         return redirect()->route('blog-posts.index')->with('success','successfully updated');
     }
@@ -105,7 +117,7 @@ class BlogPostController extends Controller
     public function distroy($id){
         $data=BlogPost::findOrFail($id);
 
-        $imagePath = public_path($data->image);
+        $imagePath = public_path('blog/blog-post/'.$data->image);
         if(file_exists($imagePath)){
             unlink($imagePath);
         }

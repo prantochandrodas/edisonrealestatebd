@@ -3,18 +3,6 @@
 
 @section('content')
     <div class="container mt-5">
-        <h2 class="mb-4">Edit Slider</h2>
-
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -41,7 +29,7 @@
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="../../demo1/dist/index.html" class="text-muted text-hover-primary">Home</a>
+                            <span class="text-muted text-hover-primary">BlogPage</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -61,32 +49,57 @@
         </div>
         <!--end::Toolbar-->
 
-        <div id="kt_app_content" class="app-content flex-column-fluid">
-            <!--begin::Content container-->
-            <div id="kt_app_content_container" class="app-container container-fluid">
+        <div class="app-container container-fluid">
+            <div style="background-color: #f0f0f0; padding: 20px;">
+                <h2 style="text-align: center;">Edit Slider</h2>
+            </div>
+
+            <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
                 <form action="{{ route('blog-posts.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
+                    {{-- title input field  --}}
                     <div class="form-group">
-                        <label for="title">Title:</label>
-                        <input type="text" class="form-control" id="title" name="title"
+                        <label for="title" class="mb-2 h5">title:</label>
+                        <input type="text" class="form-control mb-2" id="title" name="title"
                             value="{{ $data->title }}" required>
+                        @error('title')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                     </div>
+                    {{-- image input field  --}}
                     <div class="form-group">
-                        <label for="image">Image:</label>
-                        <input type="file" class="form-control" id="image" name="image">
+                        <label for="image" class="mb-2 h5">Image:</label>
+                        <input type="file" class="form-control mb-2" id="image" name="image">
+                        @error('image')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                         @if ($data->image)
-                            <img src="{{ asset($data->image) }}" height="100" alt="Current Image" class="mt-2">
-                            <p class="mt-1">Current image will be replaced if a new file is selected.</p>
+                            <img src="{{ asset('blog/blog-post/'.$data->image) }}" height="100" class="mb-2" alt="Current Image">
                         @endif
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    {{-- description field  --}}
+                    <div class="form-group">
+                        <label for="description" class="mb-2 h5">Description:</label>
+                        <textarea name="description" id="summernote" class="form-control mb-2" cols="30" rows="10">{{$data->description}}</textarea>
+                        @error('description')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm">Update</button>
                 </form>
             </div>
-            <!--end::Content container-->
         </div>
 
-
     </div>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 250
+            });
+        });
+    </script>
 @endsection
+

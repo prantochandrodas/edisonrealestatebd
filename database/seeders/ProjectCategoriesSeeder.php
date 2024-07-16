@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Str;
 class ProjectCategoriesSeeder extends Seeder
 {
     /**
@@ -13,10 +13,12 @@ class ProjectCategoriesSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('project_categories')->insert([
-            ['name' => 'Ongoing', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Upcoming', 'created_at' => now(), 'updated_at' => now()],
-            ['name' => 'Completed', 'created_at' => now(), 'updated_at' => now()],
-        ]);
+        $categories = [
+            ['name' => 'Ongoing', 'slug' => Str::slug('ongoing'), 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Upcoming', 'slug' => Str::slug('upcoming'), 'created_at' => now(), 'updated_at' => now()],
+            ['name' => 'Completed', 'slug' => Str::slug('completed'), 'created_at' => now(), 'updated_at' => now()],
+        ];
+
+        DB::table('project_categories')->insert($categories);
     }
 }

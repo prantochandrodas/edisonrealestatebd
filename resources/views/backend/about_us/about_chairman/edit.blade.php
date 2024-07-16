@@ -133,7 +133,7 @@
         </div>
     </div>
     
-
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({
