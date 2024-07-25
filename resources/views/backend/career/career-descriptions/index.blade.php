@@ -25,21 +25,20 @@
             </div>
         @endif
 
-        <!--begin::Toolbar-->
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
             <!--begin::Toolbar container-->
-            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
+            <div id="kt_app_toolbar_container" class="app-container  d-flex flex-stack">
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Update
-                       Imagegallery-Banner</h1>
+                       Career-Description</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
-                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
+                    <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1" style="padding: 0px">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <span class="text-muted text-hover-primary">HomePage</span>
+                            <span class="text-muted text-hover-primary">Career</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -48,7 +47,7 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Imagegallery-Banner</li>
+                        <li class="breadcrumb-item text-muted">Career-Description</li>
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
@@ -57,15 +56,15 @@
             </div>
             <!--end::Toolbar container-->
         </div>
-        <!--end::Toolbar-->
 
         <div class="app-container container-fluid">
             <div style="background-color: #f0f0f0; padding: 20px;">
-                <h2 style="text-align: center;">Update Imagegallery-Banner</h2>
+                <h2 style="text-align: center;">Update Career-Description</h2>
             </div>
-            
+
             <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">
-                <form action="{{ route('imagegallery-banners.update', $data->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('career-descriptions.update', $data->id) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
@@ -73,17 +72,27 @@
                         <input type="text" class="form-control mb-4" id="title" name="title"
                             value="{{ $data->title }}" required>
                     </div>
+
+                    {{-- Description field  --}}
                     <div class="form-group">
-                        <label for="image" class="h5 mb-2">Image:</label>
-                        <input type="file" class="form-control mb-2" id="image" name="image">
-                        @if ($data->image)
-                            <img src="{{ asset('imagegallery-banners/'.$data->image) }}" height="100" alt="Current Image">
-                        @endif
+                        <label for="description" class="mb-2 h5">Description:</label>
+                        <textarea type="text" class="form-control mb-2" id="summernote" name="description" cols="30"
+                            rows="2">{{ $data->description }}</textarea>
+                        @error('description')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
                     </div>
-                   
                     <button type="submit" class="btn btn-primary btn-sm mt-2">Update</button>
                 </form>
             </div>
         </div>
     </div>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <script>
+        $(document).ready(function() {
+            $('#summernote').summernote({
+                height: 250
+            });
+        });
+    </script>
 @endsection

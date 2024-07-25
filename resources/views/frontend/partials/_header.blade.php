@@ -57,12 +57,12 @@
 
 
 
-                                    <li><a href="video-gallery.html">Video Gallery</a></li>
+                                    <li><a href="/video-gallery">Video Gallery</a></li>
 
 
                                 </ul>
                             </li>
-                            <li class="menu_items"><a href="career.html">Career</a>
+                            <li class="menu_items"><a href="/career">Career</a>
                             </li>
                             <li class="menu_items"><a href="contact-us.html">Contact</a>
                                 <ul>

@@ -11,7 +11,7 @@ class NewsletterPostController extends Controller
 {
     public function index()
     {
-        return view('backend.newsletter.newsletter-post.index');
+        return view('backend.gallery.newsletter.newsletter-post.index');
     }
 
     public function getdata(Request $request)
@@ -51,7 +51,7 @@ class NewsletterPostController extends Controller
     }
     public function create()
     {
-        return view('backend.newsletter.newsletter-post.create');
+        return view('backend.gallery.newsletter.newsletter-post.create');
     }
 
     public function store(Request $request)
@@ -91,7 +91,7 @@ class NewsletterPostController extends Controller
     public function edit($id)
     {
         $post = NewsLetterPost::findOrFail($id);
-        return view('backend.newsletter.newsletter-post.edit', compact('post'));
+        return view('backend.gallery.newsletter.newsletter-post.edit', compact('post'));
     }
 
     public function update(Request $request, $id)

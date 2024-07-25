@@ -29,7 +29,7 @@
                     style="padding:0px;background-color:inherit">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Image-Gallery</span>
+                        <span class="text-muted text-hover-primary">Gallery</span>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -108,33 +108,4 @@
             </form>
         </div>
     </div>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-
-    <script>
-        $(document).ready(function() {
-            $('.delete-image').on('click', function() {
-                const imageId = $(this).data('image-id');
-                const container = $(this).closest('.image-container');
-
-                $.ajax({
-                    url: '/imagegallery-post/delete-image/' + imageId,
-                    type: 'DELETE',
-                    data: {
-                        _token: '{{ csrf_token() }}'
-                    },
-                    success: function(response) {
-                        if (response.success) {
-                            container.remove();
-                        }
-                    }
-                });
-            });
-            $('#summernote').summernote({
-                height: 250
-            });
-            $('#summernote2').summernote({
-                height: 250
-            });
-        });
-    </script>
 @endsection

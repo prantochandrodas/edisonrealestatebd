@@ -13,7 +13,7 @@ class ImagegalleryPostController extends Controller
 {
     public function index()
     {
-        return view('backend.image-gallery.image-gallery-posts.index');
+        return view('backend.gallery.image-gallery.image-gallery-posts.index');
     }
 
     public function getdata(Request $request)
@@ -55,7 +55,7 @@ class ImagegalleryPostController extends Controller
 
     public function create()
     {
-        return view('backend.image-gallery.image-gallery-posts.create');
+        return view('backend.gallery.image-gallery.image-gallery-posts.create');
     }
 
     public function store(Request $request)
@@ -107,8 +107,8 @@ class ImagegalleryPostController extends Controller
     public function edit($id)
     {
         $data = ImagegalleryPost::find($id);
-       
-        return view('backend.image-gallery.image-gallery-posts.edit', compact('data'));
+
+        return view('backend.gallery.image-gallery.image-gallery-posts.edit', compact('data'));
     }
 
 
@@ -130,7 +130,7 @@ class ImagegalleryPostController extends Controller
         $thumbnail_image_imagePath = $data->thumbnail_image; // Initialize with existing image
         // unlink thumbnail image and add new image 
         if ($request->hasFile('thumbnail_image')) {
-            $oldImagePath = public_path('image-gallery-thumbnail-image/'.$data->thumbnail_image);
+            $oldImagePath = public_path('image-gallery-thumbnail-image/' . $data->thumbnail_image);
             if (file_exists($oldImagePath)) {
                 unlink($oldImagePath);
             }
@@ -142,8 +142,8 @@ class ImagegalleryPostController extends Controller
             $file->move(public_path($path), $fileName);
             $thumbnail_image_imagePath = $fileName;
         }
-         // Update the image-gallery-post details
-         $data->update([
+        // Update the image-gallery-post details
+        $data->update([
             'title' => $request->title,
             'thumbnail_image' => $thumbnail_image_imagePath
         ]);
@@ -190,39 +190,27 @@ class ImagegalleryPostController extends Controller
     public function distroy($id)
     {
         // Find the project by ID
-        $project = ImagegalleryPost::findOrFail($id);
+        $post = ImagegalleryPost::findOrFail($id);
+
+
+        $oldImagePath = public_path('image-gallery-thumbnail-image/' . $post->thumbnail_image);
+        if (file_exists($oldImagePath)) {
+            unlink($oldImagePath);
+        }
 
         // Delete associated images from the file system and database
-        foreach ($project->images as $pivot) {
-            $imagePath = public_path('project/' . $pivot->image);
+        foreach ($post->images as $pivot) {
+            $imagePath = public_path('image-gallery-images/' . $pivot->image);
             if (file_exists($imagePath)) {
                 unlink($imagePath); // Delete the image file
             }
             $pivot->delete(); // Delete the pivot record
         }
 
-        // Delete the project
-        $project->delete();
+        // Delete the data
+        $post->delete();
 
-        return redirect()->route('projects-information.index')
-            ->with('success', 'Project deleted successfully.');
-    }
-
-
-    public function view($id)
-    {
-        $data = ImagegalleryPost::find($id);
-        if ($data) {
-            $response = [
-                'about' => $data->about
-            ];
-            // dd($response);
-            return response()->json($response);
-        } else {
-            return response()->json([
-                'success' => false,
-                'message' => 'data not found'
-            ], 404);
-        }
+        return redirect()->route('imagegallery-posts.index')
+            ->with('success', 'data deleted successfully.');
     }
 }

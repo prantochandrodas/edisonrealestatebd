@@ -12,6 +12,9 @@ use App\Http\Controllers\Backend\AboutUsPage\TimelineController;
 use App\Http\Controllers\Backend\AboutUsPage\visionController;
 use App\Http\Controllers\Backend\BlogPage\BlogBannerController;
 use App\Http\Controllers\Backend\BlogPage\BlogPostController;
+use App\Http\Controllers\Backend\Career\CareerBannerController;
+use App\Http\Controllers\Backend\Career\CareerDescriptionController;
+use App\Http\Controllers\Backend\Career\CareerJobPostController;
 use App\Http\Controllers\Backend\HomePage\CompanyVideoController;
 use App\Http\Controllers\Backend\HomePage\FeaturedProjectController;
 use App\Http\Controllers\Backend\HomePage\FeaturedProjectPostController;
@@ -26,14 +29,18 @@ use App\Http\Controllers\Backend\Newsletter\NewsletterPostController;
 use App\Http\Controllers\Backend\Project\ProjectController;
 use App\Http\Controllers\Backend\Project\ProjectPageBannerController;
 use App\Http\Controllers\Backend\Property\PropertyController;
+use App\Http\Controllers\Backend\VideoGallery\VideoGalleryBannerController;
+use App\Http\Controllers\Backend\VideoGallery\VideoGalleryPostController;
 use App\Http\Controllers\Frontend\AboutUsController;
 use App\Http\Controllers\Frontend\AboutUsPrivacyPolicyController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutUsTeamController;
 use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\CareerController;
 use App\Http\Controllers\Frontend\ImageGalleryController;
 use App\Http\Controllers\Frontend\NewsletterController;
 use App\Http\Controllers\Frontend\ProjectsController;
+use App\Http\Controllers\Frontend\VideoGalleryController;
 use App\Models\CompanyVideo;
 use App\Models\InvestorInformation;
 use Illuminate\Support\Facades\Route;
@@ -53,7 +60,9 @@ Route::get('/blogs',[BlogController::class,'index'])->name('blog.index');
 Route::get('/blogs/{name}',[BlogController::class,'details'])->name('blogs.details'); 
 Route::get('/newsletter',[NewsletterController::class,'index'])->name('newsletter.index');
 Route::get('/image-gallery',[ImageGalleryController::class,'index'])->name('image-gallery.index');
- 
+Route::get('/video-gallery',[VideoGalleryController::class,'index'])->name('video-gallery.index');
+Route::get('/career',[CareerController::class,'index'])->name('video-gallery.index');
+
 // end of frontend route 
 
 // home slider route start 
@@ -268,3 +277,36 @@ Route::get('/imagegallery-post/edit/{id}', [ImagegalleryPostController::class, '
 Route::put('/imagegallery-post/update/{id}', [ImagegalleryPostController::class, 'update'])->name('imagegallery-posts.update');
 Route::delete('/imagegallery-post/distroy/{id}', [ImagegalleryPostController::class, 'distroy'])->name('imagegallery-posts.distroy');
 Route::delete('/imagegallery-post/delete-image/{id}', [ImagegalleryPostController::class, 'deleteImage'])->name('imagegallery-posts.delete-image');
+
+// videogallery-banner  route start 
+Route::get('/videogallery-banner',[VideoGalleryBannerController::class,'index'])->name('videogallery-banners.index');
+Route::put('/videogallery-banner/update/{id}',[VideoGalleryBannerController::class,'update'])->name('videogallery-banners.update');
+
+
+// video-gallery-post 
+Route::get('/video-gallery-post', [VideoGalleryPostController::class, 'index'])->name('video-gallery-posts.index');
+Route::get('/video-gallery-post/getdata', [VideoGalleryPostController::class, 'getdata'])->name('video-gallery-posts.getdata');
+Route::get('/video-gallery-post/create', [VideoGalleryPostController::class, 'create'])->name('video-gallery-posts.create');
+Route::post('/video-gallery-post/store', [VideoGalleryPostController::class, 'store'])->name('video-gallery-posts.store');
+Route::get('/video-gallery-post/edit/{id}', [VideoGalleryPostController::class, 'edit'])->name('video-gallery-posts.edit');
+Route::put('/video-gallery-post/update/{id}', [VideoGalleryPostController::class, 'update'])->name('video-gallery-posts.update');
+Route::delete('/video-gallery-post/distroy/{id}', [VideoGalleryPostController::class, 'distroy'])->name('video-gallery-posts.distroy');
+
+// career-banner  route start 
+Route::get('/career-banner',[CareerBannerController::class,'index'])->name('career-banners.index');
+Route::put('/career-banner/update/{id}',[CareerBannerController::class,'update'])->name('career-banners.update');
+
+
+// career-description  route start 
+Route::get('/career-description',[CareerDescriptionController::class,'index'])->name('career-descriptions.index');
+Route::put('/career-description/update/{id}',[CareerDescriptionController::class,'update'])->name('career-descriptions.update');
+
+
+// video-gallery-post 
+Route::get('/job-post', [CareerJobPostController::class, 'index'])->name('job-posts.index');
+Route::get('/job-post/getdata', [CareerJobPostController::class, 'getdata'])->name('job-posts.getdata');
+Route::get('/job-post/create', [CareerJobPostController::class, 'create'])->name('job-posts.create');
+Route::post('/job-post/store', [CareerJobPostController::class, 'store'])->name('job-posts.store');
+Route::get('/job-post/edit/{id}', [CareerJobPostController::class, 'edit'])->name('job-posts.edit');
+Route::put('/job-post/update/{id}', [CareerJobPostController::class, 'update'])->name('job-posts.update');
+Route::delete('/job-post/distroy/{id}', [CareerJobPostController::class, 'distroy'])->name('job-posts.distroy');

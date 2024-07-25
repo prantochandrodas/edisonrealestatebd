@@ -8,9 +8,10 @@ use Illuminate\Http\Request;
 
 class ImagegalleryBannerController extends Controller
 {
-    public function index(){
-        $data=ImageGalleryBanner::first();
-        return view('backend.image-gallery.image-gallery-banners.index',compact('data'));
+    public function index()
+    {
+        $data = ImageGalleryBanner::first();
+        return view('backend.gallery.image-gallery.image-gallery-banners.index', compact('data'));
     }
 
 
@@ -25,9 +26,10 @@ class ImagegalleryBannerController extends Controller
 
         if ($request->hasFile('image')) {
             // Delete the old image
-          
-            
-
+            $imagePath = public_path('imagegallery-banners/' . $data->image);
+            if (file_exists($imagePath)) {
+                unlink($imagePath); // Delete the image file
+            }
             // Store the new image
             $file = $request->file('image');
             $extension = $file->getClientOriginalExtension();

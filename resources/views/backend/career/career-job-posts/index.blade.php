@@ -13,6 +13,7 @@
             {{ session('error') }}
         </div>
     @endif
+
     <!--begin::Toolbar-->
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
@@ -20,13 +21,14 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Image-gallery-post</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                    Career-Job-Post</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Image-gallery</span>
+                        <span class="text-muted text-hover-primary">Career</span>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -35,7 +37,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Image-gallery-post</li>
+                    <li class="breadcrumb-item text-muted">Career-Job-Post</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -47,16 +49,19 @@
     <!--end::Toolbar-->
 
 
+
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-fluid">
-            <a href={{ route('imagegallery-posts.create') }} class="btn btn-sm btn-primary">Add</a>
-            <table id="mydata" class="display" style="width:100%">
+            <a href={{ route('job-posts.create') }} class="btn btn-sm btn-primary mb-2">Add</a>
+
+            <table id="career-job" class="display" style="width:100%">
                 <thead>
                     <tr>
                         <th>Serial ID</th>
                         <th>Title</th>
-                        <th>Thumbnail Image</th>
+                        <th>Vacancy</th>
+                        <th>Employment Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -65,12 +70,13 @@
         <!--end::Content container-->
     </div>
 
+
     <script>
         $(document).ready(function() {
-            $('#mydata').DataTable({
+            $('#career-job').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('imagegallery-posts.getdata') }}',
+                ajax: '{{ route('job-posts.getdata') }}',
                 columns: [{
                         data: null, // Use null to signify that this column does not map directly to any data source
                         name: 'serial_number',
@@ -86,13 +92,15 @@
                         name: 'title'
                     },
                     {
-                        data: 'image',
-                        name: 'image',
+                        data: 'vacancy',
+                        name: 'vacancy',
                         render: function(data, type, row) {
-                            return '<img src="' + data + '" height="100"/>'; // Render image
-                        },
-                        orderable: false,
-                        searchable: false
+                            return parseInt(data); // Convert to integer
+                        }
+                    },
+                    {
+                        data: 'employment_status',
+                        name: 'employment_status'
                     },
                     {
                         data: 'action',
