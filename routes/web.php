@@ -19,6 +19,10 @@ use App\Http\Controllers\Backend\HomePage\InvestorInformationController;
 use App\Http\Controllers\Backend\HomePage\ScheduleMettingController;
 use App\Http\Controllers\Backend\HomePage\SliderController;
 use App\Http\Controllers\Backend\HomePage\TestimonialPostController;
+use App\Http\Controllers\Backend\Imagegallery\ImagegalleryBannerController;
+use App\Http\Controllers\Backend\Imagegallery\ImagegalleryPostController;
+use App\Http\Controllers\Backend\Newsletter\NewsletterBannerController;
+use App\Http\Controllers\Backend\Newsletter\NewsletterPostController;
 use App\Http\Controllers\Backend\Project\ProjectController;
 use App\Http\Controllers\Backend\Project\ProjectPageBannerController;
 use App\Http\Controllers\Backend\Property\PropertyController;
@@ -27,6 +31,8 @@ use App\Http\Controllers\Frontend\AboutUsPrivacyPolicyController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutUsTeamController;
 use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\Frontend\ImageGalleryController;
+use App\Http\Controllers\Frontend\NewsletterController;
 use App\Http\Controllers\Frontend\ProjectsController;
 use App\Models\CompanyVideo;
 use App\Models\InvestorInformation;
@@ -35,6 +41,7 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('backend.home.slider.index');
 // });
+
 //font end route 
 Route::get('/',[HomeController::class,'index']);
 Route::get('/about-us',[AboutUsController::class,'index']);
@@ -44,7 +51,10 @@ Route::get('/projects/{category?}', [ProjectsController::class, 'index'])->name(
 Route::get('/project/{name}',[ProjectsController::class,'projectDetails'])->name('projects.details'); 
 Route::get('/blogs',[BlogController::class,'index'])->name('blog.index'); 
 Route::get('/blogs/{name}',[BlogController::class,'details'])->name('blogs.details'); 
-
+Route::get('/newsletter',[NewsletterController::class,'index'])->name('newsletter.index');
+Route::get('/image-gallery',[ImageGalleryController::class,'index'])->name('image-gallery.index');
+ 
+// end of frontend route 
 
 // home slider route start 
 Route::get('/slider',[SliderController::class,'index'])->name('slider.index');
@@ -214,6 +224,9 @@ Route::get('/projectpage-banner',[ProjectPageBannerController::class,'index'])->
 Route::put('/projectpage-banner/update/{id}',[ProjectPageBannerController::class,'update'])->name('projectpage-banners.update');
 // end privacy policy
 
+
+
+
 // start team PropertyController 
 Route::get('/projects-information', [ProjectController::class, 'index'])->name('projects-information.index');
 Route::get('/projects-information/getdata', [ProjectController::class, 'getdata'])->name('projects.getdata');
@@ -225,3 +238,33 @@ Route::delete('/projects-information/distroy/{id}', [ProjectController::class, '
 Route::get('/projects-information/view/{id}', [ProjectController::class, 'view'])->name('projects.view');
 Route::delete('projects/delete-image/{id}', [ProjectController::class, 'deleteImage'])->name('projects.delete-image');
 // end property route
+
+
+// newsletter-banner  route start 
+Route::get('/newsletter-banner',[NewsletterBannerController::class,'index'])->name('newsletter-banners.index');
+Route::put('/newsletter-banner/update/{id}',[NewsletterBannerController::class,'update'])->name('newsletter-banners.update');
+
+// newsletter-post 
+Route::get('/newsletter-posts', [NewsletterPostController::class, 'index'])->name('newsletter-posts.index');
+Route::get('/newsletter-posts/getdata', [NewsletterPostController::class, 'getdata'])->name('newsletter-posts.getdata');
+Route::get('/newsletter-posts/create', [NewsletterPostController::class, 'create'])->name('newsletter-posts.create');
+Route::post('/newsletter-posts/store', [NewsletterPostController::class, 'store'])->name('newsletter-posts.store');
+Route::get('/newsletter-posts/edit/{id}', [NewsletterPostController::class, 'edit'])->name('newsletter-posts.edit');
+Route::put('/newsletter-posts/update/{id}', [NewsletterPostController::class, 'update'])->name('newsletter-posts.update');
+Route::delete('/newsletter-posts/distroy/{id}', [NewsletterPostController::class, 'distroy'])->name('newsletter-posts.distroy');
+
+
+// imagegallery-banner  route start 
+Route::get('/imagegallery-banner',[ImagegalleryBannerController::class,'index'])->name('imagegallery-banners.index');
+Route::put('/imagegallery-banner/update/{id}',[ImagegalleryBannerController::class,'update'])->name('imagegallery-banners.update');
+
+
+// imagegallery-post 
+Route::get('/imagegallery-post', [ImagegalleryPostController::class, 'index'])->name('imagegallery-posts.index');
+Route::get('/imagegallery-post/getdata', [ImagegalleryPostController::class, 'getdata'])->name('imagegallery-posts.getdata');
+Route::get('/imagegallery-post/create', [ImagegalleryPostController::class, 'create'])->name('imagegallery-posts.create');
+Route::post('/imagegallery-post/store', [ImagegalleryPostController::class, 'store'])->name('imagegallery-posts.store');
+Route::get('/imagegallery-post/edit/{id}', [ImagegalleryPostController::class, 'edit'])->name('imagegallery-posts.edit');
+Route::put('/imagegallery-post/update/{id}', [ImagegalleryPostController::class, 'update'])->name('imagegallery-posts.update');
+Route::delete('/imagegallery-post/distroy/{id}', [ImagegalleryPostController::class, 'distroy'])->name('imagegallery-posts.distroy');
+Route::delete('/imagegallery-post/delete-image/{id}', [ImagegalleryPostController::class, 'deleteImage'])->name('imagegallery-posts.delete-image');

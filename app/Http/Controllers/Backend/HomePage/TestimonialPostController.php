@@ -12,7 +12,6 @@ class TestimonialPostController extends Controller
 {
     public function index()
     {
-
         return view('backend.home.testimonial.index');
     }
 

@@ -49,11 +49,11 @@
                             <li class="menu_items"><a href="javascript:void(0)">Gallery</a>
                                 <ul>
 
-                                    <li><a href="newsletter/index.html">Newsletter</a></li>
+                                    <li><a href="/newsletter">Newsletter</a></li>
 
 
 
-                                    <li><a href="image-gallery.html">Image Gallery</a></li>
+                                    <li><a href="/image-gallery">Image Gallery</a></li>
 
 
 
