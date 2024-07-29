@@ -13,6 +13,11 @@
             {{ session('error') }}
         </div>
     @endif
+
+    @section('title')
+         Blog-Post
+    @endsection
+
     <!--begin::Toolbar-->
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->

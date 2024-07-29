@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable=['project_category_id','type_id','location_id','name','slug','short_title','overview','specification','amount','type','apartment_tour','virtual_experience','beds','baths','verandas','area','status','plot','road_no','block','area_no','city'];
+    protected $fillable=['project_category_id','type_id','location_id','name','slug','short_title','overview','specification','amount','type','apartment_tour','virtual_experience','beds','baths','verandas','area','status','google_map','plot','road_no','block','area_no','city'];
 
     public function category()
     {

@@ -1,5 +1,5 @@
-@extends('layouts.frontend')
-@section('frontend-content')
+@extends('layouts.aboutus')
+@section('aboutus-content')
     <!------------------fixed sections end --------------->
     <!--inner banner start-->
     <div class="innerBanner Loader">
@@ -365,7 +365,7 @@
 
         </div>
         <div class="container">
-            <a href="about-us/team.html" class="dcBtn anim justFade anim-active"><span>More about our team</span></a>
+            <a href="/about-us/team" class="dcBtn anim justFade anim-active"><span>More about our team</span></a>
 
         </div>
     </section>

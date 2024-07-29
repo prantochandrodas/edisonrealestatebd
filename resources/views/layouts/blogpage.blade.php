@@ -20,6 +20,8 @@
         href="feed/index.html" />
     <link rel="alternate" type="application/rss+xml" title="Edison Real Estate Ltd &raquo; Comments Feed"
         href="comments/feed/index.html" />
+
+        
     <script>
         window._wpemojiSettings = { "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/72x72\/", "ext": ".png", "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/15.0.3\/svg\/", "svgExt": ".svg", "source": { "concatemoji": "https:\/\/edisonrealestatebd.com\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.5.5" } };
         /*! This file is auto-generated */
@@ -40,7 +42,7 @@
         }
     </style>
     <link rel='stylesheet' id='wp-block-library-css'
-        href='wp-includes/css/dist/block-library/style.minadc6.css?ver=6.5.5' media='all' />
+        href='{{asset('frontend/blog/wp-includes/css/dist/block-library/style.minadc6.css?ver=6.5.5')}}' media='all' />
     <style id='classic-theme-styles-inline-css'>
         /*! This file is auto-generated */
         .wp-block-button__link {
@@ -381,20 +383,14 @@
             line-height: 1.6;
         }
     </style>
-    <link rel='stylesheet' id='edisonrealestate-style-css'
-        href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/style8a54.css?ver=1.0.0')}}' media='all' />
-    <link rel='stylesheet' id='edisonrealestate-bootstrap-css'
-        href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/bootstrap.min8a54.css?ver=1.0.0')}}' media='all' />
-    <link rel='stylesheet' id='edisonrealestate-font-css'
-        href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/font-awesome.min8a54.css?ver=1.0.0')}}' media='all' />
-    <link rel='stylesheet' id='edisonrealestate-light-css'
-        href='{{asset('wp-content/themes/edisonrealestate/assets/css/lightgallery8a54.css?ver=1.0.0')}}' media='all' />
-    <link rel='stylesheet' id='edisonrealestate-nice-css'
-        href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/nice-select8a54.css?ver=1.0.0')}}' media='all' />
-    <link rel='stylesheet' id='edisonrealestate-slick-css'
-        href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/slick.min8a54.css?ver=1.0.0')}}' media='all' />
-    <link rel='stylesheet' id='edisonrealestate-innercss-css'
-        href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/inner8a54.css?ver=1.0.0')}}' media='all' />
+
+    <link rel='stylesheet' id='edisonrealestate-style-css' href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/style8a54.css?ver=1.0.0')}}' media='all' />
+    <link rel='stylesheet' id='edisonrealestate-bootstrap-css' href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/bootstrap.min8a54.css?ver=1.0.0')}}' media='all' />
+    <link rel='stylesheet' id='edisonrealestate-font-css' href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/font-awesome.min8a54.css?ver=1.0.0')}}' media='all' />
+    <link rel='stylesheet' id='edisonrealestate-light-css' href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/lightgallery8a54.css?ver=1.0.0')}}' media='all' />
+    <link rel='stylesheet' id='edisonrealestate-nice-css' href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/nice-select8a54.css?ver=1.0.0')}}' media='all' />
+    <link rel='stylesheet' id='edisonrealestate-slick-css' href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/slick.min8a54.css?ver=1.0.0')}}' media='all' />
+    <link rel='stylesheet' id='edisonrealestate-innercss-css' href='{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/css/inner8a54.css?ver=1.0.0')}}' media='all' />
     <script src="{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/js/jquery.min8a54.js?ver=1.0.0')}}"
         id="edisonrealestate-jquery-js"></script>
     <link rel="https://api.w.org/" href="wp-json/index.html" />
@@ -516,6 +512,8 @@
  
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
+
+    
 
     <script src="{{asset('frontend/blog/wp-content/themes/edisonrealestate/assets/js/inner-bundle.min8a54.js?ver=1.0.0')}}"
         id="edisonrealestate-innerBundle-js"></script>

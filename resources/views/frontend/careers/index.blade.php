@@ -1,5 +1,5 @@
-@extends('layouts.frontend')
-@section('frontend-content')
+@extends('layouts.career')
+@section('career-content')
     <!--inner banner start-->
     <div class="innerBanner Loader">
         <img class="modify-img " data-image-small="{{ asset('career-banners/' . $banner->image) }}"
@@ -43,8 +43,8 @@
                 <div class="col-md-12">
                     <h2 class="Title anim textOver"><span><span>Recent jobs</span></span></h2>
                 </div>
-                @foreach ($jobpost as $item)
-                    <div class="CareerPost__wrap anim-parent">
+                <div class="CareerPost__wrap anim-parent">
+                        @foreach ($jobpost as $item)
                         <div class="col-md-4">
                             <div class="CareerPost__wrap__single anim boxOver">
                                 <h4>{{ $item->title }}</h4>
@@ -56,8 +56,8 @@
 
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                @endforeach
 
             </div>
         </div>
@@ -72,7 +72,7 @@
                     <div class="modal-header">
                         <!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>-->
                         <!--                </button>-->
-                        <img src="themes/cms/assets/images/static/modal-close.svg" class="modalClose" alt=""
+                        <img src="{{asset('/frontend/themes/cms/assets/images/static/modal-close.svg')}}" class="modalClose" alt=""
                             data-dismiss="modal" aria-label="Close">
                     </div>
                     <div class="modal-body">
@@ -101,10 +101,10 @@
                     <div class="homeForm__left col-md-7 anim boxOver">
                         <div class="homeForm__left__inner ">
                             <img class=" modify-img "
-                                data-image-small="themes/cms/assets/images/dynamic/contact/contacts.jpg"
-                                data-image-large="themes/cms/assets/images/dynamic/contact/contacts.jpg"
-                                data-image-standard="themes/cms/assets/images/dynamic/contact/contacts.jpg" data-src=""
-                                src="themes/cms/assets/images/static/blur.jpg" alt=""> <!-- 600x500 -->
+                                data-image-small="{{asset('frontend/themes/cms/assets/images/dynamic/contact/contacts.jpg')}}"
+                                data-image-large="{{asset('frontend/themes/cms/assets/images/dynamic/contact/contacts.jpg')}}"
+                                data-image-standard="{{asset('frontend/themes/cms/assets/images/dynamic/contact/contacts.jpg')}}" data-src=""
+                                src="{{asset('frontend/themes/cms/assets/images/static/blur.jpg')}}" alt=""> <!-- 600x500 -->
                         </div>
                     </div>
 

@@ -14,6 +14,9 @@
         </div>
     @endif
 
+    @section('title')
+         Blog-Post
+    @endsection
 
     <!-- validation errors -->
     @if ($errors->any())

@@ -3,23 +3,26 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Application;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use App\Models\ProjectLocation;
 use App\Models\ProjectPageBanner;
 use App\Models\Projectype;
+use App\Models\SocialLink;
 use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
     public function index(Request $request, $category = null)
     {
-        //  dd($request->all());
+        
+        $socialLink=SocialLink::all();
         $banner = ProjectPageBanner::first();
         $projectCategories = ProjectCategory::all();
         $projectType = Projectype::all();
         $projectLocation = ProjectLocation::all();
-
+        $application=Application::first();
         $query = Project::query();
 
         //  Filter based on category slug
@@ -46,18 +49,20 @@ class ProjectsController extends Controller
 
         $projects = $query->get();
         $filters = $request->all();
-        return view('frontend.project.index', compact('projects', 'banner', 'projectCategories', 'projectType', 'projectLocation', 'filters'));
+        return view('frontend.project.index', compact('socialLink','application','projects', 'banner', 'projectCategories', 'projectType', 'projectLocation', 'filters'));
     }
 
 
     public function projectDetails($slug)
     {
+        $socialLink=SocialLink::all();
+        $application=Application::first();
         $data = Project::where('slug', $slug)->firstOrFail();
         // Retrieve all related projects except the current project
         $relatedProjects = Project::where('id', '!=', $data->id)
             ->get();
         if ($data) {
-            return view('frontend.project.project_details', compact('data', 'relatedProjects'));
+            return view('frontend.project.project_details', compact('socialLink','application','data', 'relatedProjects'));
         }
     }
 }

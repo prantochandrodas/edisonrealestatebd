@@ -305,12 +305,12 @@
 
                 <div class="col-md-7 Location_map__map">
                    
-                    {{-- <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3650.132133322695!2d90.44161277439373!3d23.81389998633732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c75b642414b9%3A0xecc14ee899dd36b3!2sEdison%20Prospero%20(Tower-1)!5e0!3m2!1sen!2sbd!4v1721119674581!5m2!1sen!2sbd"
+                    <iframe
+                        src="{{$data->google_map}}"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe> --}}
-                    <div id="map"
-                        data-map-pointer="{{ asset('/frontend/themes/cms/assets/images/static/pointer.png') }}">
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    {{-- <div id="map"
+                        data-map-pointer="{{ asset('/frontend/themes/cms/assets/images/static/pointer.png') }}"> --}}
                         
                     </div>
                 </div>

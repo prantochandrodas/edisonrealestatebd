@@ -26,9 +26,6 @@
 
                             <div id="post-615"
                                 class="post-615 post type-post status-publish format-standard has-post-thumbnail hentry category-blog">
-
-
-
                                 <div class="blog_image Loader mb30">
                                     <img class="modify-img "
                                         data-image-small="{{asset('blog/blog-post/'.$item->image)}}"
@@ -55,13 +52,8 @@
 
 
                     <div class="clear"></div>
+                    {!! $posts->links('vendor.pagination.custom') !!}
 
-                    <div class="col-md-12 text-center mt30">
-                        <span aria-current="page" class="page-numbers current">1</span>
-                        <a class="page-numbers" href="page/2/index.html">2</a>
-                        <a class="page-numbers" href="page/3/index.html">3</a>
-                        <a class="next page-numbers" href="page/2/index.html">Next &raquo;</a>
-                    </div>
                 </div>
 
             </div>

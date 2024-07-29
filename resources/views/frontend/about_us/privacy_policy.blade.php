@@ -1,5 +1,5 @@
-@extends('layouts.frontend')
-@section('frontend-content')
+@extends('layouts.aboutus')
+@section('aboutus-content')
 
     <div class="blog pt100 pb100">
         <div class="container">
@@ -11,10 +11,8 @@
                     <p>The privacy policy explains how Edison Real Estate&nbsp;collects, uses, maintains, and discloses
                         information from users of the website.<br />
                         &nbsp;</p>
-
                     <p>{!!$data->description!!}</p>
                 </div>
-
             </div>
         </div>
     </div>

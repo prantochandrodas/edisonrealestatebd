@@ -13,6 +13,7 @@ class ScheduleMettingController extends Controller
         $data=ScheduleMetting::first();
         return view('backend.home.schedule-metting.index',compact('data'));
     }
+    
     public function update(Request $request, $id)
     {
         $request->validate([

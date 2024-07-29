@@ -26,7 +26,7 @@
 
     <title>Putul Properties Limited</title>
 
-    <link rel="shortcut icon" href="{{ asset('frontend/themes/cms/assets/images/static/fav.png') }}" />
+    <link rel="shortcut icon" href="themes/cms/assets/images/static/fav.png" />
 
     <meta name="title" content="Putul Properties Limited">
     <meta name="keywords"
@@ -43,17 +43,16 @@ the finest in luxury living with Edison Real Estate.">
     <link href="site/index.html" rel="canonical">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600&amp;display=swap" rel="preload"
         media="all">
-        
+
     <link href="{{ asset('frontend/themes/cms/assets/css/bootstrap.min.css') }}" rel="stylesheet" as="style">
-    <link href="{{asset('frontend/themes/cms/assets/css/inner09fd.css?=v2.3434')}}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/font-awesome.min.css') }}" rel="stylesheet" as="style">
     <link href="{{ asset('frontend/themes/cms/assets/css/slick.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/lightgallery.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/rev-slider.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/nice-select.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('frontend/themes/cms/assets/css/jquery.custom-scrollbar.css') }}" rel="stylesheet"
-        media="all">
+    <link href="{{ asset('frontend/themes/cms/assets/css/jquery.custom-scrollbar.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/home5714.css?=v2.11') }}" rel="stylesheet" media="all">
+    <link href="{{asset('frontend/themes/cms/assets/css/inner09fd.css?=v2.3434')}}" rel="stylesheet" media="all">
     <script src="{{ asset('frontend/themes/cms/assets/js/jquery.min.js') }}"></script>
     <script>
         var site_url_info = {
@@ -80,7 +79,6 @@ the finest in luxury living with Edison Real Estate.">
     </script>
 
     <!-- Meta Pixel Code -->
-    
     <script>
         ! function(f, b, e, v, n, t, s) {
             if (f.fbq) return;
@@ -103,12 +101,6 @@ the finest in luxury living with Edison Real Estate.">
         fbq('init', '');
         fbq('track', 'PageView');
     </script>
-     <style>
-        @media(max-width: 767px) {
-            .image_wrapper {
-                margin: 0 15px !important;
-            }
-    </style>
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=&amp;ev=PageView&amp;noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
@@ -156,7 +148,10 @@ the finest in luxury living with Edison Real Estate.">
   "sameAs": "https://web.facebook.com/edisonrealestateltd/" 
 }
 </script>
+
+
     <!-- Google Tag Manager -->
+
     <script>
         (function(w, d, s, l, i) {
             w[l] = w[l] || [];
@@ -178,13 +173,20 @@ the finest in luxury living with Edison Real Estate.">
 
         })(window, document, 'script', 'dataLayer', 'GTM-MT7CWC9');
     </script>
+
     <!-- End Google Tag Manager -->
+
 </head>
+
 <body>
+
     <!-- Google Tag Manager (noscript) -->
+
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
+
     <!-- End Google Tag Manager (noscript) -->
+
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
     <script>
@@ -204,10 +206,15 @@ the finest in luxury living with Edison Real Estate.">
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
+
+
+
     <!------------------fixed sections start --------------->
+
     <a href="https://wa.me/01310817493" target="_blank" class="whatsapp">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
+            style="enable-background:new 0 0 512 512;" xml:space="preserve">
             <path style="fill:#EDEDED;" d="M0,512l35.31-128C12.359,344.276,0,300.138,0,254.234C0,114.759,114.759,0,255.117,0
  S512,114.759,512,254.234S395.476,512,255.117,512c-44.138,0-86.51-14.124-124.469-35.31L0,512z" />
             <path style="fill:#55CD6C;" d="M137.71,430.786l7.945,4.414c32.662,20.303,70.621,32.662,110.345,32.662
@@ -235,66 +242,20 @@ the finest in luxury living with Edison Real Estate.">
             <g></g>
             <g></g>
         </svg>
+
     </a>
-    <!--message box-->
-    <div class="msg_cont_wrap msg_closed">
-        <img src="themes/cms/assets/images/static/close_msg.svg" class="close_btn">
-        <h3 class="title mb-30 text-color-11">Share your feedback</h3>
-        <form id="message-box" class="dynamic_form contact-form custom-select msg_form"
-            action="https://putulproperties.com/site/dynamic_form" method="post" data-pjax="false">
-            <input type="hidden" name="_csrf-frontend"
-                value="ZgA4YD8GyPpqra7NkpOxMiLbSk5HyznVoT7NmWeO9g4tbWkLVFT9ngfp45_K9u5EVL0mdwGoQbvQe7_XNfieSw==">
-            <input type="hidden" id="message-box" class="form-control" name="form_id" value="message-box">
-            <div class="form-message-container success_wrapper hide success_wrapper_message-box">
-                <div class="form-message-body">
-                    <span class="success_container_message-box"></span>
-                </div>
-            </div>
-            <div class="form-message-container error_wrapper hide error_wrapper_message-box">
-                <div class="form-message-body">
-                    <span class="error_container_message-box"></span>
-                </div>
-            </div>
-            <div class="form-group field-contact-name has-child-pad field-contact-name required">
-                <input type="text" class="form-control" name="Dynamicform[name]" placeholder="Name"
-                    required=" ">
-            </div>
-            <div class="form-group field-contact-name has-child-pad field-contact-name required">
-                <input type="number" id="phone" class="form-control" name="Dynamicform[phone]"
-                    placeholder="Phone" required="">
-            </div>
-            <div class="form-group field-contact-name has-child-pad field-contact-name required">
-                <input type="email" class="form-control" name="Dynamicform[email]" placeholder="Email">
-            </div>
-            <div class="form-group field-contact-name has-child-pad field-contact-name required">
-                <textarea id="Message" class="form-control" name="Dynamicform[Message]" placeholder="Message"></textarea>
-            </div>
-            <div class="mt-20 text-center">
-                <button type="submit"
-                    class=" dynamic_submit_btn btn text-bold no-bg no-radius no-border">Submit</button>
-            </div>
-        </form>
 
-
-
-        <div class="msg_cont"></div>
-
-        <img src="{{asset('frontend/themes/cms/assets/images/static/msg-icon.svg')}}" class="msg_icon">
-
-
-    </div>
     @include('frontend.partials._header')
-    <!------------------fixed sections end --------------->
+
 
 
     @yield('frontend-content')
 
-    <!-- Your Chat Plugin code -->
-    <div class="fb-customerchat" attribution="install_email" attribution_version="biz_inbox"
-        page_id="329218885142661">
-    </div>
-
     @include('frontend.partials._footer')
+
+
+
+
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
         var Tawk_API = Tawk_API || {},
@@ -327,90 +288,24 @@ the finest in luxury living with Edison Real Estate.">
             </span>
         </div>
     </div>
-    {{-- about page  --}}
-   
-    <script src="{{asset('frontend/themes/cms/assets/js/inner-bundle.min4d76.js?=v2.2')}}"></script>
-    <script src="{{asset('frontend//cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js')}}"></script>
-    <script src="{{asset('frontend/themes/cms/assets/js/inner4d76.js?=v2.2')}}"></script>
-     <script>jQuery(function ($) {
-        jQuery('#suggestion-form').yiiActiveForm([], []);
 
-        $(document).delegate('.dynamic_submit_btn', 'click', function (event, jqXHR, settings) {
-            var form = $(this).closest('form');
-            var form_id = form.attr('id');
-
-            if (form.find('.has-error').length) {
-                return false;
-            }
-
-
-
-            $('.dynamic_submit_btn').attr('disabled', true);
-
-            $.ajax({
-
-                url: form.attr('action'),
-                type: 'post',
-                data: form.serialize(),
-                beforeSend: function (request) {
-                    $('.success_wrapper_form_message').addClass('hide');
-                    $('.error_wrapper_form_message').addClass('hide');
-                },
-                success: function (data) {
-                    if (data.result == 'success') {
-                        form[0].reset();
-                        $('.success_wrapper_form_message').removeClass('hide');
-                        $('.error_wrapper_form_message').addClass('hide');
-                        $('.success_container_msg').html(data.msg);
-                        $('.dynamic_submit_btn').removeAttr('disabled');
-                        $('.error_container_msg').html('');
-
-                        setTimeout(function () {
-                            $('.success_wrapper_form_message').addClass('hide');
-                            $('.form-overlay').removeClass('doit');
-                            if ($('#brochure_link_download').length > 0) {
-                                $('#brochure_link_download')[0].click();
-
-                            }
-                        }, 4000);
-
-                    }
-                    else {
-                        $('.error_container_msg').html(data.msg);
-                        $('.success_container_msg').html('');
-                        $('.success_wrapper_form_message').addClass('hide');
-                        $('.error_wrapper_form_message').removeClass('hide');
-
-                        $('.dynamic_submit_btn').removeAttr('disabled');
-
-                        setTimeout(function () {
-                            $('.error_wrapper_form_message').addClass('hide');
-                            $('.form-overlay').removeClass('doit');
-                        }, 4000);
-                    }
-                }
-
-            });
-            return false;
-        });
-
-    });</script> 
-
-    
-
-    <script src="{{asset('frontend/assets/2ff7c954/yii.js')}}"></script>
-    <script src="{{asset('frontend/assets/2ff7c954/yii.activeForm.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.ui.widget.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.iframe-transport.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.fileupload.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.fileupload-process.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.fileupload-validate.js')}}"></script>
-    <script src="{{asset('frontend/themes/cms/assets/js/home-bundle.min.js')}}"></script>
-    <script src="{{asset('frontend/themes/cms/assets/js/lg-thumb.js')}}"></script>
+    <script src="{{ asset('frontend/assets/2ff7c954/yii.js') }}"></script>
+    <script src="{{ asset('frontend/assets/2ff7c954/yii.activeForm.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.ui.widget.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.iframe-transport.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.fileupload.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.fileupload-process.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.fileupload-validate.js') }}"></script>
+    <script src="{{ asset('frontend/themes/cms/assets/js/home-bundle.min.js') }}"></script>
+    <script src="{{ asset('frontend/themes/cms/assets/js/lg-thumb.js') }}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkSqz0FBm4_Xb4nSGgU-eC0s7dGxFxxf0&amp;callback=initMap"
         async defer></script>
-    <script src="{{asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js')}}"></script>
-    <script src="{{asset('frontend/themes/cms/assets/js/home86c2.js?=v2.88')}}"></script>
+    <script src="{{ asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js') }}"></script>
+    <script src="{{ asset('frontend/themes/cms/assets/js/home86c2.js?=v2.88') }}"></script>
+    {{-- <script src="{{ asset('frontend/themes/cms/assets/js/inner4d76.js?=v2.2') }}"></script>
+    <script src="{{ asset('frontend/themes/cms/assets/js/inner-bundle.min4d76.js?=v2.2') }}"></script>
+    <script src="{{ asset('frontend//cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js') }}"></script> --}}
+
     <script>
         $(document).ready(function() {
             $('#mytooltip').tooltip();
@@ -689,7 +584,6 @@ the finest in luxury living with Edison Real Estate.">
 
         });
     </script>
-    
 </body>
 
 

@@ -1,5 +1,6 @@
 @extends('layouts.backend')
 @section('content')
+
     <!-- success message  -->
     @if (session('success'))
         <div class="alert alert-success">
@@ -13,6 +14,11 @@
             {{ session('error') }}
         </div>
     @endif
+
+    @section('title')
+        Slider
+    @endsection
+
     <!--begin::Toolbar-->
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
@@ -26,7 +32,7 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Home-page</span>
+                        <a href="/" class="text-muted text-hover-primary">Home</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->

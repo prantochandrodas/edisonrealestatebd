@@ -1,17 +1,17 @@
-@extends('layouts.frontend')
-@section('frontend-content')
+@extends('layouts.aboutus')
+@section('aboutus-content')
     <!--inner banner start-->
     <div class="innerBanner Loader">
         <img class="modify-img "
-            data-image-small="{{ asset('frontend/admin/uploads/page/team/1920x562/1613366429T8MQo_s.jpg') }}"
-            data-image-large="{{ asset('frontend/admin/uploads/page/team/1920x562/1613366429T8MQo_l.jpg') }}"
-            data-image-standard="{{ asset('frontend/admin/uploads/page/team/1920x562/1613366429T8MQo_m.jpg') }}"
+            data-image-small="{{ asset('team-banner/'.$banner->image) }}"
+            data-image-large="{{ asset('team-banner/'.$banner->image) }}"
+            data-image-standard="{{ asset('team-banner/'.$banner->image) }}"
             data-src="" src="{{ asset('frontend/themes/cms/assets/images/static/blur.jpg') }}" alt="">
         <!--1366x400-->
 
         <div class="container">
             <div class="row">
-                <h1 class="anim textOver"><span><span>Team</span></span></h1>
+                <h1 class="anim textOver"><span><span>{{$banner->title}}</span></span></h1>
             </div>
         </div>
     </div>
