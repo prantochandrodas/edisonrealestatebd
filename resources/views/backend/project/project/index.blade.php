@@ -32,7 +32,7 @@
             <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
-                    <span class="text-muted text-hover-primary">Project</span>
+                    <a href="{{route('projects.index')}}" class="text-muted text-hover-primary">Project</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->

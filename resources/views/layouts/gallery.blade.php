@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<!-- Mirrored from edisonrealestatebd.com/about-us by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 30 Jun 2024 13:24:50 GMT -->
+<!-- Mirrored from edisonrealestatebd.com/image-gallery by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 30 Jun 2024 13:26:40 GMT -->
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
@@ -28,12 +28,9 @@
 
     <link rel="shortcut icon" href="themes/cms/assets/images/static/fav.png" />
 
-    <link href="about-us.html" rel="canonical">
+    <link href="image-gallery.html" rel="canonical">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600&amp;display=swap" rel="preload"
         media="all">
-
-
-
     <link href="{{ asset('frontend/themes/cms/assets/css/bootstrap.min.css') }}" rel="stylesheet" as="style">
     <link href="{{ asset('frontend/themes/cms/assets/css/font-awesome.min.css') }}" rel="stylesheet" as="style">
     <link href="{{ asset('frontend/themes/cms/assets/css/lightgallery.css') }}" rel="stylesheet" media="all">
@@ -186,7 +183,6 @@
     </script>
 
 
-    <!------------------fixed sections start --------------->
 
 
 
@@ -194,27 +190,26 @@
 
 
 
-    @yield('aboutus-content')
+    @yield('gallery-content')
 
     @include('frontend.partials._footer')
 
 
-
     <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/66a72ed232dca6db2cb6ec0d/1i3ugtqi6';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
+   <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+    (function() {
+        var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/66a72ed232dca6db2cb6ec0d/1i3ugtqi6';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 
     <div class="form-message-container success_wrapper success_wrapper_form_message hide">
         <div class="form-message-body">
@@ -232,7 +227,6 @@
         </div>
     </div>
 
-
     <script src="{{ asset('frontend/assets/2ff7c954/yii.js') }}"></script>
     <script src="{{ asset('frontend/assets/2ff7c954/yii.activeForm.js') }}"></script>
     <script src="{{ asset('frontend/admin/resources/js/jquery.ui.widget.js') }}"></script>
@@ -242,9 +236,8 @@
     <script src="{{ asset('frontend/admin/resources/js/jquery.fileupload-validate.js') }}"></script>
     <script src="{{ asset('frontend/themes/cms/assets/js/inner-bundle.min4d76.js?=v2.2') }}"></script>
     <script src="{{ asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js') }}"></script>
-    <script src="{{ asset('frontend//cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js') }}"></script>
-    <script src="{{ asset('frontend/themes/cms/assets/js/inner4d76.js?=v2.2') }}"></script>
-
+    <script src="{{ asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js') }}"></script>
+    <script src="{{asset('frontend/themes/cms/assets/js/inner4d76.js?=v2.2')}}"></script>
     <script>
         jQuery(function($) {
             jQuery('#suggestion-form').yiiActiveForm([], []);
@@ -312,6 +305,6 @@
 </body>
 
 
-<!-- Mirrored from edisonrealestatebd.com/about-us by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 30 Jun 2024 13:25:07 GMT -->
+<!-- Mirrored from edisonrealestatebd.com/image-gallery by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 30 Jun 2024 13:26:47 GMT -->
 
 </html>

@@ -51,10 +51,10 @@
                     <div class="Project-detail-banner__right__overview">
 
                         <ul class="Bredcum">
-                            <li><a href="../project">Projects</a></li>
+                            <li><a href="{{route('projects.index')}}">Projects</a></li>
                             <li>
                                 <a
-                                    href="../projectsbd51.html?category=1&amp;type=%23&amp;location=%23">{{ $data->category->name }}</a>
+                                href={{route('projects.index',['category' => $data->category->slug])}}>{{ $data->category->name }}</a>
                             </li>
                         </ul>
 
@@ -71,6 +71,50 @@
                         </p>
 
 
+                        <div class="Overview">
+                            <h4 class="anim textOver"><span><span>Overview</span></span></h4>
+                            <p class="anim justFade">{{$data->overview}}<br />
+                                <br />
+                                For Apartment Tour-&nbsp;<a href="{{$data->apartment_tour}}" target="_blank">click
+                                    here</a><br />
+                                <br />
+                                For Virtual experience -&nbsp;&nbsp;<a
+                                    href="{{$data->virtual_experience}}" target="_blank">click
+                                    here</a>
+                            </p>
+                        </div>
+
+
+                        {{-- <div class="Progress">
+                            <div class="Title anim textOver"><span><span>Project Progress</span></span></div>
+
+
+                            <div class="Progress__bar">
+                                <div class="Progress__bar__start">
+                                    <p>Project Start</p>
+                                    <span></span>
+                                    <p>0%</p>
+                                </div>
+                                <div class="Progress__bar__line">
+                                    <span data-progress="58.60"></span>
+                                    <span><span>58.60%</span></span>
+                                </div>
+                                <div class="Progress__bar__end">
+                                    <p>Successfully
+                                        Completed</p>
+                                    <span></span>
+                                    <p>100%</p>
+                                </div>
+
+
+                                <!--  popup-->
+                                <div class="Progress__bar__popup">
+                                    <p>Ceiling plaster work has been completed , 9th Floor brick work is going on</p>
+                                </div>
+
+
+                            </div>
+                        </div> --}}
 
 
 
@@ -346,7 +390,7 @@
                         @foreach ($relatedProjects as $item)
                             <div class="Project__slider-wrap__single ">
                                 <div class="Project__slider-wrap__single__inner">
-                                    <a href="apricus.html"></a>
+                                    {{-- <a href="{{ route('projects.details', ['name' => $item->slug]) }}"></a> --}}
                                     <div class="Project__slider-wrap__single__bg modify-bg bg-position"
                                         data-image-small="{{asset('project/'.$item->images[0]->image)}}"
                                         data-image-large="{{asset('project/'.$item->images[0]->image)}}"
@@ -359,28 +403,31 @@
                                     <div class="Project__slider-wrap__single__inner__content">
                                         <div class="Project__slider-wrap__single__inner__content__slide">
                                             <div class="Project__slider-wrap__single__inner__content__slide__inner">
-                                                <h3>Edison Apricus</h3>
-                                                <h4>Bashundhara R/A</h4>
+                                                <h3>{{$item->name}}</h3>
+                                                <h4>{{$item->location->name}}</h4>
                                                 <p>
-                                                <p>Relish unmatched lifestyle experiences with<a href="amour_edison.html"
-                                                        target="_blank"> </a><a href="amour_edison.html"
-                                                        target="_blank">Edison</a> Apricus as you devour unprecedented
-                                                    quality of facilities. It infuses all elements of opulence that enhances
-                                                    your sense of inner peace.<br />
-                                                    <br />
-                                                    For Apartment Tour-<a href="http://<iframe src="
-                                                        https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2Fedisonrealestateltd%2Fvideos%2F944219292869764%2F&amp;show_text=false&amp;width=380&amp;t=0%22%20width=%22380%22%20height=%22476%22%20style=%22border:none;overflow:hidden%22%20scrolling=%22no%22%20frameborder=%220%22%20allowfullscreen=%22true%22%20allow=%22autoplay;%20clipboard-write;%20encrypted-media;%20picture-in-picture;%20web-share%22%20allowFullScreen=%22true%22></iframe>"
-                                                        target="_blank"> </a><a href="https://youtu.be/kw0syW4_0m0"
-                                                        target="_blank">Click here</a><br />
-                                                    <br />
-                                                    &nbsp;
+                                                <p>{{ $item->overview }}
+                                                    <br /><br />
+                                                       @if ($item->apartment_tour)
+                                                           For Apartment Tour-&nbsp;
+                                                           <a href="{{ $item->apartment_tour }}" target="_blank">click
+                                                               here</a>
+                                                       @endif
+                                                       <br />
+                                                       <br />
+
+                                                       @if ($item->virtual_experience)
+                                                           For Virtual experience -&nbsp;&nbsp;
+                                                           <a href="{{ $item->virtual_experience }}"
+                                                               target="_blank">click here</a>
+                                                       @endif
                                                 </p>
                                                 </p>
                                             </div>
 
                                         </div>
 
-                                        <a href="apricus.html" class="dcBtn"><span>Explore</span></a>
+                                        <a href="{{ route('projects.details', ['name' => $item->slug]) }}" class="dcBtn"><span>Explore</span></a>
                                     </div>
                                 </div>
                             </div>

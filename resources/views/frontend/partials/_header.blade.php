@@ -7,7 +7,7 @@
             <div class="col-md-12 Header__left ">
                 <div class="col-md-2">
                     <div class="logo">
-                        <a href="/">
+                        <a href="{{route('home')}}">
                             <img src="{{ asset('frontend/themes/cms/assets/images/static/logo-white.png') }}"
                                 alt="" height="45 px" width="132 px">
                         </a>
@@ -16,16 +16,16 @@
                 <div class="col-md-8">
                     <div class="menu-list">
                         <ul>
-                            <li class="menu_items"><a href="/">Home</a>
+                            <li class="menu_items"><a href="{{route('home')}}">Home</a>
                             </li>
-                            <li class="menu_items"><a href="/about-us">About Us</a>
+                            <li class="menu_items"><a href="{{route('about.index')}}">About Us</a>
                                 <ul>
-                                    <li><a href="/about-us/team">Our Team</a></li>
+                                    <li><a href="{{route('about.team.index')}}">Our Team</a></li>
 
-                                    <li><a href="{{url('/about-us/privacy-policy')}}">Privacy Policy</a></li>
+                                    <li><a href="{{route('about.privacy-policy.index')}}">Privacy Policy</a></li>
                                 </ul>
                             </li>
-                            <li class="menu_items"><a href="/projects">Projects</a>
+                            <li class="menu_items"><a href="{{route('projects.index')}}">Projects</a>
                                 <ul>
 
                                     <li><a href="{{ route('projects.index', ['category' => 'ongoing']) }}">Ongoing</a>
@@ -45,27 +45,27 @@
 
                                 </ul>
                             </li>
-                            <li class="menu_items"><a href="/blogs">Blog</a>
+                            <li class="menu_items"><a href="{{route('blog.index')}}">Blog</a>
                             </li>
                             <li class="menu_items"><a href="javascript:void(0)">Gallery</a>
                                 <ul>
 
-                                    <li><a href="/newsletter">Newsletter</a></li>
+                                    <li><a href="{{route('newsletter.index')}}">Newsletter</a></li>
 
 
 
-                                    <li><a href="/image-gallery">Image Gallery</a></li>
+                                    <li><a href="{{route('image-gallery.index')}}">Image Gallery</a></li>
 
 
 
-                                    <li><a href="/video-gallery">Video Gallery</a></li>
+                                    <li><a href="{{route('video-gallery.index')}}">Video Gallery</a></li>
 
 
                                 </ul>
                             </li>
-                            <li class="menu_items"><a href="/career">Career</a>
+                            <li class="menu_items"><a href="{{route('careers.index')}}">Career</a>
                             </li>
-                            <li class="menu_items"><a href="/contact">Contact</a>
+                            <li class="menu_items"><a href="{{route('contacts.index')}}">Contact</a>
                                 <ul>
                                     <li><a href="javascript:void(0)" data-toggle="modal"
                                             data-target="#suggetions">Suggestion</a></li>
@@ -154,25 +154,25 @@
             </div>
             <!-- single-->
             <div class="MenuItems__top__single">
-                <a href="/">Home</a>
+                <a href="{{route('home')}}">Home</a>
 
             </div>
             <!-- single-->
             <div class="MenuItems__top__single">
-                <a href="/about-us">About</a>
+                <a href="{{route('about.index')}}">About</a>
 
                 <ul>
 
-                    <li><a href="about-us/team">Our Team</a></li>
+                    <li><a href="{{route('about.team.index')}}">Our Team</a></li>
 
 
-                    <li><a href="about-us/privacy-policy">Privacy Policy</a></li>
+                    <li><a href="{{route('about.privacy-policy.index')}}">Privacy Policy</a></li>
 
                 </ul>
             </div>
             <!-- single-->
             <div class="MenuItems__top__single">
-                <a href="/projects">Projects</a>
+                <a href="{{route('projects.index')}}">Projects</a>
 
                 <ul>
 
@@ -188,7 +188,7 @@
             </div>
             <!-- single-->
             <div class="MenuItems__top__single">
-                <a href="/blogs">Blog</a>
+                <a href="{{route('blog.index')}}">Blog</a>
 
             </div>
             <!-- single-->
@@ -197,24 +197,24 @@
 
                 <ul>
 
-                    <li><a href="/newsletter">Newsletter</a></li>
+                    <li><a href="{{route('newsletter.index')}}">Newsletter</a></li>
 
 
-                    <li><a href="/image-gallery">Image Gallery</a></li>
+                    <li><a href="{{route('image-gallery.index')}}">Image Gallery</a></li>
 
 
-                    <li><a href="/video-gallery">Video Gallery</a></li>
+                    <li><a href="{{route('video-gallery.index')}}">Video Gallery</a></li>
 
                 </ul>
             </div>
             <!-- single-->
             <div class="MenuItems__top__single">
-                <a href="/career">Career</a>
+                <a href="{{route('careers.index')}}">Career</a>
 
             </div>
             <!-- single-->
             <div class="MenuItems__top__single">
-                <a href="/contact">Contact</a>
+                <a href="{{route('contacts.index')}}">Contact</a>
 
                 <ul>
 
@@ -226,7 +226,7 @@
             </div>
             <!-- single-->
             <div class="MenuItems__top__single">
-                <a href="/landowner">Landowner</a>
+                <a href="{{ route('landowners.index') }}">Landowner</a>
 
             </div>
 

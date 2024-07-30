@@ -31,7 +31,7 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">NewsLetter</span>
+                        <a href="{{route('newsletter.index')}}" class="text-muted text-hover-primary">NewsLetter</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -40,7 +40,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Dashboards</li>
+                    <li class="breadcrumb-item text-muted">Newsletter-post</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->

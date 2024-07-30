@@ -30,7 +30,7 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Gallery</span>
+                        <a href="{{route('image-gallery.index')}}" class="text-muted text-hover-primary">Imagegallery</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->

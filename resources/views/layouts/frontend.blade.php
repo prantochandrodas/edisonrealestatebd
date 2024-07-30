@@ -25,7 +25,6 @@
     <!--============= new seo mata tags =============-->
 
     <title>Putul Properties Limited</title>
-
     <link rel="shortcut icon" href="themes/cms/assets/images/static/fav.png" />
 
     <meta name="title" content="Putul Properties Limited">
@@ -43,17 +42,17 @@ the finest in luxury living with Edison Real Estate.">
     <link href="site/index.html" rel="canonical">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600&amp;display=swap" rel="preload"
         media="all">
-
     <link href="{{ asset('frontend/themes/cms/assets/css/bootstrap.min.css') }}" rel="stylesheet" as="style">
     <link href="{{ asset('frontend/themes/cms/assets/css/font-awesome.min.css') }}" rel="stylesheet" as="style">
     <link href="{{ asset('frontend/themes/cms/assets/css/slick.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/lightgallery.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/rev-slider.min.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/nice-select.css') }}" rel="stylesheet" media="all">
-    <link href="{{ asset('frontend/themes/cms/assets/css/jquery.custom-scrollbar.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('frontend/themes/cms/assets/css/jquery.custom-scrollbar.css') }}" rel="stylesheet"
+        media="all">
     <link href="{{ asset('frontend/themes/cms/assets/css/home5714.css?=v2.11') }}" rel="stylesheet" media="all">
-    <link href="{{asset('frontend/themes/cms/assets/css/inner09fd.css?=v2.3434')}}" rel="stylesheet" media="all">
     <script src="{{ asset('frontend/themes/cms/assets/js/jquery.min.js') }}"></script>
+    {{-- <link href="{{ asset('frontend/themes/cms/assets/css/inner09fd.css?=v2.3434') }}" rel="stylesheet" media="all"> --}}
     <script>
         var site_url_info = {
             baseUrl: 'https://putulproperties.com/',
@@ -208,42 +207,15 @@ the finest in luxury living with Edison Real Estate.">
     </script>
 
 
+<!------------------fixed sections start --------------->
+
+
+
+<!--========fixed sections start========-->
+
+
 
     <!------------------fixed sections start --------------->
-
-    <a href="https://wa.me/01310817493" target="_blank" class="whatsapp">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512"
-            style="enable-background:new 0 0 512 512;" xml:space="preserve">
-            <path style="fill:#EDEDED;" d="M0,512l35.31-128C12.359,344.276,0,300.138,0,254.234C0,114.759,114.759,0,255.117,0
- S512,114.759,512,254.234S395.476,512,255.117,512c-44.138,0-86.51-14.124-124.469-35.31L0,512z" />
-            <path style="fill:#55CD6C;" d="M137.71,430.786l7.945,4.414c32.662,20.303,70.621,32.662,110.345,32.662
- c115.641,0,211.862-96.221,211.862-213.628S371.641,44.138,255.117,44.138S44.138,137.71,44.138,254.234
- c0,40.607,11.476,80.331,32.662,113.876l5.297,7.945l-20.303,74.152L137.71,430.786z" />
-            <path style="fill:#FEFEFE;" d="M187.145,135.945l-16.772-0.883c-5.297,0-10.593,1.766-14.124,5.297
- c-7.945,7.062-21.186,20.303-24.717,37.959c-6.179,26.483,3.531,58.262,26.483,90.041s67.09,82.979,144.772,105.048
- c24.717,7.062,44.138,2.648,60.028-7.062c12.359-7.945,20.303-20.303,22.952-33.545l2.648-12.359
- c0.883-3.531-0.883-7.945-4.414-9.71l-55.614-25.6c-3.531-1.766-7.945-0.883-10.593,2.648l-22.069,28.248
- c-1.766,1.766-4.414,2.648-7.062,1.766c-15.007-5.297-65.324-26.483-92.69-79.448c-0.883-2.648-0.883-5.297,0.883-7.062
- l21.186-23.834c1.766-2.648,2.648-6.179,1.766-8.828l-25.6-57.379C193.324,138.593,190.676,135.945,187.145,135.945" />
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-        </svg>
-
-    </a>
 
     @include('frontend.partials._header')
 
@@ -256,21 +228,21 @@ the finest in luxury living with Edison Real Estate.">
 
 
 
-    <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/6090c3d9185beb22b309b927/1f4qnq2sq';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
+   <!--Start of Tawk.to Script-->
+   <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+    (function() {
+        var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/66a72ed232dca6db2cb6ec0d/1i3ugtqi6';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 
 
     <div class="form-message-container success_wrapper success_wrapper_form_message hide">
@@ -288,6 +260,8 @@ the finest in luxury living with Edison Real Estate.">
             </span>
         </div>
     </div>
+    
+
 
     <script src="{{ asset('frontend/assets/2ff7c954/yii.js') }}"></script>
     <script src="{{ asset('frontend/assets/2ff7c954/yii.activeForm.js') }}"></script>
@@ -302,9 +276,7 @@ the finest in luxury living with Edison Real Estate.">
         async defer></script>
     <script src="{{ asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js') }}"></script>
     <script src="{{ asset('frontend/themes/cms/assets/js/home86c2.js?=v2.88') }}"></script>
-    {{-- <script src="{{ asset('frontend/themes/cms/assets/js/inner4d76.js?=v2.2') }}"></script>
-    <script src="{{ asset('frontend/themes/cms/assets/js/inner-bundle.min4d76.js?=v2.2') }}"></script>
-    <script src="{{ asset('frontend//cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js') }}"></script> --}}
+
 
     <script>
         $(document).ready(function() {

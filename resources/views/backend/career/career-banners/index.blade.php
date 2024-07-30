@@ -36,14 +36,14 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Update
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
                     Career-Banner</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Career</span>
+                        <a href="{{route('careers.index')}}" class="text-muted text-hover-primary">Career</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -65,7 +65,7 @@
 
     <div class="app-container container-fluid">
         <div style="background-color: #f0f0f0; padding: 20px;">
-            <h2 style="text-align: center;">Update Career-Banner</h2>
+            <h2 style="text-align: center;">Career-Banner</h2>
         </div>
 
         <div style="background-color: #fff; padding: 20px; border: 1px solid #ccc;">

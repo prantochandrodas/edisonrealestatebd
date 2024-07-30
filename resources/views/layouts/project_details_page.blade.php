@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#003A71">
     <!--============= new seo mata tags =============-->
 
-    <title>Noor Residence | Putul Properties Limited</title>
+    <title>Putul Properties Limited</title>
 
     <link rel="shortcut icon" href="../themes/cms/assets/images/static/fav.png" />
 
@@ -216,20 +216,20 @@
 
 
     <!--Start of Tawk.to Script-->
-    <script type="text/javascript">
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function() {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/6090c3d9185beb22b309b927/1f4qnq2sq';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
-    </script>
-    <!--End of Tawk.to Script-->
+   <script type="text/javascript">
+    var Tawk_API = Tawk_API || {},
+        Tawk_LoadStart = new Date();
+    (function() {
+        var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+        s1.async = true;
+        s1.src = 'https://embed.tawk.to/66a72ed232dca6db2cb6ec0d/1i3ugtqi6';
+        s1.charset = 'UTF-8';
+        s1.setAttribute('crossorigin', '*');
+        s0.parentNode.insertBefore(s1, s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
 
     <div class="form-message-container success_wrapper success_wrapper_form_message hide">
         <div class="form-message-body">

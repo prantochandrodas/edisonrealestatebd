@@ -49,7 +49,7 @@ class AuthController extends Controller
             // Store token in session
             session(['jwt_token' => $token]);
 
-            return redirect()->intended('/slider');
+            return redirect()->route('slider.index');
         } catch (Exception $e) {
             return redirect()->back()->with('error', 'Could not log in. Please try again.');
         }

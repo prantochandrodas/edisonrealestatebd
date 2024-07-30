@@ -63,10 +63,10 @@ use Illuminate\Support\Facades\Route;
 
 
 //font end route 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [AboutUsController::class, 'index'])->name('about.index');
-Route::get('/about-us/team', [AboutUsTeamController::class, 'index'])->name('about-team.index');
-Route::get('/about-us/privacy-policy', [AboutUsPrivacyPolicyController::class, 'index'])->name('about-privacy-policy.index');
+Route::get('/about-us/team', [AboutUsTeamController::class, 'index'])->name('about.team.index');
+Route::get('/about-us/privacy-policy', [AboutUsPrivacyPolicyController::class, 'index'])->name('about.privacy-policy.index');
 Route::get('/projects/{category?}', [ProjectsController::class, 'index'])->name('projects.index');
 Route::get('/project/{name}', [ProjectsController::class, 'projectDetails'])->name('projects.details');
 Route::get('/blogs', [BlogController::class, 'index'])->name('blog.index');
@@ -95,7 +95,7 @@ Route::middleware('auth.jwt')->group(function () {
     Route::delete('/create-user/distroy/{id}', [UserController::class, 'distroy'])->name('create-users.distroy');
 
 
-    Route::get('/backend', [SliderController::class, 'index'])->name('dashboard');
+    // Route::get('/backend', [SliderController::class, 'index'])->name('dashboard');
     Route::get('/slider', [SliderController::class, 'index'])->name('slider.index');
     Route::get('/slider/get-sliders', [SliderController::class, 'getSliders'])->name('slider.get-sliders');
     Route::get('/slider/create', [SliderController::class, 'create'])->name('slider.create');
@@ -103,34 +103,6 @@ Route::middleware('auth.jwt')->group(function () {
     Route::get('/slider/edit/{id}', [SliderController::class, 'edit'])->name('slider.edit');
     Route::put('/slider/update/{id}', [SliderController::class, 'update'])->name('slider.update');
     Route::delete('/slider/distory/{id}', [SliderController::class, 'distory'])->name('slider.distory');
-
-    // featured-projects route start 
-
-    // Route::get('/featured-projects', [FeaturedProjectController::class, 'index'])->name('featured-project.index');
-    // Route::get('/featured-projects/getdata', [FeaturedProjectController::class, 'getdata'])->name('featured-project.getdata');
-    // Route::get('/featured-projects/create', [FeaturedProjectController::class, 'create'])->name('featured-project.create');
-    // Route::post('/featured-projects/store', [FeaturedProjectController::class, 'store'])->name('featured-project.store');
-    // Route::get('/featured-projects/edit/{id}', [FeaturedProjectController::class, 'edit'])->name('featured-project.edit');
-    // Route::put('/featured-projects/update/{id}', [FeaturedProjectController::class, 'update'])->name('featured-project.update');
-    // Route::delete('/featured-projects/distory/{id}', [FeaturedProjectController::class, 'distory'])->name('featured-project.distory');
-    // Route::get('/featured-projects/view/{id}', [FeaturedProjectController::class, 'view'])->name('featured-project.view');
-
-    // featured-projects route end 
-
-    // featured-projects-post start 
-
-    // Route::get('/featured-projects-post', [FeaturedProjectPostController::class, 'index'])->name('featured-project-posts.index');
-    // Route::get('/featured-projects-post/getdata', [FeaturedProjectPostController::class, 'getdata'])->name('featured-project-posts.getdata');
-    // Route::get('/featured-projects-post/create', [FeaturedProjectPostController::class, 'create'])->name('featured-project-posts.create');
-    // Route::post('/featured-projects-post/store', [FeaturedProjectPostController::class, 'store'])->name('featured-project-posts.store');
-    // Route::get('/featured-projects-post/edit/{id}', [FeaturedProjectPostController::class, 'edit'])->name('featured-project-posts.edit');
-    // Route::put('/featured-projects-post/update/{id}', [FeaturedProjectPostController::class, 'update'])->name('featured-project-posts.update');
-    // Route::delete('/featured-projects-post/distory/{id}', [FeaturedProjectPostController::class, 'distroy'])->name('featured-project-posts.distory');
-    // Route::get('/featured-projects-post/view/{id}', [FeaturedProjectPostController::class, 'view'])->name('featured-project-posts.view');
-
-    // featured-projects-post route end
-
-
 
     // testimonial-post route start  
 

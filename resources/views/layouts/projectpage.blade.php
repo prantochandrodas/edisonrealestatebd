@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#003A71">
     <!--============= new seo mata tags =============-->
 
-    <title>Projects | Edison Real Estate</title>
+    <title>Putul Properties Limited</title>
 
     <link rel="shortcut icon" href="themes/cms/assets/images/static/fav.png" />
 
@@ -37,13 +37,13 @@
     <link href="projectse1ce.html?category=" rel="canonical">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600&amp;display=swap" rel="preload"
         media="all">
-    <link href="{{asset('frontend/themes/cms/assets/css/bootstrap.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('frontend/themes/cms/assets/css/font-awesome.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('frontend/themes/cms/assets/css/lightgallery.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('frontend/themes/cms/assets/css/nice-select.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('frontend/themes/cms/assets/css/slick.min.css')}}" rel="stylesheet" media="all">
-    <link href="{{asset('frontend/themes/cms/assets/css/inner09fd.css?=v2.3434')}}" rel="stylesheet" media="all">
-    <script src="{{asset('frontend/themes/cms/assets/js/jquery.min.js')}}"></script>
+    <link href="{{ asset('frontend/themes/cms/assets/css/bootstrap.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('frontend/themes/cms/assets/css/font-awesome.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('frontend/themes/cms/assets/css/lightgallery.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('frontend/themes/cms/assets/css/nice-select.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('frontend/themes/cms/assets/css/slick.min.css') }}" rel="stylesheet" media="all">
+    <link href="{{ asset('frontend/themes/cms/assets/css/inner09fd.css?=v2.3434') }}" rel="stylesheet" media="all">
+    <script src="{{ asset('frontend/themes/cms/assets/js/jquery.min.js') }}"></script>
     <script>
         var site_url_info = {
             baseUrl: 'https://edisonrealestatebd.com',
@@ -55,29 +55,36 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5ZE61RDBDE"></script>
 
     <script>
-
         window.dataLayer = window.dataLayer || [];
 
-        function gtag() { dataLayer.push(arguments); }
+        function gtag() {
+            dataLayer.push(arguments);
+        }
 
         gtag('js', new Date());
 
 
 
         gtag('config', 'G-5ZE61RDBDE');
-
     </script>
 
     <!-- Meta Pixel Code -->
     <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             '../connect.facebook.net/en_US/fbevents.js');
@@ -124,18 +131,27 @@
 
     <!-- Google Tag Manager -->
 
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
+    <script>
+        (function(w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({
                 'gtm.start':
 
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
+                    new Date().getTime(),
+                event: 'gtm.js'
+            });
+            var f = d.getElementsByTagName(s)[0],
 
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                j = d.createElement(s),
+                dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src =
 
-                    '../www.googletagmanager.com/gtm5445.html?id=' + i + dl; f.parentNode.insertBefore(j, f);
+                '../www.googletagmanager.com/gtm5445.html?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
 
-        })(window, document, 'script', 'dataLayer', 'GTM-MT7CWC9');</script>
+        })(window, document, 'script', 'dataLayer', 'GTM-MT7CWC9');
+    </script>
 
     <!-- End Google Tag Manager -->
 
@@ -153,69 +169,36 @@
     <!-- Load Facebook SDK for JavaScript -->
     <div id="fb-root"></div>
     <script>
-        window.fbAsyncInit = function () {
+        window.fbAsyncInit = function() {
             FB.init({
                 xfbml: true,
                 version: 'v12.0'
             });
         };
 
-        (function (d, s, id) {
+        (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
+            js = d.createElement(s);
+            js.id = id;
             js.src = '../connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
             fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
 
 
     <!------------------fixed sections start --------------->
-
-    <a href="https://wa.me/+8801708080822" target="_blank" class="whatsapp">
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
-            <path style="fill:#EDEDED;" d="M0,512l35.31-128C12.359,344.276,0,300.138,0,254.234C0,114.759,114.759,0,255.117,0
-	S512,114.759,512,254.234S395.476,512,255.117,512c-44.138,0-86.51-14.124-124.469-35.31L0,512z" />
-            <path style="fill:#55CD6C;" d="M137.71,430.786l7.945,4.414c32.662,20.303,70.621,32.662,110.345,32.662
-	c115.641,0,211.862-96.221,211.862-213.628S371.641,44.138,255.117,44.138S44.138,137.71,44.138,254.234
-	c0,40.607,11.476,80.331,32.662,113.876l5.297,7.945l-20.303,74.152L137.71,430.786z" />
-            <path style="fill:#FEFEFE;" d="M187.145,135.945l-16.772-0.883c-5.297,0-10.593,1.766-14.124,5.297
-	c-7.945,7.062-21.186,20.303-24.717,37.959c-6.179,26.483,3.531,58.262,26.483,90.041s67.09,82.979,144.772,105.048
-	c24.717,7.062,44.138,2.648,60.028-7.062c12.359-7.945,20.303-20.303,22.952-33.545l2.648-12.359
-	c0.883-3.531-0.883-7.945-4.414-9.71l-55.614-25.6c-3.531-1.766-7.945-0.883-10.593,2.648l-22.069,28.248
-	c-1.766,1.766-4.414,2.648-7.062,1.766c-15.007-5.297-65.324-26.483-92.69-79.448c-0.883-2.648-0.883-5.297,0.883-7.062
-	l21.186-23.834c1.766-2.648,2.648-6.179,1.766-8.828l-25.6-57.379C193.324,138.593,190.676,135.945,187.145,135.945" />
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-            <g></g>
-        </svg>
-
-    </a>
-
-   
 
 
     <!--========fixed sections end========-->
 
     @include('frontend.partials._header')
-  
-  
+
+
 
     <!------------------fixed sections end --------------->
     @yield('project-content')
-   
+
     <!------------footer start ------------>
 
     @include('frontend.partials._footer')
@@ -224,11 +207,13 @@
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
-        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-        (function () {
-            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function() {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
-            s1.src = 'https://embed.tawk.to/6090c3d9185beb22b309b927/1f4qnq2sq';
+            s1.src = 'https://embed.tawk.to/66a72ed232dca6db2cb6ec0d/1i3ugtqi6';
             s1.charset = 'UTF-8';
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);
@@ -253,18 +238,19 @@
     </div>
 
 
-    <script src="{{asset('frontend/assets/2ff7c954/yii.js')}}"></script>
-    <script src="{{asset('assets/2ff7c954/yii.activeForm.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.ui.widget.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.iframe-transport.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.fileupload.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.fileupload-process.js')}}"></script>
-    <script src="{{asset('frontend/admin/resources/js/jquery.fileupload-validate.js')}}"></script>
-    <script src="{{asset('frontend/themes/cms/assets/js/inner-bundle.min4d76.js?=v2.2')}}"></script>
-    <script src="{{asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js')}}"></script>
-    <script src="{{asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js')}}"></script>
-    <script src="{{asset('frontend/themes/cms/assets/js/inner4d76.js?=v2.2')}}"></script>
-    <script>jQuery(function ($) {
+    <script src="{{ asset('frontend/assets/2ff7c954/yii.js') }}"></script>
+    <script src="{{ asset('assets/2ff7c954/yii.activeForm.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.ui.widget.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.iframe-transport.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.fileupload.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.fileupload-process.js') }}"></script>
+    <script src="{{ asset('frontend/admin/resources/js/jquery.fileupload-validate.js') }}"></script>
+    <script src="{{ asset('frontend/themes/cms/assets/js/inner-bundle.min4d76.js?=v2.2') }}"></script>
+    <script src="{{ asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js') }}"></script>
+    <script src="{{ asset('frontend/cdnjs.cloudflare.com/ajax/libs/gsap/3.3.0/ScrollTrigger.min.js') }}"></script>
+    <script src="{{ asset('frontend/themes/cms/assets/js/inner4d76.js?=v2.2') }}"></script>
+    <script>
+        jQuery(function($) {
 
 
             function dataLoad() {
@@ -287,8 +273,7 @@
 
                 if (val1 != null) {
                     $('.loadBtn').attr('data-href', val1);
-                }
-                else {
+                } else {
                     $('.loadBtn').css('display', 'none');
                     $('.loadBtn').attr('data-href', '#');
                 }
@@ -298,26 +283,28 @@
             dataLoad();
 
 
-            $(document).delegate('.type .list li, .location .list li', 'click', function () {
+            $(document).delegate('.type .list li, .location .list li', 'click', function() {
                 typeval = $('.category').val();
 
-                typeurl = typeval ? site_url_info.baseUrl + '/projects/' + typeval : site_url_info.baseUrl + '/projects';
+                typeurl = typeval ? site_url_info.baseUrl + '/projects/' + typeval : site_url_info.baseUrl +
+                    '/projects';
                 actionUrl = $('#search').attr('action', typeurl);
 
                 $('.search').click();
                 dataLoad();
             });
 
-            $(document).delegate('.category .list li', 'click', function () {
+            $(document).delegate('.category .list li', 'click', function() {
                 typeval = $('.category').val();
 
-                typeurl = typeval ? site_url_info.baseUrl + '/projects/' + typeval : site_url_info.baseUrl + '/projects';
+                typeurl = typeval ? site_url_info.baseUrl + '/projects/' + typeval : site_url_info.baseUrl +
+                    '/projects';
 
                 actionUrl = $('#search').attr('action', typeurl);
 
                 $('.search').click();
                 dataLoad();
-                setTimeout(function () {
+                setTimeout(function() {
                     $('.anim').addClass('anim-active')
                 }, 300);
             });
@@ -327,7 +314,7 @@
             //    var p_height = $('.p-height').outerHeight()
 
 
-            $(document).delegate('.loadBtn', 'click', function () {
+            $(document).delegate('.loadBtn', 'click', function() {
 
                 var _this = jQuery(this),
                     url = _this.attr('data-href');
@@ -336,7 +323,7 @@
                 $.ajax({
                     url: url,
                     type: 'get',
-                    success: function (response) {
+                    success: function(response) {
                         $('div.loaddata').replaceWith(response.data);
                         $('.pagination-div').html(response.page);
 
@@ -352,7 +339,7 @@
 
 
                     },
-                    error: function () {
+                    error: function() {
                         console.log('error');
                     }
                 });
@@ -361,7 +348,7 @@
 
             jQuery('#suggestion-form').yiiActiveForm([], []);
 
-            $(document).delegate('.dynamic_submit_btn', 'click', function (event, jqXHR, settings) {
+            $(document).delegate('.dynamic_submit_btn', 'click', function(event, jqXHR, settings) {
                 var form = $(this).closest('form');
                 var form_id = form.attr('id');
 
@@ -378,11 +365,11 @@
                     url: form.attr('action'),
                     type: 'post',
                     data: form.serialize(),
-                    beforeSend: function (request) {
+                    beforeSend: function(request) {
                         $('.success_wrapper_form_message').addClass('hide');
                         $('.error_wrapper_form_message').addClass('hide');
                     },
-                    success: function (data) {
+                    success: function(data) {
                         if (data.result == 'success') {
                             form[0].reset();
                             $('.success_wrapper_form_message').removeClass('hide');
@@ -391,7 +378,7 @@
                             $('.dynamic_submit_btn').removeAttr('disabled');
                             $('.error_container_msg').html('');
 
-                            setTimeout(function () {
+                            setTimeout(function() {
                                 $('.success_wrapper_form_message').addClass('hide');
                                 $('.form-overlay').removeClass('doit');
                                 if ($('#brochure_link_download').length > 0) {
@@ -400,8 +387,7 @@
                                 }
                             }, 4000);
 
-                        }
-                        else {
+                        } else {
                             $('.error_container_msg').html(data.msg);
                             $('.success_container_msg').html('');
                             $('.success_wrapper_form_message').addClass('hide');
@@ -409,7 +395,7 @@
 
                             $('.dynamic_submit_btn').removeAttr('disabled');
 
-                            setTimeout(function () {
+                            setTimeout(function() {
                                 $('.error_wrapper_form_message').addClass('hide');
                                 $('.form-overlay').removeClass('doit');
                             }, 4000);
@@ -420,7 +406,8 @@
                 return false;
             });
 
-        });</script>
+        });
+    </script>
 </body>
 
 

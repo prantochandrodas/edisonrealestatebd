@@ -5,7 +5,7 @@
         <div class="container">
             <div class="row">
 
-                <div class="content">
+                <div class="content" style="padding: 20px">
                     <h1 class="Title pb30">Privacy policy</h1>
 
                     <p>The privacy policy explains how Edison Real Estate&nbsp;collects, uses, maintains, and discloses

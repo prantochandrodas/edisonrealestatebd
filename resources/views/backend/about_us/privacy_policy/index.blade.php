@@ -33,7 +33,7 @@
                 style="padding:0px !important; background-color:inherit">
                 <!--begin::Item-->
                 <li class="breadcrumb-item text-muted">
-                    <a href="/about" class="text-muted text-hover-primary">About</a>
+                    <a href="{{route('about.privacy-policy.index')}}" class="text-muted text-hover-primary">About</a>
                 </li>
                 <!--end::Item-->
                 <!--begin::Item-->

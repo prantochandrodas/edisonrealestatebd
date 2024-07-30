@@ -42,7 +42,7 @@
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="/about-us" class="text-muted text-hover-primary">About</a>
+                        <a href="{{route('about.index')}}" class="text-muted text-hover-primary">About</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->

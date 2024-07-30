@@ -1,5 +1,5 @@
-@extends('layouts.frontend')
-@section('frontend-content')
+@extends('layouts.gallery')
+@section('gallery-content')
     <!--inner banner start-->
     <div class="innerBanner Loader">
         <img class="modify-img " data-image-small="{{asset('video-gallery-banners/'.$banner->image)}}"

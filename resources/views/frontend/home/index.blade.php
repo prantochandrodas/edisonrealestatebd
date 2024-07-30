@@ -161,7 +161,7 @@
                <div class="container">
                    <ul>
                        <li><img src="{{ asset('frontend/themes/cms/assets/images/static/project.svg') }}" alt=""
-                               height="20" width="20"><span><a href="projects.html">Explore Projects
+                               height="20" width="20"><span><a href="{{route('projects.index')}}">Explore Projects
                                </a></span><img src="themes/cms/assets/images/static/caret.svg" alt=""
                                height="9 px" width="8 px">
                        </li>
@@ -279,7 +279,7 @@
                            @foreach ($ongoingProjects as $item)
                                <div class="Project__slider-wrap__single">
                                    <div class="Project__slider-wrap__single__inner">
-                                       <a href="projects/edison-angelo.html"></a>
+                                       {{-- <a href="{{ route('projects.details', ['name' => $item->slug]) }}"></a> --}}
                                        <div class="Project__slider-wrap__single__bg modify-bg bg-position"
                                            data-image-small="{{ asset('project/' . $item->images[0]->image) }}"
                                            data-image-large="{{ asset('project/' . $item->images[0]->image) }}"
@@ -317,7 +317,7 @@
                                                        <br /><br />
                                                        @if ($item->apartment_tour)
                                                            For Apartment Tour-&nbsp;
-                                                           <a href="{{ $item->apartment_tour }}" target="_blank">click
+                                                           <a href="{{$item->apartment_tour}}" target="_blank">click
                                                                here</a>
                                                        @endif
                                                        <br />
@@ -402,7 +402,7 @@
                            @foreach ($upcomingProjects as $item)
                                <div class="Project__slider-wrap__single ">
                                    <div class="Project__slider-wrap__single__inner ">
-                                       <a href="projects/edison-desdemona.html"></a>
+                                       {{-- <a href="{{ route('projects.details', ['name' => $item->slug]) }}"></a> --}}
                                        <div class="Project__slider-wrap__single__bg modify-bg bg-position"
                                            data-image-small="{{ asset('project/' . $item->images[0]->image) }}"
                                            data-image-large="{{ asset('project/' . $item->images[0]->image) }}"
@@ -525,7 +525,7 @@
                            @foreach ($handedOverProjects as $item)
                                <div class="Project__slider-wrap__single ">
                                    <div class="Project__slider-wrap__single__inner ">
-                                       <a href="projects/edison-desdemona.html"></a>
+                                       {{-- <a href="{{ route('projects.details', ['name' => $item->slug]) }}"></a> --}}
                                        <div class="Project__slider-wrap__single__bg modify-bg bg-position"
                                            data-image-small="{{ asset('project/' . $item->images[0]->image) }}"
                                            data-image-large="{{ asset('project/' . $item->images[0]->image) }}"
@@ -540,7 +540,7 @@
                                                <div class="Project__slider-wrap__single__inner__content__slide__inner">
                                                    <h3>
                                                        @if ($item->name)
-                                                           {{ $item->name }}
+                                                           {{$item->name}}
                                                        @endif
                                                    </h3>
                                                    <h4>
@@ -639,7 +639,7 @@
                                    <img class=" modify-img "
                                        data-image-small="{{ asset('home/testimonial/' . $item->thumbnail_image) }}"
                                        data-image-large="{{ asset('home/testimonial/' . $item->thumbnail_image) }}"
-                                       data-image-standard="video"
+                                       data-image-standard="{{ asset('home/testimonial/' . $item->thumbnail_image) }}"
                                        style="background-image: url('{{ asset('home/testimonial/' . $item->thumbnail_image) }}');"><!-- 570x460 -->
                                    <a href="{{ $item->video }}">
                                        <span class="Play">
